@@ -1,6 +1,0 @@
-baseURL = "https://calxu.github.io"
-languageCode = "en-us"
-title = "Calxu's HomePage."
-
-layoutdir = "layouts"
-publishdir = "public"
