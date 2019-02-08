@@ -22,16 +22,5 @@
 git config --global user.name &amp;quot;Calvin,Xu&amp;quot; git config --global user.email &amp;quot;csxucaixu@gmail.com&amp;quot;  自定义Git .gitignore 忽略某些文件时，需要按格式编写.gitignore  Git的常用命令 常用命令 git init 初始化Git仓库 git add 把文件添加到暂存库 git commit -m 把暂存库中文件提交到仓库，-m后面输入本次提交的概述 git status 随时查看仓库当前的状态 git diff 查看文件修改前后的difference git reset 作用1：回退版本；作用2：把暂存区的修改撤消掉（即unstage） git log 显示从最近至最远的commit的版本 git reflog 查看命令历史 git checkout 作用1：丢弃工作区的修改（通常后接--转义）；作用2：切换分支 git rm 从版本库中删除该文件  重要命令参数解释 git diff 查看文件修改前后的difference，该命令可以查看工作区、暂存区、最新提交之间的差别。不加参数默 认查看工作区和暂存区的差别；后通常接HEAD（指向当前分支中最新一次提交的指针），在执行git commit命令之前通常先 执行git diff HEAD命令，比较本次提交与上次提交之前的差别。  git log 显示从最近至最远的commit的版本。后可加上目录名，便会显示该目录下的日志；如果加的是文件名， 会显示与该文件相关的日志。常用参数：--pretty=oneline 精简显示；--graph 以图的方式显示；--abbrev-commit 显示 精简的commit id号。  git checkout -- file 丢弃工作区的修改，回到最近一次git commit或git add的状态，‘--’作用是表示后面接的是 文件路径，以避免歧义，没有‘--’就变成了“切换到另一个分支“的命令。  git reset --hard 回溯版本，后接版本号。后可接HEAD，即表示当前版本；HEAD^表示上一个版本 git reset HEAD 可以把暂存区的修改撤消，重新放回工作区  分支管理 git branch 查看分支，该命令会列出所有分支，当前分支前会标一个*号 git branch -a 查看当前分支的相关信息 git branch &amp;lt;name&amp;gt; 创建新分支 git branch -d 删除分支 git branch -D 强制删除分支  git checkout 切换分支 git checkout -b 创建并切换分支，等价于先git branch；再git checkout  git merge 合并某分支至当前分支 git merge --no-ff 禁用默认的Fast Forward模式，在merge时生成一个新的commit  远程仓库 git remote 查看远程仓库的信息 git remote -v 显示更详细的信息 git remote add origin 关联远程库  git push -u origin master 推送master分支的内容 git clone 克隆仓库 git pull 同步远程最新内容  标签管理 git tag 查看所有标签 git tag &amp;lt;tagname&amp;gt; 用于新建一个标签，默认为HEAD，也可以指定commit id git tag -d 删除一个本地标签 git tag -a &amp;lt;tagname&amp;gt; -m 可以指定标签信息 git show &amp;lt;tagname&amp;gt; 查看详细说明  参考文献  [1] 廖雪峰.</description>
     </item>
     
-    <item>
-      <title>About</title>
-      <link>https://calxu.github.io/about/</link>
-      <pubDate>Mon, 21 Jan 2019 00:16:27 +0800</pubDate>
-      
-      <guid>https://calxu.github.io/about/</guid>
-      <description>我叫Calvin,Xu，性别男，目前就职于度小满金融（原百度金融）。
-本科：2011~2013，南京邮电大学，计算机应用技术； 2013~2015，东南大学成贤学院，计算机科学与技术;
-硕士：2015~2018，苏州大学，计算机技术；201706~201709在百度实习。</description>
-    </item>
-    
   </channel>
 </rss>
