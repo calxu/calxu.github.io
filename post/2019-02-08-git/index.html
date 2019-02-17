@@ -52,7 +52,9 @@
 
 <p>工作半年时间了，做了一些项目，对代码的组织有点凌乱。
 Git这么好的代码管理工具一直都养成不了使用的良好习惯，每次到代码一团乱偶尔也会误删，误删后才想起Git，这次狠下心决定系统学习下Git，以后坚持用Git。
-这里作了一些自己学习的Git常用命令笔记，方便以后自己参考。同时附下国外网友制作的<a href="https://github.com/calxu/calxu.github.io/tree/asset/git-cheatsheet.pdf">Git Cheat Sheet</a>，供学习参考。</p>
+这里作了一些自己学习的Git常用命令笔记，方便以后自己参考。
+同时附下非常适合学习的<a href="https://learngitbranching.js.org">Git学习的可视化教程</a>（<a href="https://github.com/pcottle/learnGitBranching">可视化教程GitHub仓库地址</a>）
+和国外网友制作的<a href="https://github.com/calxu/calxu.github.io/tree/asset/git-cheatsheet.pdf">Git Cheat Sheet</a>，以上资料供学习参考。</p>
 
 <h2 id="配置git">配置Git</h2>
 
@@ -105,46 +107,48 @@ git rm           从版本库中删除该文件
 文件路径，以避免歧义，没有‘--’就变成了“切换到另一个分支“的命令。
 </code></pre>
 
-<pre><code>git reset --hard      回溯版本，后接版本号。后可接HEAD，即表示当前版本；HEAD^表示上一个版本
-git reset HEAD        可以把暂存区的修改撤消，重新放回工作区
+<pre><code>git reset --hard        回溯版本，后接版本号。后可接HEAD，即表示当前版本；HEAD^表示上一个版本
+git reset HEAD          可以把暂存区的修改撤消，重新放回工作区
 </code></pre>
 
 <h2 id="分支管理">分支管理</h2>
 
-<pre><code>git branch         查看分支，该命令会列出所有分支，当前分支前会标一个*号
-git branch -a      查看当前分支的相关信息
-git branch &lt;name&gt;  创建新分支
-git branch -d      删除分支
-git branch -D      强制删除分支
+<pre><code>git branch              查看分支，该命令会列出所有分支，当前分支前会标一个*号
+git branch -a           查看当前分支的相关信息
+git branch &lt;name&gt;       创建新分支
+git branch -d           删除分支
+git branch -D           强制删除分支
+git branch --set-upstream-to=origin/dev dev    指定本地dev分支与远程origin/dev分支的链接
 </code></pre>
 
-<pre><code>git checkout      切换分支
-git checkout -b   创建并切换分支，等价于先git branch；再git checkout
+<pre><code>git checkout            切换分支
+git checkout -b         创建并切换分支，等价于先git branch；再git checkout
+git checkout -b dev origin/dev     创建远程origin的dev分支到本地dev分支
 </code></pre>
 
-<pre><code>git merge         合并某分支至当前分支
-git merge --no-ff 禁用默认的Fast Forward模式，在merge时生成一个新的commit
+<pre><code>git merge                    合并某分支至当前分支
+git merge --no-ff            禁用默认的Fast Forward模式，在merge时生成一个新的commit
 </code></pre>
 
 <h2 id="远程仓库">远程仓库</h2>
 
-<pre><code>git remote                  查看远程仓库的信息
-git remote -v               显示更详细的信息
-git remote add origin       关联远程库
+<pre><code>git remote                   查看远程仓库的信息
+git remote -v                显示更详细的信息
+git remote add origin        关联远程库
 </code></pre>
 
-<pre><code>git push -u origin master   推送master分支的内容
-git clone                   克隆仓库
-git pull                    同步远程最新内容
+<pre><code>git push origin master       推送本地master分支内容至远程，首次推送需加-u参数以便与远程分支建立关联
+git clone                    克隆仓库
+git pull                     同步远程最新内容
 </code></pre>
 
 <h2 id="标签管理">标签管理</h2>
 
-<pre><code>git tag                  查看所有标签
-git tag &lt;tagname&gt;        用于新建一个标签，默认为HEAD，也可以指定commit id
-git tag -d               删除一个本地标签
-git tag -a &lt;tagname&gt; -m  可以指定标签信息
-git show &lt;tagname&gt;       查看详细说明
+<pre><code>git tag                      查看所有标签
+git tag &lt;tagname&gt;            用于新建一个标签，默认为HEAD，也可以指定commit id
+git tag -d                   删除一个本地标签
+git tag -a &lt;tagname&gt; -m      可以指定标签信息
+git show &lt;tagname&gt;           查看详细说明
 </code></pre>
 
 <h2 id="参考文献">参考文献</h2>
