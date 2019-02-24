@@ -103,12 +103,12 @@ git rm           从版本库中删除该文件
 精简的commit id号。
 </code></pre>
 
-<pre><code>git checkout -- file      丢弃工作区的修改，回到最近一次git commit或git add的状态，‘--’作用是表示后面接的是
+<pre><code>git checkout -- &lt;file&gt;    丢弃工作区的修改，回到最近一次git commit或git add的状态，‘--’作用是表示后面接的是
 文件路径，以避免歧义，没有‘--’就变成了“切换到另一个分支“的命令。
 </code></pre>
 
-<pre><code>git reset --hard        回溯版本，后接版本号。后可接HEAD，即表示当前版本；HEAD^表示上一个版本
-git reset HEAD          可以把暂存区的修改撤消，重新放回工作区
+<pre><code>git reset --hard        回溯版本，后接版本号。比如HEAD，即表示当前版本；HEAD^表示上一个版本
+git reset HEAD &lt;file&gt;   可以把暂存区的修改撤消
 </code></pre>
 
 <h2 id="分支管理">分支管理</h2>
