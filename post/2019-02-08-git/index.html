@@ -53,7 +53,7 @@
 <p>工作半年时间了，做了一些项目，对代码的组织有点凌乱。
 Git这么好的代码管理工具一直都养成不了使用的良好习惯，每次到代码一团乱偶尔也会误删，误删后才想起Git，这次狠下心决定系统学习下Git，以后坚持用Git。
 这里作了一些自己学习的Git常用命令笔记，方便以后自己参考。
-同时附下非常适合学习的<a href="https://learngitbranching.js.org">Git学习的可视化教程</a>（<a href="https://github.com/pcottle/learnGitBranching">可视化教程GitHub仓库地址</a>）
+附下适合学习的<a href="https://learngitbranching.js.org/?demo">LearnGitBranching可视化教程</a>
 和国外网友制作的<a href="https://github.com/calxu/calxu.github.io/tree/asset/git-cheatsheet.pdf">Git Cheat Sheet</a>，以上资料供学习参考。</p>
 
 <h2 id="配置git">配置Git</h2>
@@ -88,7 +88,7 @@ git reset        作用1：回退版本；作用2：把暂存区的修改撤消�
 git log          显示从最近至最远的commit的版本
 git reflog       查看命令历史
 git checkout     作用1：丢弃工作区的修改（通常后接--转义）；作用2：切换分支
-git rm           从版本库中删除该文件
+git rm           删除工作区文件，并将此次删除放入暂存区；
 </code></pre>
 
 <h3 id="重要命令参数解释">重要命令参数解释</h3>
@@ -103,12 +103,15 @@ git rm           从版本库中删除该文件
 精简的commit id号。
 </code></pre>
 
+<pre><code>git reset --hard        回溯版本，后接版本号。比如HEAD，即表示当前版本；HEAD^表示上一个版本
+git reset HEAD &lt;file&gt;   可以把暂存区的修改撤消
+</code></pre>
+
 <pre><code>git checkout -- &lt;file&gt;    丢弃工作区的修改，回到最近一次git commit或git add的状态，‘--’作用是表示后面接的是
 文件路径，以避免歧义，没有‘--’就变成了“切换到另一个分支“的命令。
 </code></pre>
 
-<pre><code>git reset --hard        回溯版本，后接版本号。比如HEAD，即表示当前版本；HEAD^表示上一个版本
-git reset HEAD &lt;file&gt;   可以把暂存区的修改撤消
+<pre><code>git rm           先手动删除文件，然后使用git rm &lt;file&gt;和git add &lt;file&gt;效果是一样的。
 </code></pre>
 
 <h2 id="分支管理">分支管理</h2>
@@ -157,6 +160,7 @@ git show &lt;tagname&gt;           查看详细说明
 <li>[1] 廖雪峰. <a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000">廖雪峰的官方网站</a></li>
 <li>[2] 大塚弘记. GitHub入门与实践. 2014</li>
 <li>[3] 知乎. <a href="https://www.zhihu.com/question/41366215">Git中横杠参数</a></li>
+<li>[4] GitHub. <a href="https://learngitbranching.js.org/?demo">LearnGitBranching可视化教程</a></li>
 </ul>
 
   </div>
