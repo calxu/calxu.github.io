@@ -127,6 +127,7 @@ git branch --set-upstream-to=origin/dev dev    指定本地dev分支与远程ori
 <pre><code>git checkout            切换分支
 git checkout -b         创建并切换分支，等价于先git branch；再git checkout
 git checkout -b dev origin/dev     创建远程origin的dev分支到本地dev分支
+git checkout --orphan dev          创建空白分支，完全干净的分支（不依赖任何父节点）
 </code></pre>
 
 <pre><code>git merge                    合并某分支至当前分支
@@ -140,9 +141,10 @@ git remote -v                显示更详细的信息
 git remote add origin        关联远程库
 </code></pre>
 
-<pre><code>git push origin master       推送本地master分支内容至远程，首次推送需加-u参数以便与远程分支建立关联
-git clone                    克隆仓库
-git pull                     同步远程最新内容
+<pre><code>git push origin master              推送本地master分支内容至远程，首次推送需加-u参数以便与远程分支建立关联
+git clone                           克隆仓库
+git pull                            同步远程最新内容
+git push --set-upstream origin dev  若本地首次新建的dev分支，则新建分支需与远程分支进行关联
 </code></pre>
 
 <h2 id="标签管理">标签管理</h2>
