@@ -75,9 +75,7 @@ git config --global user.email &quot;csxucaixu@gmail.com&quot;
 <pre><code>.gitignore    忽略某些文件时，需要按格式编写.gitignore
 </code></pre>
 
-<h2 id="git的常用命令">Git的常用命令</h2>
-
-<h3 id="常用命令">常用命令</h3>
+<h2 id="常用命令">常用命令</h2>
 
 <pre><code>git init         初始化Git仓库
 git add          把文件添加到暂存库
@@ -85,22 +83,14 @@ git commit -m    把暂存库中文件提交到仓库，-m后面输入本次提�
 git status       随时查看仓库当前的状态
 git diff         查看文件修改前后的difference        
 git reset        作用1：回退版本；作用2：把暂存区的修改撤消掉（即unstage）
-git log          显示从最近至最远的commit的版本
 git reflog       查看命令历史
 git checkout     作用1：丢弃工作区的修改（通常后接--转义）；作用2：切换分支
 git rm           删除工作区文件，并将此次删除放入暂存区；
 </code></pre>
 
-<h3 id="重要命令参数解释">重要命令参数解释</h3>
-
 <pre><code>git diff         查看文件修改前后的difference，该命令可以查看工作区、暂存区、最新提交之间的差别。不加参数默
 认查看工作区和暂存区的差别；后通常接HEAD（指向当前分支中最新一次提交的指针），在执行git commit命令之前通常先
 执行git diff HEAD命令，比较本次提交与上次提交之前的差别。
-</code></pre>
-
-<pre><code>git log          显示从最近至最远的commit的版本。后可加上目录名，便会显示该目录下的日志；如果加的是文件名，
-会显示与该文件相关的日志。常用参数：--pretty=oneline 精简显示；--graph 以图的方式显示；--abbrev-commit 显示
-精简的commit id号。
 </code></pre>
 
 <pre><code>git reset --hard        回溯版本，后接版本号。比如HEAD，即表示当前版本；HEAD^表示上一个版本
@@ -112,6 +102,18 @@ git reset HEAD &lt;file&gt;   可以把暂存区的修改撤消
 </code></pre>
 
 <pre><code>git rm           先手动删除文件，然后使用git rm &lt;file&gt;和git add &lt;file&gt;效果是一样的。
+</code></pre>
+
+<h2 id="日志管理">日志管理</h2>
+
+<pre><code>git log          显示从最近至最远的commit的版本
+git commit --amend     修改提交信息
+git rebase -i          压缩历史
+</code></pre>
+
+<pre><code>git log          显示从最近至最远的commit的版本。后可加上目录名，便会显示该目录下的日志；如果加的是文件名，
+会显示与该文件相关的日志。常用参数：--pretty=oneline 精简显示；--graph 以图的方式显示；--abbrev-commit 显示
+精简的commit id号；-p 参数显示文件前后差别。
 </code></pre>
 
 <h2 id="分支管理">分支管理</h2>
@@ -154,6 +156,11 @@ git tag &lt;tagname&gt;            用于新建一个标签，默认为HEAD，�
 git tag -d                   删除一个本地标签
 git tag -a &lt;tagname&gt; -m      可以指定标签信息
 git show &lt;tagname&gt;           查看详细说明
+</code></pre>
+
+<h2 id="快捷操作">快捷操作</h2>
+
+<pre><code>git commit -am               等价于git add ; git commit -m 
 </code></pre>
 
 <h2 id="参考文献">参考文献</h2>
