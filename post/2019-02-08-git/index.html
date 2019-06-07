@@ -145,7 +145,8 @@ git remote add origin        关联远程库
 
 <pre><code>git push origin master              推送本地master分支内容至远程，首次推送需加-u参数以便与远程分支建立关联
 git clone                           克隆仓库
-git pull                            同步远程最新内容
+git fetch                           将远程主机最新内容拉至本地，用户需检查是否需合并至本机分支
+git pull                            将远程主机最新内容拉至本地后直接合并，git pull = git fetch + git merge
 git push --set-upstream origin dev  若本地首次新建的dev分支，则新建分支需与远程分支进行关联
 </code></pre>
 
