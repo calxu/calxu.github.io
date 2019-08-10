@@ -6,13 +6,25 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 08 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Git命令学习笔记</title>
+      <title>Git命令学习笔记02</title>
+      <link>https://calxu.github.io/post/2019-08-10-git/</link>
+      <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/post/2019-08-10-git/</guid>
+      <description> 目前使用Git管理项目半年时间，对Git最常用的基础命令已经全部掌握， 这里记录一些Git管理项目中一些不是非常常用，但很关键且重要的命令。
+配置Git 初始设置 git --version # 查看git是否安装成功 git config --global user.name &amp;quot;Calvin,Xu&amp;quot; # 设置用户名 git config --global user.email &amp;quot;csxucaixu@gmail.com&amp;quot; # 设置邮箱 git config --global --list # 显示全局config的配置 git config --global color.ui auto # 提高git的可读性  需设置使用Git时的姓名和邮箱地址，以及提高Git的可读性，以上命令会在&amp;rdquo;~/.gitconfig&amp;rdquo;添加相应的设置:
+[user] name = Calvin,Xu email = csxucaixu@gmail.com [color] ui = auto  自定义.gitignore .gitignore # 忽略某些文件时，需要按格式编写.gitignore  .gitignore配置的规则与linux通配符一致。
+快捷操作 git mv # 给文件重命名，不通过linux中的mv命令来操作  参考文献  [1] 极客时间. 玩转Git三剑客 [2] 大塚弘记. GitHub入门与实践. 2014  </description>
+    </item>
+    
+    <item>
+      <title>Git命令学习笔记01</title>
       <link>https://calxu.github.io/post/2019-02-08-git/</link>
       <pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate>
       

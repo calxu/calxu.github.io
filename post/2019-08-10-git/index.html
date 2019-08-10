@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta name="generator" content="Hugo 0.53" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
@@ -10,7 +9,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet"> 
 
-        <title>Blog</title>
+        <title>Git命令学习笔记02</title>
 
         <link rel="stylesheet" href="/css/stylesheet.css">
     </head>
@@ -27,7 +26,7 @@
 
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="/">Home</a>
+              <a class="nav-item nav-link " href="/">Home</a>
               
               
               <a class="nav-item nav-link " href="/about/">About</a>
@@ -43,33 +42,61 @@
         </section>
 
 
-<section>
-  <ul class="posts_listing">
+<div class="blog-post">
+  <h1>Git命令学习笔记02</h1>
+  <div class="blog-post-subheader">
+    <time>10 Aug 2019</time>
+  </div>
+  <div class="blog-post-content">
     
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>10 Aug 2019</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/post/2019-08-10-git/">Git命令学习笔记02</a>
-        </div>
-      </div>
-    </li>
-    
-    <li>
-      <div class="row" id="posts">
-        <div class="d-none d-sm-block col-sm-3 date-time-title">
-          <time>08 Feb 2019</time>
-        </div>
-        <div class="col-sm date-time-title post">
-          <a href="/post/2019-02-08-git/">Git命令学习笔记01</a>
-        </div>
-      </div>
-    </li>
-    
-  </ul>
-</section>
+
+<p>目前使用Git管理项目半年时间，对Git最常用的基础命令已经全部掌握，
+这里记录一些Git管理项目中一些不是非常常用，但很关键且重要的命令。</p>
+
+<h2 id="配置git">配置Git</h2>
+
+<h3 id="初始设置">初始设置</h3>
+
+<pre><code>git --version                                         # 查看git是否安装成功
+
+git config --global user.name &quot;Calvin,Xu&quot;             # 设置用户名
+git config --global user.email &quot;csxucaixu@gmail.com&quot;  # 设置邮箱
+
+git config --global --list                            # 显示全局config的配置
+
+git config --global color.ui auto                     # 提高git的可读性
+</code></pre>
+
+<p>需设置使用Git时的姓名和邮箱地址，以及提高Git的可读性，以上命令会在&rdquo;~/.gitconfig&rdquo;添加相应的设置:</p>
+
+<pre><code>[user]
+    name = Calvin,Xu
+    email = csxucaixu@gmail.com
+[color]
+    ui = auto
+</code></pre>
+
+<h3 id="自定义-gitignore">自定义.gitignore</h3>
+
+<pre><code>.gitignore    # 忽略某些文件时，需要按格式编写.gitignore
+</code></pre>
+
+<p>.gitignore配置的规则与linux通配符一致。</p>
+
+<h2 id="快捷操作">快捷操作</h2>
+
+<pre><code>git mv        # 给文件重命名，不通过linux中的mv命令来操作
+</code></pre>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ul>
+<li>[1] 极客时间. <a href="https://time.geekbang.org/course/intro/145">玩转Git三剑客</a></li>
+<li>[2] 大塚弘记. GitHub入门与实践. 2014</li>
+</ul>
+
+  </div>
+</div>
 
       <footer>
         <hr>
