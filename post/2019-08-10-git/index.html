@@ -51,7 +51,8 @@
     
 
 <p>目前使用Git管理项目半年时间，对Git最常用的基础命令已经全部掌握，
-这里记录一些Git管理项目中一些不是非常常用，但很关键且重要的命令。</p>
+这里记录一些Git管理项目中一些常用命令参数，不了解这些参数也能应付大多数项目管理，
+但了解这些参数会有利于代码的管理。</p>
 
 <h2 id="配置git">配置Git</h2>
 
@@ -82,6 +83,25 @@ git config --global color.ui auto                     # 提高git的可读性
 </code></pre>
 
 <p>.gitignore配置的规则与linux通配符一致。</p>
+
+<h2 id="常用命令参数">常用命令参数</h2>
+
+<pre><code>git add --help                 # 查看git add命令的使用文档
+</code></pre>
+
+<h2 id="日志管理命令参数">日志管理命令参数</h2>
+
+<pre><code>git log                        # 显示提交的日志记录
+git log --oneline              # 以简洁的方式显示提交的日志记录
+git log -n 4 --oneline         # 以简洁的方式显示最近提交的4条日志记录
+git log --all                  # 显示所有分支的提交日志记录
+git log --all --online --graph # 以图形化的方式显示所有分支的日志记录
+</code></pre>
+
+<h2 id="分支管理参数">分支管理参数</h2>
+
+<pre><code>git branch -v                 # 查看分支，-v参数会列出分支的描述信息
+</code></pre>
 
 <h2 id="快捷操作">快捷操作</h2>
 
