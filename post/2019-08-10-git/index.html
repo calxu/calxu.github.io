@@ -89,8 +89,10 @@ git config --global color.ui auto                     # 提高git的可读性
 <pre><code>git add --help                 # 查看git add命令的使用文档，所有命令均可通过此方式查看使用说明
 </code></pre>
 
-<pre><code>git diff                       # 查看工作区与暂存区指定文件的区别
+<pre><code>git diff                       # 查看工作区与暂存区所含文件的区别
+git diff filename              # 查看工作区与暂存区指定文件的区别
 git diff --cache               # 查看暂存区与HEAD所含文件的区别
+git diff --cache filename      # 查看暂存区与HEAD指定文件的区别
 </code></pre>
 
 <h2 id="日志管理命令参数">日志管理命令参数</h2>
