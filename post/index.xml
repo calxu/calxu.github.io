@@ -20,7 +20,7 @@
       <description>目前使用Git管理项目半年时间，对Git最常用的基础命令已经全部掌握， 这里记录一些Git管理项目中一些常用命令参数，不了解这些参数也能应付大多数项目管理， 但了解这些参数会有利于代码的管理。
 配置Git 初始设置 git --version # 查看git是否安装成功 git config --global user.name &amp;quot;Calvin,Xu&amp;quot; # 设置用户名 git config --global user.email &amp;quot;csxucaixu@gmail.com&amp;quot; # 设置邮箱 git config --global --list # 显示全局config的配置 git config --global color.ui auto # 提高git的可读性  需设置使用Git时的姓名和邮箱地址，以及提高Git的可读性，以上命令会在&amp;rdquo;~/.gitconfig&amp;rdquo;添加相应的设置:
 [user] name = Calvin,Xu email = csxucaixu@gmail.com [color] ui = auto  自定义.gitignore .gitignore # 忽略某些文件时，需要按格式编写.gitignore  .gitignore配置的规则与linux通配符一致。
-常用命令参数 git add --help # 查看git add命令的使用文档  日志管理命令参数 git log # 显示提交的日志记录 git log --oneline # 以简洁的方式显示提交的日志记录 git log -n 4 --oneline # 以简洁的方式显示最近提交的4条日志记录 git log --all # 显示所有分支的提交日志记录 git log --all --online --graph # 以图形化的方式显示所有分支的日志记录  分支管理参数 git branch -v # 查看分支，-v参数会列出分支的描述信息  快捷操作 git mv # 给文件重命名，不通过linux中的mv命令来操作  参考文献  [1] 极客时间.</description>
+常用命令参数 git add --help # 查看git add命令的使用文档，所有命令均可通过此方式查看使用说明  git diff # 查看工作区与暂存区指定文件的区别 git diff --cache # 查看暂存区与HEAD所含文件的区别  日志管理命令参数 git log # 显示提交的日志记录 git log --oneline # 以简洁的方式显示提交的日志记录 git log -n 4 --oneline # 以简洁的方式显示最近提交的4条日志记录 git log --all # 显示所有分支的提交日志记录 git log --all --online --graph # 以图形化的方式显示所有分支的日志记录  分支管理参数 git branch -v # 查看分支，-v参数会列出分支的描述信息  快捷操作 git mv # 给文件重命名，不通过linux中的mv命令来操作  参考文献  [1] 极客时间.</description>
     </item>
     
     <item>
