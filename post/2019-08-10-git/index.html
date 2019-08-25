@@ -79,10 +79,8 @@ git config --global color.ui auto                     # 提高git的可读性
 
 <h3 id="自定义-gitignore">自定义.gitignore</h3>
 
-<pre><code>.gitignore    # 忽略某些文件时，需要按格式编写.gitignore
+<pre><code>.gitignore    # git管理需忽略的文件，.gitignore配置的规则与linux通配符一致
 </code></pre>
-
-<p>.gitignore配置的规则与linux通配符一致。</p>
 
 <h2 id="常用命令参数">常用命令参数</h2>
 
@@ -97,6 +95,12 @@ git diff --cached filename     # 查看暂存区与HEAD指定文件的区别
 
 <pre><code>git reset HEAD filename        # 取消暂存区指定文件的修改，保持与最新分支一致
 git checkout -- filename       # 取消工作区指定文件的修改，保持与暂存区一致
+git reset --hard commidID      # HEAD恢复成commidID指向的状态，并且工作区和暂存区恢复成commitID指向的状态
+</code></pre>
+
+<pre><code>git stash list                 # 列出存盘中的所有信息
+git stash                      # 当前状态存盘
+git stash pop                  # 存盘状态弹出
 </code></pre>
 
 <h2 id="日志管理命令参数">日志管理命令参数</h2>
@@ -110,12 +114,14 @@ git log --all --online --graph # 以图形化的方式显示所有分支的日�
 
 <h2 id="分支管理参数">分支管理参数</h2>
 
-<pre><code>git branch -v                 # 查看分支，-v参数会列出分支的描述信息
+<pre><code>git branch -a                 # 查看分支，-a会列出所有分支
+git branch -v                 # 查看分支，-v参数会列出分支的描述信息
 </code></pre>
 
 <h2 id="快捷操作">快捷操作</h2>
 
 <pre><code>git mv        # 给文件重命名，不通过linux中的mv命令来操作
+git rm        # 删除文件与重命名类似，不通过linux中的rm命令来操作
 </code></pre>
 
 <h2 id="参考文献">参考文献</h2>

@@ -120,7 +120,7 @@ git rebase -i          修改历史commit；压缩历史commit (内容比较多�
 
 <pre><code>git branch              查看分支，该命令会列出所有分支，当前分支前会标一个*号
 git branch dev          创建名为dev的新分支
-git branch -a           查看当前分支的相关信息
+git branch -a           查看所分支的信息
 git branch -d           删除分支
 git branch -D           强制删除分支
 git branch --set-upstream-to=origin/dev dev    指定本地dev分支与远程origin/dev分支的链接
@@ -138,9 +138,9 @@ git merge --no-ff            禁用默认的Fast Forward模式，在merge时生�
 
 <h2 id="远程仓库">远程仓库</h2>
 
-<pre><code>git remote                   查看远程仓库的信息
-git remote -v                显示更详细的信息
-git remote add origin        关联远程库
+<pre><code>git remote                   # 查看远程仓库的信息
+git remote -v                # 显示更详细的信息
+git remote add name url      # 关联远程仓库
 </code></pre>
 
 <pre><code>git push origin master              推送本地master分支内容至远程，首次推送需加-u参数以便与远程分支建立关联
