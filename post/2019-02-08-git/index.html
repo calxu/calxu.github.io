@@ -120,7 +120,7 @@ git rebase -i          修改历史commit；压缩历史commit (内容比较多�
 
 <pre><code>git branch              查看分支，该命令会列出所有分支，当前分支前会标一个*号
 git branch dev          创建名为dev的新分支
-git branch -a           查看所分支的信息
+git branch -a           查看所有分支（包括本地分支和远程分支）的信息
 git branch -d           删除分支
 git branch -D           强制删除分支
 git branch --set-upstream-to=origin/dev dev    指定本地dev分支与远程origin/dev分支的链接
@@ -143,10 +143,10 @@ git remote -v                # 显示更详细的信息
 git remote add name url      # 关联远程仓库
 </code></pre>
 
-<pre><code>git push origin master              推送本地master分支内容至远程，首次推送需加-u参数以便与远程分支建立关联
-git clone                           克隆仓库
+<pre><code>git clone                           克隆仓库
 git fetch                           将远程主机最新内容拉至本地，用户需检查是否需合并至本机分支
 git pull                            将远程主机最新内容拉至本地后直接合并，git pull = git fetch + git merge
+git push origin master              推送本地master分支内容至远程，首次推送需加-u参数以便与远程分支建立关联
 git push --set-upstream origin dev  若本地首次新建的dev分支，则新建分支需与远程分支进行关联
 </code></pre>
 
