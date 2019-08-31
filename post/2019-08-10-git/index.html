@@ -87,6 +87,9 @@ git config --global color.ui auto                     # 提高git的可读性
 <pre><code>git add --help                 # 查看git add命令的使用文档，所有命令均可通过此方式查看使用说明
 </code></pre>
 
+<pre><code>git add -u                     # 把本地有改动的文件添加至暂存区
+</code></pre>
+
 <pre><code>git diff                       # 查看工作区与暂存区所含文件的区别
 git diff filename              # 查看工作区与暂存区指定文件的区别
 git diff --cached              # 查看暂存区与HEAD所含文件的区别
@@ -112,16 +115,30 @@ git log --all                  # 显示所有分支的提交日志记录
 git log --all --online --graph # 以图形化的方式显示所有分支的日志记录
 </code></pre>
 
-<h2 id="分支管理参数">分支管理参数</h2>
+<h2 id="分支管理命令参数">分支管理命令参数</h2>
 
 <pre><code>git branch -a                 # 查看分支，-a会列出所有分支
 git branch -v                 # 查看分支，-v参数会列出分支的描述信息
 </code></pre>
 
+<pre><code>git merge dev                 # 将dev分支合并至当前分支
+git merge --allow-unrelated-histories dev    # 将不相关的dev分支合并至当前分支
+git merge --abort             # 恢复merge之前的状态
+</code></pre>
+
+<h1 id="远程仓库命令参数">远程仓库命令参数</h1>
+
+<pre><code>git fetch origin master       # 将远程origin最新内容拉至本地master分支
+git push origin master        # 将本地的master分支内容推送至远程
+</code></pre>
+
+<pre><code>git clone origin local        # 将远程origin仓库克隆至本地仓库
+</code></pre>
+
 <h2 id="快捷操作">快捷操作</h2>
 
 <pre><code>git mv        # 给文件重命名，不通过linux中的mv命令来操作
-git rm        # 删除文件与重命名类似，不通过linux中的rm命令来操作
+git rm        # 删除文件，不通过linux中的rm命令来操作
 </code></pre>
 
 <h2 id="参考文献">参考文献</h2>
