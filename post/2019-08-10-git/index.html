@@ -94,6 +94,8 @@ git config --global color.ui auto                     # 提高git的可读性
 git diff filename              # 查看工作区与暂存区指定文件的区别
 git diff --cached              # 查看暂存区与HEAD所含文件的区别
 git diff --cached filename     # 查看暂存区与HEAD指定文件的区别
+git diff HEAD                  # 查看工作区与HEAD所含文件的区别
+git diff HEAD filename         # 查看工作区与HEAD指定文件的区别
 </code></pre>
 
 <pre><code>git reset HEAD filename        # 取消暂存区指定文件的修改，保持与最新分支一致
@@ -128,11 +130,14 @@ git merge --abort             # 恢复merge之前的状态
 
 <h1 id="远程仓库命令参数">远程仓库命令参数</h1>
 
-<pre><code>git fetch origin master       # 将远程origin最新内容拉至本地master分支
-git push origin master        # 将本地的master分支内容推送至远程
+<pre><code>git clone origin local        # 将远程origin仓库克隆至本地仓库
 </code></pre>
 
-<pre><code>git clone origin local        # 将远程origin仓库克隆至本地仓库
+<pre><code>git fetch origin master       # 将远程origin最新内容拉至本地master分支
+</code></pre>
+
+<pre><code>git push origin master        # 参数：git push &lt;远程主机名&gt; &lt;远程分支名&gt;，首次推送需加参数-u
+git push origin --tags        # git push不会推送标签，需手动推送
 </code></pre>
 
 <h2 id="快捷操作">快捷操作</h2>
