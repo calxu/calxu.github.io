@@ -130,6 +130,12 @@ git merge --abort             # 恢复merge之前的状态
 
 <h1 id="远程仓库命令参数">远程仓库命令参数</h1>
 
+<pre><code>git remote                    # 列出已经存在的远程分支
+git remote -v                 # 列出已经存在的远程分支详细信息
+git remote rename             # 修改某个远程仓库的简短名称
+git remote add [shortname] [url]   # 指定一个简单的名字来引用远程仓库
+</code></pre>
+
 <pre><code>git clone origin local        # 将远程origin仓库克隆至本地仓库
 </code></pre>
 
@@ -138,6 +144,7 @@ git merge --abort             # 恢复merge之前的状态
 
 <pre><code>git push origin master        # 参数：git push &lt;远程主机名&gt; &lt;远程分支名&gt;，首次推送需加参数-u
 git push origin --tags        # git push不会推送标签，需手动推送
+git push origin --all         # 推送本地所有分支
 </code></pre>
 
 <h2 id="快捷操作">快捷操作</h2>
