@@ -6,10 +6,25 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>开源ss工具快速搭建翻墙VPN笔记</title>
+      <link>https://calxu.github.io/post/2019-11-01-git/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/post/2019-11-01-git/</guid>
+      <description>搭建ss的方法，网上有很多，请自行Google。 这里提供下Github官网的链接， 目前GFW已经具备识别ss流量的能力，但每次好像都是国家重大事件时才进行封堵，但封堵时也误杀了很多正常的流量的ip。 所以过了一段关键时期，GFW可能放行，这就需要重新搭建ss。
+这篇文章主要记录下搭建ss翻墙软件的最小配置，方便自己在GFW封杀后再快速搭建翻墙的VPN。
+客户端配置 客户端软件下载  mac下载
+ windows下载
+ 注：下载最新的Assets即可
+  软件配置 这里提供下我的ss帐号密码供大家使用，没薅我流量，黑客也不要攻击我机器，仅供程序员学习使用，不要作恶； 可能会被封，被封后我再重新切换下ip，关注这个blog即可。
+地址： 47.240.10.78:8432 加密方法： aes-256-cfb 密码： Dont_be_evil 备注： Dont_be_evil  服务端配置 购买VPS  这里我购买的是阿里云香港区，供参考；  配置server端环境 安装环境： $ apt install python3-pip $ pip3 install shadowsocks  配置文件： $ cat /etc/shadowsocks.json { &amp;quot;server&amp;quot;:&amp;quot;0.0.0.0&amp;quot;, &amp;quot;server_port&amp;quot;:8432, &amp;quot;local_address&amp;quot;: &amp;quot;127.0.0.1&amp;quot;, &amp;quot;local_port&amp;quot;:1080, &amp;quot;password&amp;quot;:&amp;quot;Dont_be_evil&amp;quot;, &amp;quot;timeout&amp;quot;:300, &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot;, &amp;quot;fast_open&amp;quot;: false }   注：1.没有该文件则新建；2. server 直接填 0.0.0.0 即可；  后台启动ss服务 $ nohup ssserver -c /etc/shadowsocks.</description>
+    </item>
     
     <item>
       <title>Git命令学习笔记02</title>
