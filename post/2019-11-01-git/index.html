@@ -52,21 +52,23 @@
 
 <p>搭建ss的方法，网上有很多，请自行Google。
 这里提供下<a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">Github官网的链接</a>，
-目前GFW已经具备识别ss流量的能力，但每次好像都是国家重大事件时才进行封堵，但封堵时也误杀了很多正常的流量的ip。
-所以过了一段关键时期，GFW可能放行，这就需要重新搭建ss。</p>
+目前GFW已经具备识别ss流量的能力，但每次好像都是国家大事件时才进行封堵，但封堵时也误杀了很多正常的流量的ip。
+所以过了这段关键时期，GFW会放行，这就需要重新搭建ss。</p>
 
-<p>这篇文章主要记录下搭建ss翻墙软件的最小配置，方便自己在GFW封杀后再快速搭建翻墙的VPN。</p>
+<p>这篇文章主要记录下<strong>搭建ss翻墙软件的最小配置</strong>，方便自己在GFW封杀后再快速搭建翻墙的VPN。</p>
 
 <h2 id="客户端配置">客户端配置</h2>
 
 <h3 id="客户端软件下载">客户端软件下载</h3>
 
-<ul>
+<ol>
 <li><p><a href="https://github.com/shadowsocks/ShadowsocksX-NG/releases">mac下载</a></p></li>
 
 <li><p><a href="https://github.com/shadowsocks/shadowsocks-windows/releases">windows下载</a></p></li>
+</ol>
 
-<li><p>注：下载最新的Assets即可</p></li>
+<ul>
+<li>注：下载最新的Assets即可</li>
 </ul>
 
 <h3 id="软件配置">软件配置</h3>
@@ -122,7 +124,7 @@ $ pip3 install shadowsocks
 </code></pre>
 
 <ul>
-<li>注：1. 环境问题可能会报错，参考底参考文献；2. 阿里云防火墙策略需要配置8432端口TCP协议通行；</li>
+<li>注：1. 环境问题可能会报错，参考下面参考文献；2. 阿里云防火墙策略需要开放8432端口TCP协议通行；</li>
 </ul>
 
 <h2 id="参考文献">参考文献</h2>
