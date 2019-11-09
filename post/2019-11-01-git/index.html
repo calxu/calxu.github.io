@@ -35,7 +35,7 @@
         </nav>
 
         <section id="page-title">
-          <h1><a href="/">Blog</a></h1>
+          <h1><a href="/">calxu&#39;s blog</a></h1>
           <span id="author-name">
             <h6><a href="/about/"></a></h6>
           </span>
@@ -51,7 +51,7 @@
     
 
 <p>搭建ss的方法，网上有很多，请自行Google。
-这里提供下<a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">Github官网的链接</a>，
+这里提供下链接<a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">ss官网的搭建方法</a>，
 目前GFW已经具备识别ss流量的能力，但每次好像都是国家大事件时才进行封堵，但封堵时也误杀了很多正常的流量的ip。
 所以过了这段关键时期，GFW会放行，这就需要重新搭建ss。</p>
 
@@ -71,16 +71,33 @@
 <li>注：下载最新的Assets即可</li>
 </ul>
 
-<h3 id="软件配置">软件配置</h3>
+<h3 id="客户端配置-1">客户端配置</h3>
 
-<p>这里提供下我的ss帐号密码供大家使用，没薅我流量，黑客也不要攻击我机器，仅供程序员学习使用，不要作恶；
-可能会被封，被封后我再重新切换下ip，关注这个blog即可。</p>
+<p>这里提供下我的ss帐号密码供大家使用，别薅我流量，黑客也不要攻击我机器，VPN仅供程序员学习使用，不能作恶；
+ip可能会被GFW封，被封后我再重新切换下ip，关注这个blog即可。</p>
 
 <pre><code>地址：    47.240.10.78:8432
 加密方法： aes-256-cfb
 密码：    Dont_be_evil
 备注：    Dont_be_evil
 </code></pre>
+
+<h3 id="客户端的工作原理-mac版">客户端的工作原理（MAC版）：</h3>
+
+<p>启动软件会启动3个子程序，可通过 &ldquo;ps aux | grep -i shadowsocks&rdquo; 查看到 ShadowsocksX-NG、ss-local 和 privoxy 三个子程序；
+与此同时，MAC中网络&gt;高级&gt;代理&gt;自动代理配置 会被配置为软件自带的pac文件；</p>
+
+<ol>
+<li><p>ShadowsocksX-NG 只是一个Swift写的一个GUI壳子；</p></li>
+
+<li><p>ss-local为编译好了的程序，ss-local默认监听1080端口（可设置），接收socks协议的请求并转发至服务端；</p></li>
+
+<li><p>privoxy是对http协议的代理，监听1087端口，然后转发到1080端口由ss-local程序负责转发；</p></li>
+</ol>
+
+<ul>
+<li>注：以上原理详情可参考Github <a href="https://github.com/shadowsocks/ShadowsocksX-NG">ShadowsocksX-NG官网</a></li>
+</ul>
 
 <h2 id="服务端配置">服务端配置</h2>
 
@@ -120,7 +137,7 @@ $ pip3 install shadowsocks
 
 <h4 id="后台启动ss服务">后台启动ss服务</h4>
 
-<pre><code>$ nohup ssserver -c /etc/shadowsocks.json -d start &amp;&gt; log &amp;
+<pre><code>$ ssserver -c /etc/shadowsocks.json -d start
 </code></pre>
 
 <ul>
@@ -130,9 +147,11 @@ $ pip3 install shadowsocks
 <h2 id="参考文献">参考文献</h2>
 
 <ul>
-<li><p>[1] Github ss官网. <a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">Shadowsocks 使用说明</a></p></li>
+<li><p>[1] Github <a href="https://github.com/shadowsocks/shadowsocks/wiki/Shadowsocks-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">Shadowsocks 服务端配置</a></p></li>
 
-<li><p>[2] Github. <a href="https://floperry.github.io/2019/02/24/2018-06-25-Ubuntu-18.04-%E4%B8%8B%E8%A7%A3%E5%86%B3-shadowsocks-%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">EVP_CIPHER_CTX_cleanup报错</a></p></li>
+<li><p>[2] Github <a href="https://github.com/shadowsocks/ShadowsocksX-NG">ShadowsocksX-NG客户端代码仓库</a></p></li>
+
+<li><p>[3] Github <a href="https://floperry.github.io/2019/02/24/2018-06-25-Ubuntu-18.04-%E4%B8%8B%E8%A7%A3%E5%86%B3-shadowsocks-%E6%9C%8D%E5%8A%A1%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">EVP_CIPHER_CTX_cleanup报错</a></p></li>
 </ul>
 
   </div>
