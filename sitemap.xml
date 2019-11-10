@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -8,40 +8,58 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/post/2019-11-01-git/</loc>
+    <loc>https://calxu.github.io/</loc>
     <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/post/2019-08-10-git/</loc>
-    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://calxu.github.io/post/2019-02-08-git/</loc>
-    <lastmod>2019-02-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://calxu.github.io/categories/</loc>
-    <priority>0</priority>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/post/</loc>
     <lastmod>2019-11-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://calxu.github.io/tags/</loc>
-    <priority>0</priority>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/</loc>
+    <loc>https://calxu.github.io/tags/vpn/</loc>
     <lastmod>2019-11-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/categories/vpn/</loc>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/post/2019/11/01/%E5%88%A9%E7%94%A8%E5%BC%80%E6%BA%90ss%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%BF%BB%E5%A2%99vpn/</loc>
+    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/tags/git/</loc>
+    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/categories/git/</loc>
+    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/post/2019/08/10/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B002/</loc>
+    <lastmod>2019-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/post/2019/02/08/git%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B001/</loc>
+    <lastmod>2019-02-08T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>

@@ -1,33 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on blog</title>
-    <link>https://calxu.github.io/post/</link>
-    <description>Recent content in Posts on blog</description>
+    <title>Git on blog</title>
+    <link>https://calxu.github.io/tags/git/</link>
+    <description>Recent content in Git on blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://calxu.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://calxu.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>利用开源ss工具快速搭建翻墙VPN</title>
-      <link>https://calxu.github.io/post/2019/11/01/%E5%88%A9%E7%94%A8%E5%BC%80%E6%BA%90ss%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%BF%BB%E5%A2%99vpn/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://calxu.github.io/post/2019/11/01/%E5%88%A9%E7%94%A8%E5%BC%80%E6%BA%90ss%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%BF%BB%E5%A2%99vpn/</guid>
-      <description>搭建ss的方法，网上有很多，请自行Google。 这里提供下链接ss官网的搭建方法， 目前GFW已经具备识别ss流量的能力，但每次好像都是国家大事件时才进行封堵，但封堵时也误杀了很多正常的流量的ip。 所以过了这段关键时期，GFW会放行，这就需要重新搭建ss。
-这篇文章主要记录下搭建ss翻墙软件的最小配置，方便自己在GFW封杀后再快速搭建翻墙的VPN。
-客户端配置 客户端软件下载  mac下载
- windows下载
-   注：下载最新的Assets即可  客户端配置 这里提供下我的ss帐号密码供大家使用，别薅我流量，黑客也不要攻击我机器，VPN仅供程序员学习使用，不能作恶； ip可能会被GFW封，被封后我再重新切换下ip，关注这个blog即可。
-地址： 47.240.10.78:8432 加密方法： aes-256-cfb 密码： Dont_be_evil 备注： Dont_be_evil  客户端的工作原理（MAC版）： 启动软件会启动3个子程序，可通过 &amp;ldquo;ps aux | grep -i shadowsocks&amp;rdquo; 查看到 ShadowsocksX-NG、ss-local 和 privoxy 三个子程序； 与此同时，MAC中网络&amp;gt;高级&amp;gt;代理&amp;gt;自动代理配置 会被配置为软件自带的pac文件；
- ShadowsocksX-NG 只是一个Swift写的一个GUI壳子；
- ss-local为编译好了的程序，ss-local默认监听1080端口（可设置），接收socks协议的请求并转发至服务端；
- privoxy是对http协议的代理，监听1087端口，然后转发到1080端口由ss-local程序负责转发；
-   注：以上原理详情可参考Github ShadowsocksX-NG官网  服务端配置 购买VPS  这里我购买的是阿里云香港区，供参考；  配置server端环境 安装环境： $ apt install python3-pip $ pip3 install shadowsocks  配置文件： $ cat /etc/shadowsocks.</description>
-    </item>
     
     <item>
       <title>Git命令学习笔记02</title>
