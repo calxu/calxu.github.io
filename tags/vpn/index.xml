@@ -13,10 +13,10 @@
     
     <item>
       <title>利用开源ss工具快速搭建翻墙VPN</title>
-      <link>https://calxu.github.io/post/2019/11/01/%E5%88%A9%E7%94%A8%E5%BC%80%E6%BA%90ss%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%BF%BB%E5%A2%99vpn/</link>
+      <link>https://calxu.github.io/note/20191101_shadowsocks/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/post/2019/11/01/%E5%88%A9%E7%94%A8%E5%BC%80%E6%BA%90ss%E5%B7%A5%E5%85%B7%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E7%BF%BB%E5%A2%99vpn/</guid>
+      <guid>https://calxu.github.io/note/20191101_shadowsocks/</guid>
       <description>搭建ss的方法，网上有很多，请自行Google。 这里提供下链接ss官网的搭建方法， 目前GFW已经具备识别ss流量的能力，但每次好像都是国家大事件时才进行封堵，但封堵时也误杀了很多正常的流量的ip。 所以过了这段关键时期，GFW会放行，这就需要重新搭建ss。
 这篇文章主要记录下搭建ss翻墙软件的最小配置，方便自己在GFW封杀后再快速搭建翻墙的VPN。
 客户端配置 客户端软件下载  mac下载

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo框架 on calxu</title>
+    <link>https://calxu.github.io/tags/hugo%E6%A1%86%E6%9E%B6/</link>
+    <description>Recent content in Hugo框架 on calxu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://calxu.github.io/tags/hugo%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>个人博客搭建与运维笔记</title>
+      <link>https://calxu.github.io/note/20200107_personal_blog/</link>
+      <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200107_personal_blog/</guid>
+      <description>以前一般在CSDN上写博客，但现在CSDN广告越来越泛滥，无法忍受了。稍微研究了下目前可以写博客的平台 CSDN、简书、知乎甚至 微信里写文章，在看文章时都会受各种广告推荐的影响，记得有次在微信全神看推荐算法类的文章，突然中间给我插了条相亲的广告，当时非常恼火。
+后来想了想各种博客平台为了赢利终将会采用各种广告的手段，所以还是自己搭建博客吧，而且对于一个做技术的人来说也确实有必要搭一个个人博客。下面就对我个人所面临的 框架选择、基础搭建过程、主题选择、部署和日常维护 做一些记录。
+博客框架的选择 对于一个非专业Web开发的人来说，自己实施搭建成本太高了。所以一定要借用现有的开源框架来搭建，网上查了下主流框架主要有Jekyll、Hexo和Hugo，也看了很多人的blog，印象特深的是 谢益辉 ，他也讲述了他用Jekyll的一些坑，然后转向Hugo框架，我觉得他的个人博客非常的nice，所以也顺着他的路用Hugo来搭建了。至于Hexo和Hugo的比较，目前来看基于Hexo还是比基于Hugo搭建的人要多，教程也是Hexo居多。但是Hugo目前也已经渐渐形成生态，基于Hugo搭建的主题也非常丰富 [6] ，Hugo也是以速度性能见长，所以当时也就基于Hugo来搭建个人博客了。
+Hugo是由Go语言实现的静态网站生成器，还是比较简单容易上手的。官方提供的quick start [2] 也是可以在短时间内快速搭建一个个人网站的。
+对于这篇blog而言，主要是Hugo框架学习和操作实践、主题选择方面的一些注意点和部署方面的实践。关于Hugo的使用Google下，也有很多的教程，我比较推荐官网的 quick start [2] 、 两个Youtube视频 [8] [9] 和 参考文献中的教程 [4] [5] [7]  。
+基础搭建过程 这里主要介绍在应用主题前，一些基础环境的搭建。与官网提供的 quick start 教程 [2] 一致，这里对生成的目录做了稍微详细的讲解。
+安装Hugo环境 $ brew install hugo $ hugo version  以上通过 hugo version 来验证hugo环境安装是否成功。这里是基于macOS环境安装，其它操作系统参考 官网安装 。
+生成个人网站 $ hugo new site blog_test  以上命令行会创建一个新的文件夹blog_test，该文件夹下包含Hugo最基本目录结构，其中blog_test目录下文件如下：
+. ├ archetypes/ ├ config.toml ├ content/ ├ data/ ├ layouts/ ├ static/ └ themes/  生成文件包含6个文件夹 和 1个全局配置文件，下面依次对这7个文件做相应的说明。</description>
+    </item>
+    
+  </channel>
+</rss>
