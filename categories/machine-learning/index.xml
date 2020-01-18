@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on calxu</title>
+    <link>https://calxu.github.io/categories/machine-learning/</link>
+    <description>Recent content in Machine Learning on calxu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 18 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://calxu.github.io/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>机器学习笔记-集成学习Bagging</title>
+      <link>https://calxu.github.io/note/20200118_ml_bagging/</link>
+      <pubDate>Sat, 18 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200118_ml_bagging/</guid>
+      <description>工作也近一年半的时间，工作这段时间一直聚焦于业务，会调参懂业务基本可以解决工作中绝大部分业务问题，很多时候不需要深入理解理论。 最近闲下来有时间把机器学习的理论知识重新梳理学习下。 这篇笔记学习下机器学习中集成学习的一些知识。
+集成学习（ensemble learning）是很多机器学习框架所应用到的一个策略。 目前比较有代表性的集成方式是Boosting 和 Bagging。 Boosting集成是每个基学习器间存在强依赖关系、必须串行生成，目前比较有代表性的工业界框架有AdaBoost、GBDT、XGBoost和LightGBM，其中后三者工业界比较常用，同时XGBoost和LightGBM也都是GBDT的变种；Bagging集成是每个基学习器间不需要存在依赖关系、可并行化，其中比较具有代表性的是随机森林（即 **Random Forest **），工业也比较常用。
+这篇笔记主要基于周志华老师的《机器学习》西瓜书集成学习部分，聚焦在集成学习之Bagging方法。首先记录有放回采样的过程和特性；其次介绍集成学习Bagging方法，Bagging集成是建立在有放回采样的基础之上；最后介绍随机森林，随机森林是典型的基于Bagging集成的一个扩展变体。
+有放回采样（bootstrap sampling） 有放回采样（bootstrap sampling）周志华的西瓜书里也把它称为“自助法”。给定包含 $m$ 个样本的数据集 $D$，我们对它进行采样产生数据集 $D&#39;$。 过程描述如下：每次随机从 $D$ 中挑选一个样本，将其拷贝放入 $D&#39;$ 中，然后再将该样本放回初始数据集 $D$ 中，该样本在下次采样时仍有可能被采到；这个过程重复执行 $m$ 次，就可得到包含 $m$ 个样本的数据集 $D&#39;$，以上便是有放回采样的结果。 $D$ 中有一部分样本会在 $D&#39;$ 中多次出现，而另一部分样本不出现。 样本在 $m$ 次采样中始终不被采到的概率是 $(1-\frac{1}{m})^m$ ，取极限得到 $\lim_{m\to +\infty}(1-\frac{1}{m})^m = \frac{1}{e} \approx 0.368$ ，即通过有放回采样，初始数据集中 $D$ 约有36.8% 的样本未出现在采样数据集 $D&#39;$ 中，而那部分样本可作测试集。
+有放回采样在数据集较小，难以有效划分训练/测试集时很有用；同时，有放回采样可以从初始数据集中产生多个不同的训练集，这对集成学习等方法有很大的好处。
+集成学习Bagging 欲得到泛化性能强的集成，集成中的个体学习器应尽可能相互独立；虽然个体学习器完全独立在现实任务中无法做到，但可以设法使基学习器尽可能具有较大的差异。 给定一个训练数据集，进行反复采样，可产生出若干个不同的子集，再从每个数据子集中训练出一个基学习器。 同时，为获得很好的集成，个体学习器不能太差，如果采样出的每个子集都完全不同，则每个基学习器只用到了一小部分训练数据，不足以有效学习。 所以反复地有放回采样（bootstrap sampling）是一种有效的方式，同时可产生相互有交叠的采样子集。
+Bagging（Bootstrap AGGregatING）集成学习中采样即是采用有放回采样的方式进行采样的。 采样过程描述如下：给定包含 $m$ 个样本的数据集，我们先随机取出一个样本放入采集中，再把该样本放回初始数据集，使得下次采样时该样本仍有可能被选中，这样，经过 $m$ 次随机采样操作，我们得到含 $m$ 个样本的采样集。由有放回采样的性质得：初始训练集中约有63.</description>
+    </item>
+    
+  </channel>
+</rss>

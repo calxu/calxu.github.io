@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>机器学习笔记-集成学习Bagging | calxu</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/links/">Links</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">机器学习笔记-集成学习Bagging</span></h1>
+
+<h2 class="date">2020/01/18</h2>
+</div>
+
+<main>
+
+
+<p>工作也近一年半的时间，工作这段时间一直聚焦于业务，会调参懂业务基本可以解决工作中绝大部分业务问题，很多时候不需要深入理解理论。
+最近闲下来有时间把机器学习的理论知识重新梳理学习下。
+这篇笔记学习下机器学习中集成学习的一些知识。</p>
+
+<p>集成学习（ensemble learning）是很多机器学习框架所应用到的一个策略。
+目前比较有代表性的集成方式是Boosting 和 Bagging。
+Boosting集成是每个基学习器间存在强依赖关系、必须串行生成，目前比较有代表性的工业界框架有AdaBoost、<strong>GBDT、XGBoost和LightGBM</strong>，其中后三者工业界比较常用，同时XGBoost和LightGBM也都是GBDT的变种；Bagging集成是每个基学习器间不需要存在依赖关系、可并行化，其中比较具有代表性的是随机森林（即 **Random Forest **），工业也比较常用。</p>
+
+<p>这篇笔记主要基于周志华老师的《机器学习》西瓜书集成学习部分，聚焦在集成学习之Bagging方法。首先记录有放回采样的过程和特性；其次介绍集成学习Bagging方法，Bagging集成是建立在有放回采样的基础之上；最后介绍随机森林，随机森林是典型的基于Bagging集成的一个扩展变体。</p>
+
+<h2 id="有放回采样-bootstrap-sampling">有放回采样（bootstrap sampling）</h2>
+
+<p>有放回采样（bootstrap sampling）周志华的西瓜书里也把它称为“自助法”。给定包含 <code>$m$</code> 个样本的数据集 <code>$D$</code>，我们对它进行采样产生数据集 <code>$D'$</code>。
+过程描述如下：每次随机从 <code>$D$</code> 中挑选一个样本，将其拷贝放入 <code>$D'$</code> 中，然后再将该样本放回初始数据集 <code>$D$</code> 中，该样本在下次采样时仍有可能被采到；这个过程重复执行 <code>$m$</code> 次，就可得到包含 <code>$m$</code> 个样本的数据集 <code>$D'$</code>，以上便是有放回采样的结果。
+<code>$D$</code> 中有一部分样本会在 <code>$D'$</code> 中多次出现，而另一部分样本不出现。
+样本在 <code>$m$</code> 次采样中始终不被采到的概率是 <code>$(1-\frac{1}{m})^m$</code> ，取极限得到 <code>$\lim_{m\to +\infty}(1-\frac{1}{m})^m = \frac{1}{e} \approx 0.368$</code> ，即通过有放回采样，初始数据集中 <code>$D$</code> 约有36.8% 的样本未出现在采样数据集 <code>$D'$</code> 中，而那部分样本可作测试集。</p>
+
+<p>有放回采样在数据集较小，难以有效划分训练/测试集时很有用；同时，有放回采样可以从初始数据集中产生多个不同的训练集，这对集成学习等方法有很大的好处。</p>
+
+<h2 id="集成学习bagging">集成学习Bagging</h2>
+
+<p>欲得到泛化性能强的集成，集成中的个体学习器应尽可能相互独立；虽然个体学习器完全独立在现实任务中无法做到，但可以设法使基学习器尽可能具有较大的差异。
+给定一个训练数据集，进行反复采样，可产生出若干个不同的子集，再从每个数据子集中训练出一个基学习器。
+同时，为获得很好的集成，个体学习器不能太差，如果采样出的每个子集都完全不同，则每个基学习器只用到了一小部分训练数据，不足以有效学习。
+所以反复地有放回采样（bootstrap sampling）是一种有效的方式，同时可产生相互有交叠的采样子集。</p>
+
+<p>Bagging（Bootstrap AGGregatING）集成学习中采样即是采用有放回采样的方式进行采样的。
+采样过程描述如下：给定包含 <code>$m$</code> 个样本的数据集，我们先随机取出一个样本放入采集中，再把该样本放回初始数据集，使得下次采样时该样本仍有可能被选中，这样，经过 <code>$m$</code> 次随机采样操作，我们得到含 <code>$m$</code> 个样本的采样集。由有放回采样的性质得：初始训练集中约有63.2% 的样本出现在采样集中。</p>
+
+<p>Bagging集成学习全过程描述如下：我们可采样出 <code>$T$</code> 个含 <code>$m$</code> 个训练样本的采样集，然后基于每个采样集训练出一个基学习器，再将这些基学习器进行结合。
+对于基学习器的结合策略，Bagging通常对分类任务使用简单投票法，对回归任务使用平均法。
+Bagging 的算法描述如下：</p>
+
+<div align="center"> <img src="/images/bagging.png" alt="avatar" style="zoom:35%;" /> </div>
+
+<p>其中，<code>$D_{bs}$</code> 是有放回采样产生的样本分布。
+Bagging集成的优势主要如下：
+a）训练一个Bagging集成与直接使用基学习算法训练一个学习器的复杂度同阶；
+b)相比于AdaBoost，Bagging能更好地适配多分类、回归等任务；
+c）对于每个基学习器而方，有约 36.8%（即1-63.2%）的样本可用作验证集来验证。当基学习器是决策树时，可使用验证集样本来辅助剪枝，或用于估计决策树中各结点的后验概率以辅助对零训练样本结点的处理；当基学习器是神经网络时，可使用验证样本来辅助早期停止以减小过拟合风险。</p>
+
+<h2 id="随机森林">随机森林</h2>
+
+<p>随机森林（Random Forest，简称RF）是Bagging的一个扩展变体。
+RF在以决策树为基学习器构建Bagging集成的基础上，进一步在决策树的训练过程中引入随机属性选择。
+随机森林简单、容易实现、计算开销小，它在很多现实任务中展现出强大的性能，被誉为“代表集成学习技术水平的方法”。
+随机森林中基学习器的多样性体现在：样本扰动（Bagging集成中有放回采样）、属性扰动，这就使得最终集成的泛化性能可通过个体学习器之间差异度的增加而进一步提升。</p>
+
+<p>随机森林的收敛性与Bagging相似（如下图所示），随机森林的起始性能往往相对较差，特别是在集成中只包含一个基学习器时。
+因为通过引入属性扰动，随机森林中个体学习器的性能往往有所降低，然而，随着个体学习器数目的增加，随机森林通常会收敛到更低的泛化误差。</p>
+
+<div align="center"> <img src="/images/uci.png" alt="avatar" style="zoom:42%;" /> </div>
+
+<h2 id="总结">总结</h2>
+
+<p>这篇笔记主要记录机器学习集成学习中一个重要的方法-Bagging集成。
+Bagging方法所采用的采样方式是有放回采样（bootstrap sampling），并在有放回采样的基础上训练 <code>$T$</code> 个基学习；Bagging比较有代表性的工业界框架是随机森林，随机森林在Bagging集成的基础上进一步引入了属性扰动，相比于Bagging进一步提升了预测精度。</p>
+
+<h2 id="参考文献">参考文献</h2>
+
+<p>[1] 周志华 《机器学习》西瓜书</p>
+
+</main>
+
+  <footer>
+  <script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+  </footer>
+  </body>
+</html>
+
