@@ -1,0 +1,27 @@
+# 网站的根URL，需修改成自己的
+baseURL = "https://calxu.github.io"
+# 网站默认的语言，我一般是默认值
+languageCode = "en-us"
+# 首页的标题，需修改成自己的
+title = "calxu"
+
+# 我这里是使用的主题是hugo-xmin，网页的布局将使用对应主题的archetypes、layouts和static配置
+theme = "hugo-xmin"
+
+# 板块化分，weight对应在页面上显示的次序
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+[[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 2
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
+[[menu.main]]
+    name = "Links"
+    url = "/links/"
+    weight = 4
