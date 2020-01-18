@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://calxu.github.io/about/</loc>
+    <lastmod>2020-01-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://calxu.github.io/</loc>
     <lastmod>2020-01-18T00:00:00+00:00</lastmod>
   </url>
@@ -55,11 +60,6 @@
   <url>
     <loc>https://calxu.github.io/links/</loc>
     <lastmod>2019-12-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://calxu.github.io/about/</loc>
-    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
