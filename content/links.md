@@ -10,6 +10,8 @@ date: '2019-12-09'
 
 1. 周志华：<a href="/quote/book_ml_zhouzhihua.pdf" target="_blank">《机器学习》西瓜书PDF</a>
 
+2. 李　航：<a href="/quote/book_ml_lihang.pdf" target="_blank">《统计学习方法》第2版PDF</a>
+
 
 ## 学习平台
 
