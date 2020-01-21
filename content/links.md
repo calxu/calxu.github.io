@@ -8,9 +8,9 @@ date: '2019-12-09'
 
 ## 学习资料
 
-1. 周志华：<a href="/quote/book_ml_zhouzhihua.pdf" target="_blank">《机器学习》西瓜书PDF</a>
+1. 周志华：<a href="https://github.com/calxu/calxu.github.io/raw/master/quote/book_ml_zhouzhihua.pdf" target="_blank">《机器学习》西瓜书PDF</a>
 
-2. 李　航：<a href="/quote/book_ml_lihang.pdf" target="_blank">《统计学习方法》第2版PDF</a>
+2. 李　航：<a href="https://github.com/calxu/calxu.github.io/raw/master/quote/book_ml_lihang.pdf" target="_blank">《统计学习方法》第2版PDF</a>
 
 
 ## 学习平台
