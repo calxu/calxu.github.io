@@ -40,7 +40,7 @@
 
 <p>集成学习（ensemble learning）是很多机器学习框架所应用到的一个策略。
 目前比较有代表性的集成方式是Boosting 和 Bagging。
-Boosting集成是每个基学习器间存在强依赖关系、必须串行生成，目前比较有代表性的工业界框架有AdaBoost、<strong>GBDT、XGBoost和LightGBM</strong>，其中后三者工业界比较常用，同时XGBoost和LightGBM也都是GBDT的变种；Bagging集成是每个基学习器间不需要存在依赖关系、可并行化，其中比较具有代表性的是随机森林（即 <strong>Random Forest</strong>），工业也比较常用。</p>
+Boosting集成是每个基学习器间存在强依赖关系、必须串行生成，目前比较有代表性的工业界框架有AdaBoost、<strong>GBDT、XGBoost和LightGBM</strong>，其中后三者工业界比较常用；Bagging集成是每个基学习器间不需要存在依赖关系、可并行化，其中比较具有代表性的是随机森林（即 <strong>Random Forest</strong>），工业也比较常用。</p>
 
 <p>这篇笔记主要基于周志华老师的《机器学习》西瓜书集成学习部分，聚焦在集成学习之Bagging方法。首先记录有放回采样的过程和特性；其次介绍集成学习Bagging方法，Bagging集成是建立在有放回采样的基础之上；最后介绍随机森林，随机森林是典型的基于Bagging集成的一个扩展变体。</p>
 
@@ -67,7 +67,7 @@ Boosting集成是每个基学习器间存在强依赖关系、必须串行生成
 对于基学习器的结合策略，Bagging通常对分类任务使用简单投票法，对回归任务使用平均法。
 Bagging 的算法描述如下：</p>
 
-<div align="center"> <img src="/images/bagging.png" alt="avatar" style="zoom:35%;" /> </div>
+<div align="center"> <img src="/images/20200118_bagging.png" alt="avatar" style="zoom:35%;" /> </div>
 
 <p>其中，<code>$D_{bs}$</code> 是有放回采样产生的样本分布。
 Bagging集成的优势主要如下：
@@ -85,7 +85,7 @@ RF在以决策树为基学习器构建Bagging集成的基础上，进一步在�
 <p>随机森林的收敛性与Bagging相似（如下图所示），随机森林的起始性能往往相对较差，特别是在集成中只包含一个基学习器时。
 因为通过引入属性扰动，随机森林中个体学习器的性能往往有所降低，然而，随着个体学习器数目的增加，随机森林通常会收敛到更低的泛化误差。</p>
 
-<div align="center"> <img src="/images/uci.png" alt="avatar" style="zoom:42%;" /> </div>
+<div align="center"> <img src="/images/20200118_uci.png" alt="avatar" style="zoom:42%;" /> </div>
 
 <h2 id="总结">总结</h2>
 

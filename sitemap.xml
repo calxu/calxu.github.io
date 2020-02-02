@@ -3,37 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://calxu.github.io/about/</loc>
-    <lastmod>2020-01-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://calxu.github.io/</loc>
-    <lastmod>2020-01-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/categories/</loc>
-    <lastmod>2020-01-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/tags/machine-learning/</loc>
-    <lastmod>2020-01-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/categories/machine-learning/</loc>
-    <lastmod>2020-01-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/note/</loc>
-    <lastmod>2020-01-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-02-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/tags/</loc>
+    <lastmod>2020-02-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/note/20200202_ml_boosting/</loc>
+    <lastmod>2020-02-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/about/</loc>
     <lastmod>2020-01-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -78,12 +83,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/git/</loc>
+    <loc>https://calxu.github.io/tags/git/</loc>
     <lastmod>2019-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/git/</loc>
+    <loc>https://calxu.github.io/categories/git/</loc>
     <lastmod>2019-08-10T00:00:00+00:00</lastmod>
   </url>
   
