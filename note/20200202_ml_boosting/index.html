@@ -70,7 +70,7 @@
 
 <p>　(c) 计算 <code>$G_m(x)$</code> 的系数 <code>$a_m=\frac{1}{2} log \frac{1-e_m}{e_m}$</code> ，这里的对数是自然对数；</p>
 
-<p>　(d) 更新训练数据集的权值分布 <code>$D_{m+1}=(w_{m+1,1},...,w_{m+1,i},...,w_{m+1,N})$</code> ，其中 <code>$w_{m+1,i}=\frac{w_{mi}}{Z_m}e^{-a_my_iG_m(x_i)}, i=1,2,...,N$</code> ，这里 <code>$Z_m$</code> 是规范化因子，<code>$Z_m=\sum_{i=1}^{N}w_{mi} \cdot  e^{-a_my_iG_m(x_i)}$</code> ，它使 <code>$D_{m+1}$</code> 成为一个概率分布；</p>
+<p>　(d) 更新训练数据集的权值分布 <code>$D_{m+1}=(w_{m+1,1},...,w_{m+1,i},...,w_{m+1,N})$</code> ，其中 <code>$w_{m+1,i}=\frac{w_{mi}}{Z_m}e^{-a_m \cdot y_i \cdot G_m(x_i)}, i=1,2,...,N$</code> ，这里 <code>$Z_m$</code> 是规范化因子，<code>$Z_m=\sum_{i=1}^{N}w_{mi} \cdot  e^{-a_my_iG_m(x_i)}$</code> ，它使 <code>$D_{m+1}$</code> 成为一个概率分布；</p>
 
 <p>(3)构建基本分类器的线性组合 <code>$f(x)=\sum_{m=1}^{M} a_m G_m(x)$</code> ，得到最终分类器 <code>$G(x)=sign(f(x))$</code> ，其中 <code>$sign(x)$</code> 为符号函数；</p>
 
@@ -86,7 +86,7 @@
 
 <p>　(c) 计算基本分类器 <code>$G_m(x)$</code> 的系数 <code>$a_m$</code> ，<code>$a_m$</code> 表示 <code>$G_m(x)$</code> 在最终分类器中的重要性。由式 <code>$a_m=\frac{1}{2}log\frac{1-e_m}{e_m}$</code> 可知，当 <code>$e_m \leqslant \frac{1}{2}$</code> ，<code>$a_m \geqslant 0$</code> ，并且 <code>$a_m$</code> 随着 <code>$e_m$</code> 的减小而增大，所以分类误差率越小的基本分类器在最终分类器中的作用越大。</p>
 
-<p>　(d) 更新训练数据的权值分布为下一轮作准备，式 <code>$w_{m+1,i}=\frac{w_{mi}}{Z_m}e^{-a_my_iG_m(x_i)}$</code> 可以写成：
+<p>　(d) 更新训练数据的权值分布为下一轮作准备，式 <code>$w_{m+1,i}=\frac{w_{mi}}{Z_m}e^{-a_m \cdot y_i \cdot G_m(x_i)}$</code> 可以写成：
 <code>$w_{m+1,i}= \begin{cases} \frac{w_{mi}}{Z_m} \cdot e^{-a_m} , &amp;&amp; G_m(x_i)=y_i \\ \frac{w_{mi}}{Z_m} \cdot e^{a_m} , &amp;&amp; G_m(x_i) \neq y_i \end{cases}$</code></p>
 
 <p>由此可知，被基本分类器 <code>$G_m(x)$</code> 误分类样本的权值得以扩大，而被正确分类样本的权值却得以缩小。两相比较，误分类样本的权值被放大 <code>$e^{2a_m}=\frac{e_m}{1-e_m}$</code> 倍。因此，误分类样本在下一轮学习中起更大的作用。不改变所给的训练数据，而不断改变训练数据权值的分布，使得训练数据在基本分类器的学习中起不同的作用，这是AdaBoost的一个特点。这在一定程度上类似“残差逼近”的思想。</p>
@@ -133,9 +133,9 @@
 
 <h4 id="boosting-tree算法描述-1">Boosting Tree算法描述</h4>
 
-<p>输入：训练集 <code>$T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\},x_i \in X \subseteq R^n,y_i \in Y \subseteq R$</code> ；</p>
+<p><strong>输入：</strong>训练集 <code>$T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\},x_i \in X \subseteq R^n,y_i \in Y \subseteq R$</code> ；</p>
 
-<p>输出：提升树 <code>$f_M(x)$</code></p>
+<p><strong>输出：</strong>提升树 <code>$f_M(x)$</code></p>
 
 <p>(1) 初始化 <code>$f_0(x)=0$</code></p>
 
@@ -151,7 +151,7 @@
 
 <h3 id="boosting-tree例子">Boosting Tree例子</h3>
 
-<p>直接看Boosting Tree算法描述会比较抽象，下面列举一个Boosting Tree的例子，摘自《统计学习方法》，如下：</p>
+<p>直接看Boosting Tree算法描述会比较抽象，下面列举一个Boosting Tree的例子，摘自《统计学习方法》 P<sub>168-170</sub>，如下：</p>
 
 <div align="center"> <img src="/images/20200202_boosting_tree.png" alt="avatar" /> </div>
 
