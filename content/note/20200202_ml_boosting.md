@@ -48,7 +48,7 @@ AdaBoost（Adaptive Boosting）有自适应集成之意。对于AdaBoost而言�
 
 　\(c\) 计算 `$G_m(x)$` 的系数 `$a_m=\frac{1}{2} log \frac{1-e_m}{e_m}$` ，这里的对数是自然对数；
 
-　(d) 更新训练数据集的权值分布 `$D_{m+1}=(w_{m+1,1},...,w_{m+1,i},...,w_{m+1,N})$` ，其中 `$w_{m+1,i}=\frac{w_{mi}}{Z_m}e^{-a_my_iG_m(x_i)}, i=1,2,...,N$` ，这里 `$Z_m$` 是规范化因子，`$Z_m=\sum_{i=1}^{N}w_{mi} \cdot  e^{-a_my_iG_m(x_i)}$` ，它使 `$D_{m+1}$` 成为一个概率分布；
+　(d) 更新训练数据集的权值分布 `$D_{m+1}=(w_{m+1,1},...,w_{m+1,i},...,w_{m+1,N})$` ，其中 `$w_{m+1,i}=\frac{w_{mi}}{Z_m}e^{-a_m \cdot y_i \cdot G_m(x_i)}, i=1,2,...,N$` ，这里 `$Z_m$` 是规范化因子，`$Z_m=\sum_{i=1}^{N}w_{mi} \cdot  e^{-a_my_iG_m(x_i)}$` ，它使 `$D_{m+1}$` 成为一个概率分布；
 
 (3)构建基本分类器的线性组合 `$f(x)=\sum_{m=1}^{M} a_m G_m(x)$` ，得到最终分类器 `$G(x)=sign(f(x))$` ，其中 `$sign(x)$` 为符号函数；
 
@@ -65,7 +65,7 @@ AdaBoost（Adaptive Boosting）有自适应集成之意。对于AdaBoost而言�
 
 　\(c\) 计算基本分类器 `$G_m(x)$` 的系数 `$a_m$` ，`$a_m$` 表示 `$G_m(x)$` 在最终分类器中的重要性。由式 `$a_m=\frac{1}{2}log\frac{1-e_m}{e_m}$` 可知，当 `$e_m \leqslant \frac{1}{2}$` ，`$a_m \geqslant 0$` ，并且 `$a_m$` 随着 `$e_m$` 的减小而增大，所以分类误差率越小的基本分类器在最终分类器中的作用越大。
 
-　(d) 更新训练数据的权值分布为下一轮作准备，式 `$w_{m+1,i}=\frac{w_{mi}}{Z_m}e^{-a_my_iG_m(x_i)}$` 可以写成：
+　(d) 更新训练数据的权值分布为下一轮作准备，式 `$w_{m+1,i}=\frac{w_{mi}}{Z_m}e^{-a_m \cdot y_i \cdot G_m(x_i)}$` 可以写成：
 `$w_{m+1,i}= \begin{cases} \frac{w_{mi}}{Z_m} \cdot e^{-a_m} , && G_m(x_i)=y_i \\ \frac{w_{mi}}{Z_m} \cdot e^{a_m} , && G_m(x_i) \neq y_i \end{cases}$`
 
 由此可知，被基本分类器 `$G_m(x)$` 误分类样本的权值得以扩大，而被正确分类样本的权值却得以缩小。两相比较，误分类样本的权值被放大 `$e^{2a_m}=\frac{e_m}{1-e_m}$` 倍。因此，误分类样本在下一轮学习中起更大的作用。不改变所给的训练数据，而不断改变训练数据权值的分布，使得训练数据在基本分类器的学习中起不同的作用，这是AdaBoost的一个特点。这在一定程度上类似“残差逼近”的思想。
@@ -118,9 +118,9 @@ Boosting Tree又称提升树，它是以分类树或回归树为基本分类器�
 
 #### Boosting Tree算法描述
 
-输入：训练集 `$T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\},x_i \in X \subseteq R^n,y_i \in Y \subseteq R$` ；
+**输入：**训练集 `$T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\},x_i \in X \subseteq R^n,y_i \in Y \subseteq R$` ；
 
-输出：提升树 `$f_M(x)$`
+**输出：**提升树 `$f_M(x)$`
 
 (1) 初始化 `$f_0(x)=0$`
 
@@ -137,7 +137,7 @@ Boosting Tree又称提升树，它是以分类树或回归树为基本分类器�
 
 ### Boosting Tree例子
 
-直接看Boosting Tree算法描述会比较抽象，下面列举一个Boosting Tree的例子，摘自《统计学习方法》，如下：
+直接看Boosting Tree算法描述会比较抽象，下面列举一个Boosting Tree的例子，摘自《统计学习方法》 P<sub>168-170</sub>，如下：
 
 <div align="center"> <img src="/images/20200202_boosting_tree.png" alt="avatar" /> </div>
 
