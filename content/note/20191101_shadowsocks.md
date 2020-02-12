@@ -30,13 +30,16 @@ tags:
 
 这里提供下我的ss帐号密码供大家使用，别薅我流量，黑客也不要攻击我机器，VPN仅供程序员学习使用，不能作恶；
 ip可能会被GFW封，被封后我再重新切换下ip，关注这个blog即可。
+**之前的协议已在2月初被封，目前已经Change端口号和加密方法，更改后如下：**
 
 ```
-地址：    47.240.10.78:8432
-加密方法： aes-256-cfb
+地址：    47.240.10.78:8765
+加密方法： aes-256-ctr
 密码：    Dont_be_evil
 备注：    Dont_be_evil
 ```
+
+注：香港的服务器，经常存在数据分发不稳定的情况，勉强用吧，后期有空会深入研究下ss后再改进。
 
 ### 客户端的工作原理（MAC版）：
 
@@ -49,7 +52,7 @@ ip可能会被GFW封，被封后我再重新切换下ip，关注这个blog即可
 
 3. privoxy是对http协议的代理，监听1087端口，然后转发到1080端口由ss-local程序负责转发；
 
-* 注：以上原理详情可参考Github [ShadowsocksX-NG官网](https://github.com/shadowsocks/ShadowsocksX-NG)
+注：以上原理详情可参考Github [ShadowsocksX-NG官网](https://github.com/shadowsocks/ShadowsocksX-NG)
 
 
 ## 服务端配置
