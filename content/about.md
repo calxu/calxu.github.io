@@ -51,14 +51,14 @@ date: '2020-02-11'
 **硕士小论文：**
 
 * Inferring Social Ties from Multi-view Spatiotemporal Co-occurrence 
-  ( CCF C类，第一作者，<a href="/quote/paper_2018_apweb.pdf" target="_blank">PDF</a> , )
+  ( CCF C类，第一作者，<a href="/quote/paper_2018_apweb.pdf" target="_blank">PDF</a> , <a href="https://github.com/calxu/small_paper" target="_blank">Code</a> )
 
 * Context Co-occurrence Based Relationship Prediction in Spatiotemporal Data 
   ( EI检索，第一作者，<a href="/quote/paper_2018_cmsa.pdf" target="_blank">PDF</a> )
 
 
 **2018年硕士毕业论文：**
-基于时空上下文共现的用户关系强度预测（ <a href="/quote/thesis_paper_201805.pdf" target="_blank">PDF</a> ,  ）
+基于时空上下文共现的用户关系强度预测（ <a href="/quote/thesis_paper_201805.pdf" target="_blank">PDF</a> ）
 
 
 **2015年本科毕业论文：**
