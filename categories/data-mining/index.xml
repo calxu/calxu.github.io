@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Mining on calxu</title>
+    <link>https://calxu.github.io/categories/data-mining/</link>
+    <description>Recent content in Data Mining on calxu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://calxu.github.io/categories/data-mining/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>数据挖掘笔记-时序特征的加工</title>
+      <link>https://calxu.github.io/note/20200212_timeseries_features/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200212_timeseries_features/</guid>
+      <description>在工业界，不管是做风控模型还是做推荐系统，都会涉及到特征工程，特征工程往往直接决定着最终模型的效果。 在特征工程中如何来表征出数据中的信息，结合特定的场景是有一定的技巧和套路的方法论的。 记得以前在学校里打Kaggle比赛，有选手就专门总结出做特征的模版，不管什么挖掘类的比赛直接拿过来套就可以了，这很大程度加快了模型调测的速度。
+在特征中有一类非常重要特征是时序特征。 时序信息的表征总得来说有两大方法： 1. 第一种方法是通过特征工程的方式来加工时序特征，这种方法的优点 可解释性强；缺点 很容易信息表达不全，严重依赖于对场景的经验的理解； 2. 第二种方法是通过LSTM时序神经网络的方法来学得时序信息，这种方法优点 信息表达全，能学得内在潜在规律；缺点 可解释性差，需要调网络参数。
+以上两种方法各有优缺点。 我是从事金融行业的，很多时候需要追求可解释性和操作的方便性，所以有不少场景是通过特征工程的方式来加工时序特征的。 这里主要介绍下特征工程的方式来加工时序特征。 当时在学校师兄在微软实习时，微软根据Office产品使用情况来加工相应时序特征进行预测用户的付款意愿。 回学校后我们对它进行了总结归纳，时序特征的加工如下（以下是直接用LaTeX生成的PDF文件显示的，等有空时我把它处理成Markdown格式的，源文件可到这里下载 PDF文件 和 LaTeX源文件 ）。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>数据挖掘笔记-时序特征的加工 | calxu</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/links/">Links</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">数据挖掘笔记-时序特征的加工</span></h1>
+
+<h2 class="date">2020/02/12</h2>
+</div>
+
+<main>
+<p>在工业界，不管是做<strong>风控模型</strong>还是做<strong>推荐系统</strong>，都会涉及到特征工程，特征工程往往直接决定着最终模型的效果。
+在特征工程中如何来表征出数据中的信息，结合特定的场景是有一定的技巧和套路的方法论的。
+记得以前在学校里打Kaggle比赛，有选手就专门总结出做特征的模版，不管什么挖掘类的比赛直接拿过来套就可以了，这很大程度加快了模型调测的速度。</p>
+
+<p>在特征中有一类非常重要特征是<strong>时序特征</strong>。
+时序信息的表征总得来说有两大方法：
+1. 第一种方法是通过特征工程的方式来加工时序特征，这种方法的优点 <strong>可解释性强</strong>；缺点 <strong>很容易信息表达不全，严重依赖于对场景的经验的理解</strong>；
+2. 第二种方法是通过LSTM时序神经网络的方法来学得时序信息，这种方法优点 <strong>信息表达全，能学得内在潜在规律</strong>；缺点 <strong>可解释性差，需要调网络参数</strong>。</p>
+
+<p>以上两种方法各有优缺点。
+我是从事金融行业的，很多时候需要追求可解释性和操作的方便性，所以有不少场景是通过特征工程的方式来加工时序特征的。
+这里主要介绍下特征工程的方式来加工时序特征。
+当时在学校师兄在微软实习时，微软根据Office产品使用情况来加工相应时序特征进行预测用户的付款意愿。
+回学校后我们对它进行了总结归纳，时序特征的加工如下（以下是直接用LaTeX生成的PDF文件显示的，等有空时我把它处理成Markdown格式的，源文件可到这里下载
+ <a href="/quote/features_engineering_202002.pdf" target="_blank">PDF文件</a> 和
+ <a href="/quote/features_engineering_202002.tex" target="_blank">LaTeX源文件</a> ）。</p>
+
+<p><embed src="/quote/features_engineering_202002.pdf" width="800px" height="1500px" /></p>
+
+</main>
+
+  <footer>
+  <script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+  </footer>
+  </body>
+</html>
+
