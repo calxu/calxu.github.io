@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graph on calxu</title>
+    <link>https://calxu.github.io/categories/graph/</link>
+    <description>Recent content in Graph on calxu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://calxu.github.io/categories/graph/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>工程篇-图谱工具Neo4j搭建与入门学习</title>
+      <link>https://calxu.github.io/note/20200226_neo4j_1/</link>
+      <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200226_neo4j_1/</guid>
+      <description>图谱近几年在互联网公司里用得非常普遍。据我所知，在 推荐领域 和 风控反作弊领域 用得非常多，最近也面试了数据挖掘岗的大大小小的互联网公司，大概 30% 的公司都问了关于图谱的一些知识。所以关于图谱的应用的需求还是非常大的，还是有必要学习下图谱的工业界一些通用的工具和套路。
+图谱在应用中有一个很大的优点，它的解释能力很强，它基于一个“人以类聚，物以群分“原则，比如在社交图谱中，一个用户的所有的朋友学历水平能非常好地反映这个用户学历水平。所以在很多项目中，很多时候都是以用户近邻的特征来对该用户进行特征刻画的。
+基本图的存储在大学里的《数据结构》中描述了最基本存储结构有 邻接表 和 邻接矩阵 。而对于图谱的存储，会比基本图的存储更加复杂，图谱存储细节后期再慢慢探索。好在工业界有一些非常成熟的图谱数据库的框架，目前比较流行的有 neo4j 和 orientdb 。
+关于技术框架的选型， 我一般从两个层面来进行比较：1. 目前工业界普遍使用哪种，一方面身边朋友的部门在技术选型的时候用 neo4j 居多，另一方面在 数据库排行 存储图的DB中，neo4j 工业界普及率排第一，用得人多相对而言遇到各种问题，网上都可以找到答案，用得人少则会有很多隐藏着的坑；2.比较社区的活跃度，在Github活跃度 neo4j 和 orientdb ，前者活跃度 综合来看 要好于后者。综上两大点，我也选择 neo4j 进行学习。
+这篇笔记主要学习下Neo4j环境的搭建，搭建包含服务端配置和客户端使用；然后再介绍下Neo4j入门级的非常常用的语法；最后进行了一个小的总结。
+Neo4j环境搭建 服务端配置  服务端的选择：我一般习惯Linux系统进行后台配置，不太习惯Mac OS（兼容性会略有差别）。所以一般习惯把服务挂在Linux系统的云端，目前 云 已经渐渐成为一个基础设施了，如果只是做一些小的测试型的实验，一般最低配云服务器就可以了，价格也很便宜。我一般习惯 阿里云/腾讯云/百度云 轮流薅一遍它们的活动价，今晚薅到一台最低配的百度云 84元/年，够自己折腾一年了 ^_^。
+ 服务端的环境依赖：对于环境依赖，没有去深究细节的依赖关系。只是按照 Github 上 Dependencies 部分挨个安装了下，Ubuntu操作系统操作细节如下：
+apt update apt install maven openjdk-8-jdk apt install debhelper devscripts dos2unix dpkg make xmlstarlet curl -O http://download-keycdn.ej-technologies.com/install4j/install4j_linux_6_1_4.deb dpkg -i install4j_linux_6_1_4.</description>
+    </item>
+    
+  </channel>
+</rss>
