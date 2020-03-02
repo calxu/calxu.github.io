@@ -6,10 +6,19 @@
     <description>Recent content in Tags on calxu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VPN</title>
+      <link>https://calxu.github.io/tags/vpn/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/tags/vpn/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Graph</title>
@@ -44,15 +53,6 @@
       <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://calxu.github.io/tags/hugo%E6%A1%86%E6%9E%B6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>VPN</title>
-      <link>https://calxu.github.io/tags/vpn/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://calxu.github.io/tags/vpn/</guid>
       <description></description>
     </item>
     

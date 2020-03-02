@@ -6,10 +6,28 @@
     <description>Recent content in VPN on calxu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/categories/vpn/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>利用开源frp&#43;ss升级搭建翻墙VPN</title>
+      <link>https://calxu.github.io/note/20200301_vpn_2/</link>
+      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200301_vpn_2/</guid>
+      <description>之前直接利用ss搭建翻墙VPN已经成功被 GFW 封杀，可能是因为是建墙者可以成功检测出 利用 ss 传输协议的特征，从而利用传输协议的特征来封禁服务端的IP，最终导致我 ping 都不能ping通 服务端的机器。很是无语，最终尝试了不同地域的境外的 VPS 云服务，都以 IP 被封禁而告终。
+最近朋友跟我说可以利用frp中转ss的方法避开 GFW 的检测，于是我 Google 了下关键字进行学习和尝试，用了一天时间折腾终于搭建成功了。目前该方法的流量协议未被 GFW 检测到，但不代表该方法会一直有效下去，因为GFW 流量检测协议的策略本身就是个不断升级的工作，所以我们也要不断的升级翻墙VPN的方法，这也是市面上很多卖翻墙VPN的工具帐号不能永久有效的原因。
+下图给出frp+ss升级搭建中转翻墙VPN的概要原理图，由下图可知主要包含三部分的配置：客户端ss、中转服务器和ss服务器。这篇笔记首先介绍客户端ss的配置，作为用户你只需要配置客户端ss即可，其余无需关心；然后介绍中转服务器的配置；其次介绍ss服务器端的配置；最后总结并对未来针对 GFW 作一些未来应对策略。
+客户端ss配置 PC客户端软件下载可到 GitHub 发布的 Releases 下载最新的版本即可（ windows版 和 Mac版 ），移动端（Android版），苹果移动端也是有的可以自己搜索下。
+客户端ss大致的工作原理可以参考下以前写的 blog 。PC客户端可以结合Chrome插件 SwitchyOmega 使用，其中ss信息配置如下（不要薅我流量，黑户也不要攻击我的机器，仅供程序员学习使用）：
+地 址： 39.97.122.11:12345 加密方法： aes-256-cfb 密 码： Dont_be_evil 备 注： Dont_be_evil  ss配置完可以用百度看下IP地址，IP地址重定向到香港的阿里云即配置正确，如下图所示方式查看测试结果：
+中转服务器配置 中转服务器我是选用的是北京阿里云，成本有点高（大概60元/月，唉，只有每个月省点了）。中转服务器主要负责将请求转发到ss服务器，然后由ss服务器完成并返回至中转服务器，最后中转服务器将数据返给客户端。中转服务器的配置主要是 frps 服务端的配置，它负责请求的转发。下面就环境安装、服务端配置和启动服务作一下说明。
+环境安装： frp软件可到Github 的releases 的 官方网站 进行下载解压即可。
+服务端配置： 修改以上解压后目录的 frps.ini 文件，详细如下：
+[common] # 穿透服务器端监听的端口，默认7000 bind_port = 7000 # 管理日志：日志存放位置；日志记录级别（debug/info/warn/error）；保存天数 log_file = .</description>
+    </item>
     
     <item>
       <title>利用开源ss工具快速搭建翻墙VPN</title>
