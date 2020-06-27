@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo框架 on calxu</title>
+    <title>Hugo框架 on Travis, Xu</title>
     <link>https://calxu.github.io/categories/hugo%E6%A1%86%E6%9E%B6/</link>
-    <description>Recent content in Hugo框架 on calxu</description>
+    <description>Recent content in Hugo框架 on Travis, Xu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Jan 2020 00:00:00 +0000</lastBuildDate>
