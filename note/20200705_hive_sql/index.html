@@ -80,7 +80,7 @@ PARTITION (dt = '2020-07-05');
 
 <p>注：1.文件需与表结构对应，即字段是以 <code>\t</code> 分隔，记录是以 <code>\n</code> 分隔；2.以上两种载入的区别在于 <strong>LOCAL</strong> 关键字；</p>
 
-<h2 id="从另一张表写入另一张表">从另一张表写入另一张表</h2>
+<h2 id="从一张表写入另一张表">从一张表写入另一张表</h2>
 
 <pre><code>INSERT OVERWRITE TABLE test_tmp.temporary_table PARTITION (dt = '2020-07-05')
     
