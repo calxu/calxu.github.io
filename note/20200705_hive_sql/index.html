@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hive常用创删表SQL笔记 | Travis, Xu</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/about">个人介绍</a></li>
+      
+      <li><a href="/">学习笔记</a></li>
+      
+      <li><a href="/categories/">笔记分类</a></li>
+      
+      <li><a href="/links/">相关友链</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Hive常用创删表SQL笔记</span></h1>
+
+<h2 class="date">2020/07/05</h2>
+</div>
+
+<main>
+
+
+<p>从度小满来到京东后，逐渐从原来的数据挖掘工程师转变成了SQL工程师。相比而言，京东的中台基建要比度小满强太多了，优点是做数据挖掘的同学就可以专注业务本身，不需要太关注于数据库环境/操作系统环境/任务调度各种琐碎的工程细节；缺点就是对我个人而言，原来各种相对全栈的技能就退化成专心写SQL了（^_^）。</p>
+
+<p>下面稍微整理下在公司内部天天用到的Hive SQL创删表的一些语句，这些创删表语句基本上在使用Hive的每个公司都是天天用的。虽然也可以在需要时直接Google下就出来了，但每次都需要搜索，索性就一次性把它整理下，下次用到时直接到笔记复制粘贴即可。</p>
+
+<h2 id="创建新表">创建新表</h2>
+
+<pre><code>USE test_tmp;
+
+DROP TABLE IF EXISTS test_tmp.temporary_table;
+
+CREATE TABLE IF NOT EXISTS test_tmp.temporary_table
+(
+    company_name STRING,
+    company_id   STRING
+)
+PARTITIONED BY 
+(
+    dt   STRING
+)
+COMMENT '临时测试表'
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY '\t' 
+LINES TERMINATED BY '\n' 
+STORED AS textfile;
+</code></pre>
+
+<p>注：上面使用的partition，即时间切片，不需要partition去掉即可；</p>
+
+<h2 id="往表里载入文件">往表里载入文件</h2>
+
+<p><strong>1.载入本地文件</strong></p>
+
+<pre><code>LOAD DATA LOCAL INPATH '/path/to/local/file'
+OVERWRITE INTO TABLE test_tmp.temporary_table
+PARTITION (dt = '2020-07-05');
+</code></pre>
+
+<p><strong>2.载入HDFS上文件</strong></p>
+
+<pre><code>LOAD DATA INPATH 'hdfs://path/to/local/file'
+OVERWRITE INTO TABLE test_tmp.temporary_table
+PARTITION (dt = '2020-07-05');
+</code></pre>
+
+<p>注：1.文件需与表结构对应，即字段是以 <code>\t</code> 分隔，记录是以 <code>\n</code> 分隔；2.以上两种载入的区别在于 <strong>LOCAL</strong> 关键字；</p>
+
+<h2 id="从另一张表写入另一张表">从另一张表写入另一张表</h2>
+
+<pre><code>INSERT OVERWRITE TABLE test_tmp.temporary_table PARTITION (dt = '2020-07-05')
+    
+SELECT company_name,
+       company_id
+FROM  test_tmp.temporary_another_table;
+</code></pre>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ol>
+<li><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL">Hive Sql官方语法指南</a></li>
+</ol>
+
+</main>
+
+  <footer>
+  <script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+  </footer>
+  </body>
+</html>
+

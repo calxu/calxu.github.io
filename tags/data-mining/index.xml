@@ -6,10 +6,24 @@
     <description>Recent content in Data Mining on Travis, Xu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/tags/data-mining/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hive常用创删表SQL笔记</title>
+      <link>https://calxu.github.io/note/20200705_hive_sql/</link>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200705_hive_sql/</guid>
+      <description>从度小满来到京东后，逐渐从原来的数据挖掘工程师转变成了SQL工程师。相比而言，京东的中台基建要比度小满强太多了，优点是做数据挖掘的同学就可以专注业务本身，不需要太关注于数据库环境/操作系统环境/任务调度各种琐碎的工程细节；缺点就是对我个人而言，原来各种相对全栈的技能就退化成专心写SQL了（^_^）。
+下面稍微整理下在公司内部天天用到的Hive SQL创删表的一些语句，这些创删表语句基本上在使用Hive的每个公司都是天天用的。虽然也可以在需要时直接Google下就出来了，但每次都需要搜索，索性就一次性把它整理下，下次用到时直接到笔记复制粘贴即可。
+创建新表 USE test_tmp; DROP TABLE IF EXISTS test_tmp.temporary_table; CREATE TABLE IF NOT EXISTS test_tmp.temporary_table ( company_name STRING, company_id STRING ) PARTITIONED BY ( dt STRING ) COMMENT &#39;临时测试表&#39; ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;\t&#39; LINES TERMINATED BY &#39;\n&#39; STORED AS textfile;  注：上面使用的partition，即时间切片，不需要partition去掉即可；
+往表里载入文件 1.载入本地文件
+LOAD DATA LOCAL INPATH &#39;/path/to/local/file&#39; OVERWRITE INTO TABLE test_tmp.temporary_table PARTITION (dt = &#39;2020-07-05&#39;);  2.载入HDFS上文件
+LOAD DATA INPATH &#39;hdfs://path/to/local/file&#39; OVERWRITE INTO TABLE test_tmp.</description>
+    </item>
     
     <item>
       <title>数据挖掘笔记-时序特征的加工</title>

@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Travis, Xu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Mining</title>
+      <link>https://calxu.github.io/categories/data-mining/</link>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/categories/data-mining/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>VPN</title>
@@ -26,15 +35,6 @@
       <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://calxu.github.io/categories/graph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Data Mining</title>
-      <link>https://calxu.github.io/categories/data-mining/</link>
-      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://calxu.github.io/categories/data-mining/</guid>
       <description></description>
     </item>
     

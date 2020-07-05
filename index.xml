@@ -6,10 +6,44 @@
     <description>Recent content on Travis, Xu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>https://calxu.github.io/about/</link>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/about/</guid>
+      <description>个人简介 我叫 徐彩旭（英文名 Travis,Xu），性别男，93年生。 目前在 京东 从事 数据挖掘的工作，涉及主要业务是 企业风控方向。 我先后在 百度 实习，后转正留用 度小满金融（前百度金融） 从事 数据挖掘的工作，涉及主要业务是 个人风险的风控。 之前，我在 苏州大学 和 东南大学成贤学院 分别获得我的 硕士 和 学士 学位，均为CS专业。 这里附一份我的 中文简历（2020年02月更新）， 欢迎一起交流学习，我的邮箱: csxucaixu@gmail.com。
+个人相关链接: Linkedin Github
+个人兴趣: 爱代码，爱折腾，爱数学，爱篮球，爱生活。
+自评: 做技术的手艺人。
+近期工作  目前从事企业风控图谱的应用开发；
+ 每天坚持学习英语；
+  工作背景  2020.02-至今: &amp;nbsp; 京东金融，北京大兴区，数据挖掘工程师。
+ 2018.07-2020.01: 度小满金融（原百度金融），北京海淀区，数据挖掘工程师。
+ 2017.06-2017.09: 百度，北京海淀区，大数据方向实习生。
+  教育背景  2015.09-2018.07: 苏州大学，硕士，计算机技术（排名Top 15%）。
+ 2011.09-2015.07: 东南大学成贤学院，本科，计算机科学与技术（排名Top 3%）。 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 南京邮电大学，本科，计算机应用技术（排名Top 3%）。
+  学校论文 毕业论文  2018年硕士毕业论文: 基于时空上下文共现的用户关系强度预测（ PDF ）</description>
+    </item>
+    
+    <item>
+      <title>Hive常用创删表SQL笔记</title>
+      <link>https://calxu.github.io/note/20200705_hive_sql/</link>
+      <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200705_hive_sql/</guid>
+      <description>从度小满来到京东后，逐渐从原来的数据挖掘工程师转变成了SQL工程师。相比而言，京东的中台基建要比度小满强太多了，优点是做数据挖掘的同学就可以专注业务本身，不需要太关注于数据库环境/操作系统环境/任务调度各种琐碎的工程细节；缺点就是对我个人而言，原来各种相对全栈的技能就退化成专心写SQL了（^_^）。
+下面稍微整理下在公司内部天天用到的Hive SQL创删表的一些语句，这些创删表语句基本上在使用Hive的每个公司都是天天用的。虽然也可以在需要时直接Google下就出来了，但每次都需要搜索，索性就一次性把它整理下，下次用到时直接到笔记复制粘贴即可。
+创建新表 USE test_tmp; DROP TABLE IF EXISTS test_tmp.temporary_table; CREATE TABLE IF NOT EXISTS test_tmp.temporary_table ( company_name STRING, company_id STRING ) PARTITIONED BY ( dt STRING ) COMMENT &#39;临时测试表&#39; ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;\t&#39; LINES TERMINATED BY &#39;\n&#39; STORED AS textfile;  注：上面使用的partition，即时间切片，不需要partition去掉即可；
+往表里载入文件 1.载入本地文件
+LOAD DATA LOCAL INPATH &#39;/path/to/local/file&#39; OVERWRITE INTO TABLE test_tmp.temporary_table PARTITION (dt = &#39;2020-07-05&#39;);  2.载入HDFS上文件
+LOAD DATA INPATH &#39;hdfs://path/to/local/file&#39; OVERWRITE INTO TABLE test_tmp.</description>
+    </item>
     
     <item>
       <title>利用开源frp&#43;ss升级搭建翻墙VPN</title>
@@ -54,26 +88,6 @@ apt update apt install maven openjdk-8-jdk apt install debhelper devscripts dos2
       <description>在工业界，不管是做风控模型还是做推荐系统，都会涉及到特征工程，特征工程往往直接决定着最终模型的效果。 在特征工程中如何来表征出数据中的信息，结合特定的场景是有一定的技巧和套路的方法论的。 记得以前在学校里打Kaggle比赛，有选手就专门总结出做特征的模版，不管什么挖掘类的比赛直接拿过来套就可以了，这很大程度加快了模型调测的速度。
 在特征中有一类非常重要特征是时序特征。 时序信息的表征总得来说有两大方法： 1. 第一种方法是通过特征工程的方式来加工时序特征，这种方法的优点 可解释性强；缺点 很容易信息表达不全，严重依赖于对场景的经验的理解； 2. 第二种方法是通过LSTM时序神经网络的方法来学得时序信息，这种方法优点 信息表达全，能学得内在潜在规律；缺点 可解释性差，需要调网络参数。
 以上两种方法各有优缺点。 我是从事金融行业的，很多时候需要追求可解释性和操作的方便性，所以有不少场景是通过特征工程的方式来加工时序特征的。 这里主要介绍下特征工程的方式来加工时序特征。 当时在学校师兄在微软实习时，微软根据Office产品使用情况来加工相应时序特征进行预测用户的付款意愿。 回学校后我们对它进行了总结归纳，时序特征的加工如下（以下是直接用LaTeX生成的PDF文件显示的，等有空时我把它处理成Markdown格式的，源文件可到这里下载 PDF文件 和 LaTeX源文件 ）。</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://calxu.github.io/about/</link>
-      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://calxu.github.io/about/</guid>
-      <description>个人简介 我叫 徐彩旭（英文名 Travis,Xu），性别男，93年生。 目前在 京东 从事 数据挖掘的工作，涉及主要业务是 企业风险方向。 我先后在 百度 实习，后转正留用 度小满金融（前百度金融） 从事 数据挖掘的工作，涉及主要业务是 个人风险的风控。 之前，我在 苏州大学 和 东南大学成贤学院 分别获得我的 硕士 和 学士 学位，均为CS专业。 这里附一份我的 中文简历（2020年02月更新）， 欢迎一起交流学习，我的邮箱：csxucaixu@gmail.com。
-个人相关链接： Linkedin Github
-个人兴趣： 爱代码，爱折腾，爱数学，爱篮球，爱生活。
-自评： 做技术的手艺人。
-近期工作  目前从事企业风控图谱的应用开发；
- 每天坚持学习英语；
-  工作背景  2020.02-至今： &amp;nbsp; 京东金融，北京大兴区，数据挖掘工程师。
- 2018.07-2020.01： 度小满金融（原百度金融），北京海淀区，数据挖掘工程师。
- 2017.06-2017.09： 百度，北京海淀区，大数据方向实习生。
-  教育背景  2015.09-2018.07： 苏州大学，硕士，计算机技术（排名Top 15%）。
- 2011.09-2015.07： 东南大学成贤学院，本科，计算机科学与技术（排名Top 3%）。 南京邮电大学，本科，计算机应用技术（排名Top 3%）。
-  学校论文 毕业论文  2018年硕士毕业论文： 基于时空上下文共现的用户关系强度预测（ PDF ）</description>
     </item>
     
     <item>
