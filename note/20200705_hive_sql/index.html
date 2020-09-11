@@ -89,6 +89,15 @@ SELECT company_name,
 FROM  test_tmp.temporary_another_table;
 </code></pre>
 
+<h2 id="分区处理">分区处理</h2>
+
+<p><strong>1.添加和删除分区</strong></p>
+
+<pre><code>ALTER TABLE test_tmp.temporary_table DROP IF EXISTS PARTITION (dt = '2020-07-05');
+
+ALTER TABLE test_tmp.temporary_table ADD IF NOT EXISTS PARTITION (dt = '2020-07-05');
+</code></pre>
+
 <h2 id="参考文献">参考文献</h2>
 
 <ol>
