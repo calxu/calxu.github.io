@@ -8,12 +8,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/machine-learning/</loc>
+    <loc>https://calxu.github.io/categories/machine-learning/</loc>
     <lastmod>2020-09-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/machine-learning/</loc>
+    <loc>https://calxu.github.io/tags/machine-learning/</loc>
     <lastmod>2020-09-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,12 +43,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/data-mining/</loc>
+    <loc>https://calxu.github.io/tags/data-mining/</loc>
     <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/data-mining/</loc>
+    <loc>https://calxu.github.io/categories/data-mining/</loc>
     <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -73,12 +73,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/graph/</loc>
+    <loc>https://calxu.github.io/categories/graph/</loc>
     <lastmod>2020-02-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/graph/</loc>
+    <loc>https://calxu.github.io/tags/graph/</loc>
     <lastmod>2020-02-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -108,18 +108,23 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/hugo%E6%A1%86%E6%9E%B6/</loc>
+    <loc>https://calxu.github.io/tags/hugo%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2020-01-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/hugo%E6%A1%86%E6%9E%B6/</loc>
+    <loc>https://calxu.github.io/categories/hugo%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2020-01-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/note/20200107_personal_blog/</loc>
     <lastmod>2020-01-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/books/</loc>
+    <lastmod>2019-12-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>

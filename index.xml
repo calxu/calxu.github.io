@@ -35,9 +35,9 @@
 个人相关链接: Linkedin Github
 个人兴趣: 爱代码，爱折腾，爱数学，爱篮球，爱生活。
 自评: 做技术的手艺人。
-近期工作  目前从事企业风控图谱的应用开发；
+近期工作  学习《西瓜书》、《统计学习方法》
  每天坚持学习英语；
-  工作背景  2020.02-至今: &amp;nbsp; 京东金融，北京大兴区，数据挖掘工程师。
+  工作背景  2020.03-2020.09: 京东数科，北京大兴区，数据挖掘工程师。
  2018.07-2020.01: 度小满金融（原百度金融），北京海淀区，数据挖掘工程师。
  2017.06-2017.09: 百度，北京海淀区，大数据方向实习生。
   教育背景  2015.09-2018.07: 苏州大学，硕士，计算机技术（排名Top 15%）。
@@ -177,6 +177,17 @@ Hugo是由Go语言实现的静态网站生成器，还是比较简单容易上�
 安装Hugo环境 $ brew install hugo $ hugo version  以上通过 hugo version 来验证hugo环境安装是否成功。这里是基于macOS环境安装，其它操作系统参考 官网安装 。
 生成个人网站 $ hugo new site blog_test  以上命令行会创建一个新的文件夹blog_test，该文件夹下包含Hugo最基本目录结构，其中blog_test目录下文件如下：
 . ├ archetypes/ ├ config.toml ├ content/ ├ data/ ├ layouts/ ├ static/ └ themes/  生成文件包含6个文件夹 和 1个全局配置文件，下面依次对这7个文件做相应的说明。</description>
+    </item>
+    
+    <item>
+      <title>Books</title>
+      <link>https://calxu.github.io/books/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/books/</guid>
+      <description> 最近看的书  《俞军的产品方法论》- 俞军
+ 《统计学习方法》- 李航
+  以前看的书  《浪潮之巅》- 吴军  </description>
     </item>
     
     <item>
