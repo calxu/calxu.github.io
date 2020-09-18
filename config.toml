@@ -22,6 +22,10 @@ theme = "hugo-xmin"
     url = "/categories/"
     weight = 3
 [[menu.main]]
+    name = "我的书架"
+    url = "/books/"
+    weight = 4
+[[menu.main]]
     name = "相关友链"
     url = "/links/"
-    weight = 4
+    weight = 5
