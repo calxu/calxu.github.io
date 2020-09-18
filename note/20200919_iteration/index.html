@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>机器学习笔记-梯度下降法和牛顿法 | Travis, Xu</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/about">个人介绍</a></li>
+      
+      <li><a href="/">学习笔记</a></li>
+      
+      <li><a href="/categories/">笔记分类</a></li>
+      
+      <li><a href="/links/">相关友链</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">机器学习笔记-梯度下降法和牛顿法</span></h1>
+
+<h2 class="date">2020/09/18</h2>
+</div>
+
+<main>
+
+
+<p>机器学习中很多时候都是在求解无约束条件的最优化问题，比如：感知机、逻辑斯谛回归、条件随机场的求解。在求解无约束最优化问题最常用的两类方法是 <strong>梯度下降法</strong> 和 <strong>牛顿法</strong>，可参考《统计学习方法》的附录A 和 附录B。
+这篇笔记记录下自己对两类方法的理解。</p>
+
+<h2 id="梯度下降法">梯度下降法</h2>
+
+<p>在机器学习任务中，要求目标函数 <code>$f(x)$</code> 的使其最小的 <code>$x$</code> 的值。梯度下降是一种迭代算法，常用来求解这类问题。基本步骤为：选取初值；梯度方向不断迭代；更新 <code>$x$</code> 的值找到最逼近的解。</p>
+
+<blockquote>
+<p>选取  <code>$x^{k}$</code> ，计算 <code>$f(x^{k})$</code> ，<code>$k$</code> 初始值为0；</p>
+
+<p>将 <code>$f(x^{k+1})$</code> 在 <code>$x^{k}$</code> 处一阶泰勒展开得： <code>$f(x^{k+1}) = f(x^{k} + \Delta t) \approx f(x^{k}) + f'(x^{k}) \Delta t$</code>  ，按梯度方向不断迭代逼近可取 <code>$\Delta t = - \lambda \cdot f'(x^k)$</code> ，其中 <code>$\lambda$</code> 为步长；</p>
+
+<p>重复以上两步，直到迭代找出相应的 <code>$x^{k+1}$</code> 为止，即 <code>$||f(x^{(k+1)} - f(x^k) || &lt; \epsilon$</code> ，停止迭代，令 <code>$x=x^{k+1}$</code> ；</p>
+</blockquote>
+
+<p><strong>个人理解：<code>$\Delta t = - \lambda \cdot f'(x^k)$</code> 这里的 <code>$\lambda$</code> 为步长，可由一维搜索确定，但一般直接赋一个小的数即可；其中 <code>$-f'(x^k)$</code> 为负梯度方向，这里也可以取与 <code>$f'(x^k)$</code> 正相关的数值；</strong></p>
+
+<h2 id="牛顿法">牛顿法</h2>
+
+<p>牛顿法是二阶泰勒展开，而梯度下降法是一阶泰勒展开。其基本步骤如下：</p>
+
+<blockquote>
+<p>选取 <code>$x^k$</code> ，计算 <code>$f(x^k)$</code> ，$k$` 初始值为0；</p>
+
+<p>将 <code>$f(x^{k+1})$</code> 在 <code>$x^k$</code> 处二阶泰勒展开得： <code>$f(x^{k+1}) = f(x^k + \Delta t) \approx f(x^k) + f'(x^k) \cdot \Delta t + \frac{1}{2} \cdot f''(x^k) \cdot (\Delta t)^2$</code> ，通常将一阶导和二阶导分别记为 <code>$g$</code> 和 <code>$h$</code> ： <code>$f(x^{k+1}) \approx f(x^k) + g \cdot \Delta t + \frac{1}{2} \cdot h \cdot (\Delta t)^2$</code> ，因为要使 <code>$f(x^{k+1})$</code> 取得极小值，则令 <code>$\frac{ \partial ( g \Delta t + \frac{1}{2} h \Delta t^2 ) } {\Delta t} = 0$</code> ，得到 <code>$\Delta t = - \frac{g}{h}$</code> ，则 <code>$x^{k+1} = x^{k} - \frac{g}{h}$</code> ，按二阶梯度方向不断迭代逼近；</p>
+
+<p>重复以上两步，直到迭代找出相应的 <code>$x^{k+1}$</code> 为止；</p>
+</blockquote>
+
+<p>注：当参数 <code>$x^k$</code> 推广到向量形式，迭代公式 <code>$x^{k+1} = x^k - H^{-1} \cdot g$</code> ，这里 <code>$H$</code> 是海赛矩阵。</p>
+
+<p><strong>个人理解：这里统计学习方法里没有引入 <code>$\lambda$</code> 步长，因为二阶导 <code>$g$</code> 已经携带这一步应该走多长信息，相当于 <code>$\lambda$</code> ;</strong></p>
+
+<h2 id="区别">区别</h2>
+
+<p>梯度下降是一阶收敛，牛顿法是二阶收敛，牛顿法相比梯度下降收敛更快。</p>
+
+<p>如果更通俗点，比如你想找一条最短路径到一个盆地的最底部，梯度下降每次从你当前所处位置选一个坡度最大的方向走一步；而牛顿法在选择方向时，不仅会考虑坡度是否大，还会考虑当你走了一步后，坡度是否会变得更大。所以说牛顿法比梯度下降法看得更远一点，能更快地到达盆地的最底部。</p>
+
+<p>从几何上说，牛顿法是用<strong>二次曲面</strong>去拟合你当前所处位置的<strong>局部曲面</strong>，而梯度下降是用一个<strong>平面</strong>去拟合当前的<strong>局部曲面</strong>，通常情况下，二次曲面的拟合会比局部曲面更好，所以牛顿法选择下降路径会更符合最优的路径。</p>
+
+<p><img src="/images/20200918_01.png" alt="avatar" style="zoom:10%;" /></p>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ol>
+<li><p><a href="https://zhuanlan.zhihu.com/p/38186912">梯度下降法与牛顿法比较</a></p></li>
+
+<li><p>《统计学习方法》附录A 与 附录B</p></li>
+</ol>
+
+</main>
+
+  <footer>
+  <script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+  </footer>
+  </body>
+</html>
+

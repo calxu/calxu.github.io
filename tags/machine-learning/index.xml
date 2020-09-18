@@ -6,10 +6,24 @@
     <description>Recent content in Machine Learning on Travis, Xu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>机器学习笔记-梯度下降法和牛顿法</title>
+      <link>https://calxu.github.io/note/20200919_iteration/</link>
+      <pubDate>Fri, 18 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200919_iteration/</guid>
+      <description>机器学习中很多时候都是在求解无约束条件的最优化问题，比如：感知机、逻辑斯谛回归、条件随机场的求解。在求解无约束最优化问题最常用的两类方法是 梯度下降法 和 牛顿法，可参考《统计学习方法》的附录A 和 附录B。 这篇笔记记录下自己对两类方法的理解。
+梯度下降法 在机器学习任务中，要求目标函数 $f(x)$ 的使其最小的 $x$ 的值。梯度下降是一种迭代算法，常用来求解这类问题。基本步骤为：选取初值；梯度方向不断迭代；更新 $x$ 的值找到最逼近的解。
+ 选取 $x^{k}$ ，计算 $f(x^{k})$ ，$k$ 初始值为0；
+将 $f(x^{k+1})$ 在 $x^{k}$ 处一阶泰勒展开得： $f(x^{k+1}) = f(x^{k} + \Delta t) \approx f(x^{k}) + f&#39;(x^{k}) \Delta t$ ，按梯度方向不断迭代逼近可取 $\Delta t = - \lambda \cdot f&#39;(x^k)$ ，其中 $\lambda$ 为步长；
+重复以上两步，直到迭代找出相应的 $x^{k+1}$ 为止，即 $||f(x^{(k+1)} - f(x^k) || &amp;lt; \epsilon$ ，停止迭代，令 $x=x^{k+1}$ ；
+ 个人理解：$\Delta t = - \lambda \cdot f&#39;(x^k)$ 这里的 $\lambda$ 为步长，可由一维搜索确定，但一般直接赋一个小的数即可；其中 $-f&#39;(x^k)$ 为负梯度方向，这里也可以取与 $f&#39;(x^k)$ 正相关的数值；</description>
+    </item>
     
     <item>
       <title>机器学习笔记-决策树</title>
