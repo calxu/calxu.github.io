@@ -4,36 +4,41 @@
   
   <url>
     <loc>https://calxu.github.io/categories/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/categories/machine-learning/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/tags/machine-learning/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/note/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/tags/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://calxu.github.io/</loc>
-    <lastmod>2020-09-18T00:00:00+00:00</lastmod>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/note/20200919_iteration/</loc>
+    <loc>https://calxu.github.io/note/20200920_ml_lr/</loc>
+    <lastmod>2020-09-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/note/20200918_ml_iteration/</loc>
     <lastmod>2020-09-18T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,12 +48,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/data-mining/</loc>
+    <loc>https://calxu.github.io/categories/data-mining/</loc>
     <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/data-mining/</loc>
+    <loc>https://calxu.github.io/tags/data-mining/</loc>
     <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -73,12 +78,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/graph/</loc>
+    <loc>https://calxu.github.io/tags/graph/</loc>
     <lastmod>2020-02-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/graph/</loc>
+    <loc>https://calxu.github.io/categories/graph/</loc>
     <lastmod>2020-02-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -138,12 +143,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/git/</loc>
+    <loc>https://calxu.github.io/categories/git/</loc>
     <lastmod>2019-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/git/</loc>
+    <loc>https://calxu.github.io/tags/git/</loc>
     <lastmod>2019-08-10T00:00:00+00:00</lastmod>
   </url>
   

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>机器学习笔记-逻辑斯谛回归与最大熵模型 | Travis, Xu</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/about">个人介绍</a></li>
+      
+      <li><a href="/">学习笔记</a></li>
+      
+      <li><a href="/categories/">笔记分类</a></li>
+      
+      <li><a href="/books/">我的书架</a></li>
+      
+      <li><a href="/links/">相关友链</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">机器学习笔记-逻辑斯谛回归与最大熵模型</span></h1>
+
+<h2 class="date">2020/09/20</h2>
+</div>
+
+<main>
+
+
+<p>学习了《统计学习方法》逻辑斯谛回归与最大熵模型这一章节，现在对这章节做一些笔记。逻辑斯谛回归是工业界非常常用的模型之一，它具有可解释性强、参数训练快等优点；但它有最大熵模型有什么关系，这里做一些笔记方便自己后面的复习。</p>
+
+<p>首先介绍最大熵模型，它是一种模型选择的原则，它本身在工业界并不常用，但它的思想几乎是很多模型选择算法中都有体现；其次通过例子说明逻辑斯谛回归是最大熵模型的一个特例。</p>
+
+<h2 id="最大熵模型">最大熵模型</h2>
+
+<p>最大熵模型通俗的解释就是按照模型熵最大的原则来选择模型，当我们预测一个随机变量时，最好假设它均匀分布，保留全部不确定性，此时预测的风险最小。举个例子：如果投掷一颗骰子，让你预测各面出现的概率，在没有任何额外信息的情况下，我们会认为骰子是均匀的，各面出现的概率为1/6，从直觉上说，这是最稳妥的策略。</p>
+
+<p>以上的直觉告诉我们最大熵模型是最稳妥的策略，具体数学上如果迭代学习最大熵的模型呢？《统计学习方法》最大熵模型的学习给了我们数学上的推导，这里稍做下疏理，方便自己后面的复习理解：</p>
+
+<p>最大熵模型是一个概率模型，目的是寻找符合要求的条件分布 <code>$P(Y|X)$</code> 。在定义最大熵模型之前，需要引入下列概念：</p>
+
+<p>联合分布的经验分布： <code>$\tilde{P}(X=x,Y=y) = \frac{v(X=x,Y=y)}{N}$</code></p>
+
+<p>边缘分布的经验分布： <code>$\tilde{P}(X=x) = \frac{v(X=x)}{N}$</code></p>
+
+<p>其中， <code>$v(X=x,Y=y)$</code> 表示训练集中样本 <code>$(x,y)$</code> 出现的频数， <code>$v(X=x)$</code> 表示训练数据中输入 <code>$x$</code> 出现的频数，$N$` 表示训练集样本数。</p>
+
+<p>特征函数： <code>$f(x,y)=\left\{\begin{matrix}
+1, &amp; x与y满足某一事实 &amp; \\
+0, &amp; 否则 &amp; \\
+\end{matrix}\right.$</code></p>
+
+<p>此特征函数具有普遍性，因此得到“最大熵模型”的一般形式。 <strong>如果替换为某种特殊形式，可以得到“逻辑斯谛模型”</strong> 。</p>
+
+<p>特征函数 <code>$f$</code> 关于经验分布 <code>$\tilde{P}(X,Y)$</code> 的期望值： <code>$E_{\tilde{P}}(f) = \sum_{x,y} \tilde{P}(x,y)f(x,y)$</code></p>
+
+<p>特征函数 <code>$f$</code> 关于联合分布 <code>$P(X,Y) = \tilde{P}(X)P(Y|X)$</code> 的期望值： <code>$E_P(f) = \sum_{x,y} \tilde{P}(x)P(y|x) f(x,y)$</code></p>
+
+<p>我们假设训练集对于模型的学习是有效的，使得 <code>$E_{\tilde{P}}(x) = E_{P}(f)$</code> ，此时特征函数 <code>$f$</code> 称为模型的约束条件。</p>
+
+<p><strong>最大熵模型：</strong>假设满足所有约束条件的模型集合为 <code>$E_P(f_i) = E_\tilde{P}(f_i),(i=1,2,...,n)$</code> ，定义在条件概率分布 <code>$P(Y|X)$</code> 上的条件熵为</p>
+
+<p><code>$H(P) = H(Y|X) = - \sum_{x \in X} P(x) \sum_{y \in Y} P(y|x) logP(y|x) = - \sum_{x,y} \tilde{P}(x)P(y|x)logP(y|x)$</code> ，<strong>满足约束条件且使得条件熵 <code>$H(P)$</code> 最大的模型，称为“最大熵模型”</strong>。</p>
+
+<p>最大熵模型的学习分为两步：</p>
+
+<p><strong>步骤一：转化为最优化问题</strong></p>
+
+<p>对于给定的训练集 <code>$T = {(x_1, y_1), (x_2, y_2), ..., (x_N,y_N)}$</code> ，特征函数 <code>$f_i(x,y), i=1,2,3,...,n$</code> ，最大熵模型的学习等价于约束最优化问题：</p>
+
+<p><code>$\underset{P}{max} \  H(P)=- \sum_{x,y} \tilde{P}(x)P(y|x)logP(y|x)$</code></p>
+
+<p>约束条件：条件1 <code>$E_P(f_i) = E_\tilde{P}(f_i),(i=1,2,...,n)$</code> ；条件2   <code>$\sum_{y} P(y|x)=1$</code></p>
+
+<p>一般需进一步转化为求最小值问题：</p>
+
+<p><code>$\underset{P}{min}  \ -H(P) = \sum_{x,y} \tilde{P}(x)P(y|x)logP(y|x)$</code></p>
+
+<p>约束条件：条件1 <code>$E_P(f_i) = E_\tilde{P}(f_i),(i=1,2,...,n)$</code> ；条件2   <code>$\sum_{y} P(y|x)=1$</code></p>
+
+<p>求条件极值，一般采用拉格朗日乘数法（<strong>对于条件极值套路性解法</strong>），定义拉格朗日函数 <code>$L(P,w)$</code> ，这里我们把 <code>$P$</code> 和 <code>$w$</code> 看成是自变量：</p>
+
+<p><code>$L(P, w) = \sum_{x,y} \tilde{P}(x)P(y|x)logP(y|x) + w_0(1 - \sum_{y} P(y|x) ) + \sum_{i=1}^{n} w_i \left ( \sum_{x,y} \tilde{P}(x,y)f_i(x,y) -  \sum_{x,y} \tilde{P}(x)P(y|x)f_i(x,y)     \right ) $</code></p>
+
+<p>对 <code>$L(P, w)$</code> 的求极值，可以算得： <code>$P(y|x) = exp(\sum_{i=1}^{n} w_i f_i(x,y) + w_0 -1 ) = \frac{exp(\sum_{i=1}^{n}w_i f_i(x,y))}{exp(1-w_0)}$</code></p>
+
+<p>根据约束条件 <code>$\sum_{y} P(y|x) = 1$</code> 得：</p>
+
+<p><code>$Z_w(x) = \sum_y exp \left ( \sum_{i=1}^{n} w_i f_i(x,y) \right )$</code></p>
+
+<p><code>$P_w(y|x) = \frac{1}{Z_w(x)} \cdot exp(\sum_{i=1}^{n} w_i f_i(x,y))$</code></p>
+
+<p><strong>步骤二：求 <code>$w$</code> 的值</strong></p>
+
+<p>此处有两种方法，一是直接求 <code>$L(P_w, w)$</code> 的极大值，确定参数 <code>$w$</code> ，在确定 <code>$P_w(y|x)$</code> 后，再通过 <code>$\frac{\partial L(P_w, w)}{\partial w} = 0$</code> 求 <code>$w$</code> 的值；</p>
+
+<p>二是通过 极大似然法 得到对数似然函数，<strong>《统计学习方法》</strong>书中叙述较为简单，这里补充下：</p>
+
+<p>首先看“单变量”的似然函数： <code>$L(X=x_1, X=x2, ..., X=x_N; Y) = \prod_{i=1}^{N} P(X=x_i; Y)$</code></p>
+
+<p>设 <code>$N$</code> 为样本数， <code>$x_j \in \{ a_1, a_2, ..., a_K \}$</code> ，即 <code>$x$</code> 有 <code>$K$</code> 种可能的取值。</p>
+
+<p><code>$L(x, y) = P(x=a_1; y)^{n_1} P(x=a2; y)^{n_2} ... P(x=a_K; y)^{n_K}$</code> ， <code>$n_1, n_2, ..., n_K$</code> 是取值为 <code>$a_j$</code> 的样本的个数，可以用 <code>$v(x=a_j)$</code> 表示。</p>
+
+<p>所以， <code>$L(x, y) = \prod_{j=1}^{K} P(x=a_j; y)^{v(x=a_j)}$</code> 。</p>
+
+<p>接下来看书中的情况，求 <code>$P(Y|X)$</code> 的似然函数，也就是“多变量”条件分布的似然函数：</p>
+
+<p><code>$L(P) = P(y_1|x_1)^{v(x_1,y_1)} P(y_2|x_2)^{v(x_2,y_2)} ... P(y_K|x_K)^{v(x_K,y_K)} = \prod_{x,y} P(y|x)^{v(x,y)}$</code></p>
+
+<p>如果对 <code>$L(P)$</code> 开 <code>$N$</code> 次方，得到 <code>$L^*(P) = \prod_{x,y} P(y|x) ^ {\frac{v(x,y)}{N}} = \prod_{x,y} P(y|x)^{\tilde{P}(x,y)}$</code> ， 对求极值无影响。</p>
+
+<p>转化为以上形式后，《统计学习方法》那一章节证明了，最终结论：<strong>最大熵模型的极大似然估计等价于对偶函数极大化</strong>。</p>
+
+<p><strong>最大熵模型的最终形式：</strong></p>
+
+<p>对于似然函数的最优化问题，常用的方法有<strong>改进的迭代尺度法、梯度下降法、牛顿法或拟牛顿法</strong>。通过常用的最优化算法可以确定 <code>$w$</code> 参数，$w$` 确定后，最终最大熵模型等于：</p>
+
+<p><code>$Z_w(x) = \sum_y exp \left ( \sum_{i=1}^{n} w_i f_i(x,y) \right )$</code></p>
+
+<p><code>$P_w(y|x) = \frac{1}{Z_w(x)} \cdot exp(\sum_{i=1}^{n} w_i f_i(x,y))$</code></p>
+
+<h2 id="逻辑斯谛回归是最大熵模型的特例">逻辑斯谛回归是最大熵模型的特例</h2>
+
+<p>这里通过一个例子来说明逻辑斯谛回归是最大熵模型的特例。</p>
+
+<h3 id="二分类问题">二分类问题</h3>
+
+<p>定义特征函数，其中 <code>$g(x)$</code> 为提取每个x的特征，输出x特征，向量维度为约束条件的个数。</p>
+
+<p><code>$f_i(x,y) = \left\{ \begin{matrix}
+g(x)^{(i)}, &amp; y=1  &amp; \\ 
+0,    &amp; x=1 &amp; 
+\end{matrix} \right.$</code></p>
+
+<p><strong>一般地，特征函数可以是任意实值函数，所以这里把y=1中g(x)定义为提取每个x的特征</strong>。</p>
+
+<p>将以上特征函数代入到之前求出的最大熵模型中：</p>
+
+<p><code>$P(y=1|x) = \frac{ exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)})}{ exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)}) + exp( \sum_{i=1}^{n} w^{(i)} * 0)  } = \frac{exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)}) }{1 + exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)})}$</code></p>
+
+<p><code>$P(y=0|x) = \frac{ exp( \sum_{i=1}^{n} w^{(i)} 0)}{exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)}) + exp(w^{(i)} * 0)} = \frac{1}{1 + exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)})}$</code></p>
+
+<p>**为了方便，将上式括号内记为向量的形式，仍记为 <code>$w$</code> , `$g(x)$，进一步简化得： **</p>
+
+<p><code>$P(y=1|x) = \frac{exp(w \cdot g(x) )}{1 + exp(w \cdot g(x))}$</code></p>
+
+<p><code>$P(y=0|x) = \frac{1}{1+exp(w \cdot g(x))} = 1 - P(y=1|x)$</code></p>
+
+<p><strong>以上形式即为《统计学习方法》书上的逻辑斯谛回归的标准形式。</strong></p>
+
+<h3 id="多分类问题">多分类问题</h3>
+
+<p>设类别 <code>$y \in \{1,2,3,...,K\}$</code> ，对于不同类别，有不同的参数向量 <code>$w_1, w_2, ..., w_K$</code> ，注意 <code>$w_k$</code> 是一个向量 （每个向量的维度即为约束条件的数量）。相应地， <code>$g(x)$</code> 也为一个向量。</p>
+
+<p><code>$f(x,y) = \left \{\begin{matrix}
+g(x), &amp; 当y=k，k=1,2,...,K-1  &amp; \\ 
+0,          &amp; 当y=K  &amp; 
+\end{matrix}\right.$</code></p>
+
+<p>那么，</p>
+
+<p><code>$Z_w(x) = \sum_{y} exp(\sum_{i=1}^{n} w_i f_i(x,y)) = \sum_{k=1}^{K} exp( \sum_{i=1}^{n} w_k^{(i)} g(x)^{(i)} ) = 1 + \sum_{k=1}^{K-1} exp( \sum_{i=1}^{n} w_k^{(i)} g(x)^{(i)} )$</code></p>
+
+<p>其中 <code>$w_k^{(i)}$</code> 和 <code>$g(x)^{(i)}$</code> 代表 <code>$w_k$</code> 和 <code>$g(x)$</code> 向量中的第 <code>$i$</code> 个元素。</p>
+
+<p>当 <code>$k \in \{1,2,3,...,K-1\}$</code> 时，  <code>$P(Y=k|x) = \frac{ exp( \sum_{i=1}^{n} w_k^{(i)} g(x)^{(i)} ) }{1 + \sum_{k=1}^{K-1} exp( \sum_{i=1}^{n} w_k^{(i)} g(x)^{(i)} ) }$</code></p>
+
+<p>特别地，当 <code>$k=K$</code> 时， <code>$P(Y=K|x) = \frac{1}{1 + \sum_{k=1}^{K-1} exp( \sum_{i=1}^{n} w_k^{(i)} g(x)^{(i)} )}$</code></p>
+
+<p>为了方便，将上式括号内记为向量的形式，仍记为 <code>$w$</code> ， <code>$g(x)$</code> ，进一步简化得：</p>
+
+<p><code>$P(y=k|x) = \frac{exp(w_k \cdot g(x))}{ 1 + \sum_{k=1}^{K-1} exp(w_k \cdot g(x)) }$</code> ， 其中 <code>$k \in \{1,2,3,...,K-1\}$</code></p>
+
+<p><code>$P(y=K|x) = \frac{1}{1 + \sum_{k=1}^{K-1} exp(w_k \cdot g(x)) }$</code></p>
+
+<p><strong>以上形式即为《统计学习方法》书上的多项逻辑斯谛回归的形式。</strong></p>
+
+<h2 id="总结">总结</h2>
+
+<p>日常生活中处处存在最大熵模型，这里疏理了下对《统计学习方法》中最大熵模型的理解；通过举例说明了逻辑斯谛模型也是最大熵模型的原则的应用。</p>
+
+<p>多分类问题实际也是 <code>$softmax$</code> 分类器的形式，后续也学习下 <code>$softmax$</code> 的思想。</p>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ol>
+<li><p><a href="https://zhuanlan.zhihu.com/p/114284754">李航统计学习方法（第六章）</a> ，知乎</p></li>
+
+<li><p><a href="https://zhuanlan.zhihu.com/p/114284754">最大熵模型</a> ，知乎</p></li>
+
+<li><p>《统计学习方法》第六章-逻辑斯谛回归与最大熵模型，李航</p></li>
+</ol>
+
+</main>
+
+  <footer>
+  <script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+  </footer>
+  </body>
+</html>
+
