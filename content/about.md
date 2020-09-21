@@ -13,7 +13,7 @@ date: '2020-07-05'
 <a href="http://scst.suda.edu.cn/" target="_blank">苏州大学</a> 和
 <a href="http://jsjx.cxxy.seu.edu.cn/" target="_blank">东南大学成贤学院</a>
 分别获得我的 **硕士** 和 **学士** 学位，均为CS专业。
-这里附一份我的 <a href="/quote/resume_202002.pdf" target="_blank">中文简历</a>（2020年02月更新），
+这里附一份我的 <a href="/quote/resume_202009.pdf" target="_blank">中文简历</a>（2020年09月更新），
 欢迎一起交流学习，我的邮箱: csxucaixu@gmail.com。
 
 
