@@ -60,24 +60,6 @@ LOAD DATA LOCAL INPATH &#39;/path/to/local/file&#39; OVERWRITE INTO TABLE test_t
     </item>
     
     <item>
-      <title>利用开源frp&#43;ss升级搭建翻墙VPN</title>
-      <link>https://calxu.github.io/note/20200301_vpn_2/</link>
-      <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://calxu.github.io/note/20200301_vpn_2/</guid>
-      <description>之前直接利用ss搭建翻墙VPN已经成功被 GFW 封杀，可能是因为是建墙者可以成功检测出 利用 ss 传输协议的特征，从而利用传输协议的特征来封禁服务端的IP，最终导致我 ping 都不能ping通 服务端的机器。很是无语，最终尝试了不同地域的境外的 VPS 云服务，都以 IP 被封禁而告终。
-最近朋友跟我说可以利用frp中转ss的方法避开 GFW 的检测，于是我 Google 了下关键字进行学习和尝试，用了一天时间折腾终于搭建成功了。目前该方法的流量协议未被 GFW 检测到，但不代表该方法会一直有效下去，因为GFW 流量检测协议的策略本身就是个不断升级的工作，所以我们也要不断的升级翻墙VPN的方法，这也是市面上很多卖翻墙VPN的工具帐号不能永久有效的原因。
-下图给出frp+ss升级搭建中转翻墙VPN的概要原理图，由下图可知主要包含三部分的配置：客户端ss、中转服务器和ss服务器。这篇笔记首先介绍客户端ss的配置，作为用户你只需要配置客户端ss即可，其余无需关心；然后介绍中转服务器的配置；其次介绍ss服务器端的配置；最后总结并对未来针对 GFW 作一些未来应对策略。
-客户端ss配置 PC客户端软件下载可到 GitHub 发布的 Releases 下载最新的版本即可（ windows版 和 Mac版 ），移动端（Android版），苹果移动端也是有的可以自己搜索下。
-客户端ss大致的工作原理可以参考下以前写的 blog 。PC客户端可以结合Chrome插件 SwitchyOmega 使用，其中ss信息配置如下（不要薅我流量，黑户也不要攻击我的机器，仅供程序员学习使用）：
-地 址： 39.97.122.11:12345 加密方法： aes-256-cfb 密 码： Dont_be_evil 备 注： Dont_be_evil  ss配置完可以用百度看下IP地址，IP地址重定向到香港的阿里云即配置正确，如下图所示方式查看测试结果：
-中转服务器配置 中转服务器我是选用的是北京阿里云，成本有点高（大概60元/月，唉，只有每个月省点了）。中转服务器主要负责将请求转发到ss服务器，然后由ss服务器完成并返回至中转服务器，最后中转服务器将数据返给客户端。中转服务器的配置主要是 frps 服务端的配置，它负责请求的转发。下面就环境安装、服务端配置和启动服务作一下说明。
-环境安装： frp软件可到Github 的releases 的 官方网站 进行下载解压即可。
-服务端配置： 修改以上解压后目录的 frps.ini 文件，详细如下：
-[common] # 穿透服务器端监听的端口，默认7000 bind_port = 7000 # 管理日志：日志存放位置；日志记录级别（debug/info/warn/error）；保存天数 log_file = .</description>
-    </item>
-    
-    <item>
       <title>工程篇-图谱工具Neo4j搭建与入门学习</title>
       <link>https://calxu.github.io/note/20200226_neo4j_1/</link>
       <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
@@ -178,25 +160,6 @@ Hugo是由Go语言实现的静态网站生成器，还是比较简单容易上�
 安装Hugo环境 $ brew install hugo $ hugo version  以上通过 hugo version 来验证hugo环境安装是否成功。这里是基于macOS环境安装，其它操作系统参考 官网安装 。
 生成个人网站 $ hugo new site blog_test  以上命令行会创建一个新的文件夹blog_test，该文件夹下包含Hugo最基本目录结构，其中blog_test目录下文件如下：
 . ├ archetypes/ ├ config.toml ├ content/ ├ data/ ├ layouts/ ├ static/ └ themes/  生成文件包含6个文件夹 和 1个全局配置文件，下面依次对这7个文件做相应的说明。</description>
-    </item>
-    
-    <item>
-      <title>利用开源ss工具快速搭建翻墙VPN</title>
-      <link>https://calxu.github.io/note/20191101_shadowsocks/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://calxu.github.io/note/20191101_shadowsocks/</guid>
-      <description>搭建ss的方法，网上有很多，请自行Google。 这里提供下链接ss官网的搭建方法， 目前GFW已经具备识别ss流量的能力，但每次好像都是国家大事件时才进行封堵，但封堵时也误杀了很多正常的流量的ip。 所以过了这段关键时期，GFW会放行，这就需要重新搭建ss。
-这篇文章主要记录下搭建ss翻墙软件的最小配置，方便自己在GFW封杀后再快速搭建翻墙的VPN。
-客户端配置 客户端软件下载  mac下载
- windows下载
-   注：下载最新的Assets即可  客户端配置 这里提供下我的ss帐号密码供大家使用，别薅我流量，黑客也不要攻击我机器，VPN仅供程序员学习使用，不能作恶； ip可能会被GFW封，被封后我再重新切换下ip，关注这个blog即可。 该VPN已在2月初被封，目前海外阿里云服务器已能检测到ss代理的使用。
-地址： 149.129.51.62:8432 加密方法： aes-256-cfb 密码： Dont_be_evil 备注： Dont_be_evil  客户端的工作原理（MAC版）： 启动软件会启动3个子程序，可通过 &amp;ldquo;ps aux | grep -i shadowsocks&amp;rdquo; 查看到 ShadowsocksX-NG、ss-local 和 privoxy 三个子程序； 与此同时，MAC中网络&amp;gt;高级&amp;gt;代理&amp;gt;自动代理配置 会被配置为软件自带的pac文件；
- ShadowsocksX-NG 只是一个Swift写的一个GUI壳子；
- ss-local为编译好了的程序，ss-local默认监听1080端口（可设置），接收socks协议的请求并转发至服务端；
- privoxy是对http协议的代理，监听1087端口，然后转发到1080端口由ss-local程序负责转发；
-  注：以上原理详情可参考Github ShadowsocksX-NG官网
-服务端配置 购买VPS  这里我购买的是阿里云香港区，供参考；  配置server端环境 安装环境： $ apt install python3-pip $ pip3 install shadowsocks  配置文件： $ cat /etc/shadowsocks.</description>
     </item>
     
     <item>
