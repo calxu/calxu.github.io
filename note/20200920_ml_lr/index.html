@@ -36,7 +36,7 @@
 <main>
 
 
-<p>学习了《统计学习方法》逻辑斯谛回归与最大熵模型这一章节，现在对这章节做一些笔记。逻辑斯谛回归是工业界非常常用的模型之一，它具有可解释性强、参数训练快等优点；但它有最大熵模型有什么关系，这里做一些笔记方便自己后面的复习。</p>
+<p>学习了《统计学习方法》逻辑斯谛回归与最大熵模型这一章节，现在对这章节做一些笔记。逻辑斯谛回归是工业界非常常用的模型之一，它具有可解释性强、参数训练快等优点；但它和最大熵模型有什么关系，这里做一些笔记方便自己后面的复习。</p>
 
 <p>首先介绍最大熵模型，它是一种模型选择的原则，它本身在工业界并不常用，但它的思想几乎是很多模型选择算法中都有体现；其次通过例子说明逻辑斯谛回归是最大熵模型的一个特例。</p>
 
@@ -52,7 +52,7 @@
 
 <p>边缘分布的经验分布： <code>$\tilde{P}(X=x) = \frac{v(X=x)}{N}$</code></p>
 
-<p>其中， <code>$v(X=x,Y=y)$</code> 表示训练集中样本 <code>$(x,y)$</code> 出现的频数， <code>$v(X=x)$</code> 表示训练数据中输入 <code>$x$</code> 出现的频数，$N$` 表示训练集样本数。</p>
+<p>其中， <code>$v(X=x,Y=y)$</code> 表示训练集中样本 <code>$(x,y)$</code> 出现的频数， <code>$v(X=x)$</code> 表示训练数据中输入 <code>$x$</code> 出现的频数， <code>$N$</code> 表示训练集样本数。</p>
 
 <p>特征函数： <code>$f(x,y)=\left\{\begin{matrix}
 1, &amp; x与y满足某一事实 &amp; \\
@@ -67,9 +67,10 @@
 
 <p>我们假设训练集对于模型的学习是有效的，使得 <code>$E_{\tilde{P}}(x) = E_{P}(f)$</code> ，此时特征函数 <code>$f$</code> 称为模型的约束条件。</p>
 
-<p><strong>最大熵模型：</strong>假设满足所有约束条件的模型集合为 <code>$E_P(f_i) = E_\tilde{P}(f_i),(i=1,2,...,n)$</code> ，定义在条件概率分布 <code>$P(Y|X)$</code> 上的条件熵为</p>
+<p><strong>最大熵模型：</strong>假设满足所有约束条件的模型集合为 <code>$E_P(f_i) = E_\tilde{P}(f_i),(i=1,2,...,n)$</code> ，定义在条件概率分布 <code>$P(Y|X)$</code> 上的条件熵为
+<code>$H(P) = H(Y|X) = - \sum_{x \in X} P(x) \sum_{y \in Y} P(y|x) logP(y|x) = - \sum_{x,y} \tilde{P}(x)P(y|x)logP(y|x)$</code> 。</p>
 
-<p><code>$H(P) = H(Y|X) = - \sum_{x \in X} P(x) \sum_{y \in Y} P(y|x) logP(y|x) = - \sum_{x,y} \tilde{P}(x)P(y|x)logP(y|x)$</code> ，<strong>满足约束条件且使得条件熵 <code>$H(P)$</code> 最大的模型，称为“最大熵模型”</strong>。</p>
+<p><strong>满足约束条件且使得条件熵 <code>$H(P)$</code> 最大的模型，称为“最大熵模型”</strong>。</p>
 
 <p>最大熵模型的学习分为两步：</p>
 
@@ -119,7 +120,7 @@
 
 <p>如果对 <code>$L(P)$</code> 开 <code>$N$</code> 次方，得到 <code>$L^*(P) = \prod_{x,y} P(y|x) ^ {\frac{v(x,y)}{N}} = \prod_{x,y} P(y|x)^{\tilde{P}(x,y)}$</code> ， 对求极值无影响。</p>
 
-<p>转化为以上形式后，《统计学习方法》那一章节证明了，最终结论：<strong>最大熵模型的极大似然估计等价于对偶函数极大化</strong>。</p>
+<p>转化为以上形式后，《统计学习方法》那一章节证明了结论，最终结论：<strong>最大熵模型的极大似然估计等价于对偶函数极大化</strong>。</p>
 
 <p><strong>最大熵模型的最终形式：</strong></p>
 
@@ -146,11 +147,13 @@ g(x)^{(i)}, &amp; y=1  &amp; \\
 
 <p>将以上特征函数代入到之前求出的最大熵模型中：</p>
 
-<p><code>$P(y=1|x) = \frac{ exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)})}{ exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)}) + exp( \sum_{i=1}^{n} w^{(i)} * 0)  } = \frac{exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)}) }{1 + exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)})}$</code></p>
+<p><code>$Z_w(x) = exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)}) + exp( \sum_{i=1}^{n} w^{(i)} * 0) = 1 + exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)})$</code></p>
 
-<p><code>$P(y=0|x) = \frac{ exp( \sum_{i=1}^{n} w^{(i)} 0)}{exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)}) + exp(w^{(i)} * 0)} = \frac{1}{1 + exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)})}$</code></p>
+<p><code>$P(y=1|x) = \frac{ exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)}) }{ Z_w(x) } = \frac{exp( \sum_{i=1}^{n} w^{(i)} g(x)^{(i)}) }{Z_w(x)}$</code></p>
 
-<p>**为了方便，将上式括号内记为向量的形式，仍记为 <code>$w$</code> , `$g(x)$，进一步简化得： **</p>
+<p><code>$P(y=0|x) = \frac{ exp( \sum_{i=1}^{n} w^{(i)} 0) }{ Z_w(x) } = \frac{1}{ Z_w(x) }$</code></p>
+
+<p><strong>为了方便，将上式括号内记为向量的形式，仍记为 <code>$w$</code> , <code>$g(x)$</code> ，进一步简化得：</strong></p>
 
 <p><code>$P(y=1|x) = \frac{exp(w \cdot g(x) )}{1 + exp(w \cdot g(x))}$</code></p>
 
@@ -184,6 +187,8 @@ g(x), &amp; 当y=k，k=1,2,...,K-1  &amp; \\
 <p><code>$P(y=K|x) = \frac{1}{1 + \sum_{k=1}^{K-1} exp(w_k \cdot g(x)) }$</code></p>
 
 <p><strong>以上形式即为《统计学习方法》书上的多项逻辑斯谛回归的形式。</strong></p>
+
+<p><strong>我理解最大熵模型是一种很抽象的描述，在不同的算法中我们需要定义不同的特征函数求出对应的权重值，来解决不同的问题。</strong></p>
 
 <h2 id="总结">总结</h2>
 
