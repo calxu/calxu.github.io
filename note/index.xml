@@ -6,10 +6,27 @@
     <description>Recent content in Notes on Travis, Xu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>机器学习笔记-朴素贝叶斯法</title>
+      <link>https://calxu.github.io/note/20200923_ml_bayes/</link>
+      <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200923_ml_bayes/</guid>
+      <description>最近在恶补统计学习方面的理论知识，结合《统计学习方法》和知乎一篇文章对朴素贝叶斯分类进行一次学习总结，方便自己后期复习。贝叶斯分类是一类分类算法的总称，这类算法均以贝叶斯定理为基础，故统称为贝叶斯分类。朴素贝叶斯分类是贝叶斯分类中最简单，也是常见的一种分类方法。
+在看完《统计学习方法》书时，书上的数学公式整体上比较抽象，看得有点晦涩难懂。最好的方式还是先看书上例子或知乎上的例子，然后通过例子再理解数学公式。
+知识点疏理 最核心的数学公式（即贝叶斯公式）： $P(X,Y)=P(X) \cdot P(Y|X) = P(Y) \cdot P(X|Y)$
+化简下得： $P(Y|X) = \frac{P(Y) \cdot P(X|Y)}{P(X)}$
+换种形式表述上式： $P(类别|特征) = \frac{P(类别) \cdot P(特征|类别)}{P(特征)}$
+上式中 $P(类别)$ 是可以直接在训练集上求得，若将 $P(特征)$、$P(特征|类别)$ 看成在类确定的条件下特征是条件独立的， $P(特征)$、$P(特征|类别)$ 也可在训练集上容易求得。在求得等式右边后，就可以知道对应特征所属类别 $P(类别|特征)$ 的概率了。
+计算两个注意点：
+ $P(特征|类别) = P(特征1, 特征2, ...特征n|类别) = P(特征1|类别) \cdot P(特征2|类别) \cdot ... \cdot P(特征n|类别)$ ，只有当在类确定的条件下特征都是条件独立的，上式才成立。
+ $P(特征)$ 的计算应该用贝叶斯全概率公式（看书这里一开始很费解），而非 $P(特征) \neq P(特征1) \cdot P(特征2) \cdot ... \cdot P(特征n)$ ，因为这里是前提假设是 特征条件独立而非特征独立，所以应该用贝叶斯全概率公式，即 $P(特征) = \underset{所有类别}{\sum} ( {P(类别) \cdot \underset {所有特征}{\prod}P(特征|类别) } )$ 。这里 $P(特征)$ 是个常数，所以在《统计学习方法》中将它省略而不影响最终类别的判断。</description>
+    </item>
     
     <item>
       <title>机器学习笔记-逻辑斯谛回归与最大熵模型</title>

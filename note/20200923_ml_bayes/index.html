@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>机器学习笔记-朴素贝叶斯法 | Travis, Xu</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/about">个人介绍</a></li>
+      
+      <li><a href="/">学习笔记</a></li>
+      
+      <li><a href="/categories/">笔记分类</a></li>
+      
+      <li><a href="/books/">我的书架</a></li>
+      
+      <li><a href="/links/">相关友链</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">机器学习笔记-朴素贝叶斯法</span></h1>
+
+<h2 class="date">2020/09/23</h2>
+</div>
+
+<main>
+
+
+<p>最近在恶补统计学习方面的理论知识，结合《统计学习方法》和知乎一篇文章对朴素贝叶斯分类进行一次学习总结，方便自己后期复习。贝叶斯分类是一类分类算法的总称，这类算法均以贝叶斯定理为基础，故统称为贝叶斯分类。<strong>朴素贝叶斯分类是贝叶斯分类中最简单，也是常见的一种分类方法</strong>。</p>
+
+<p>在看完《统计学习方法》书时，书上的数学公式整体上比较抽象，看得有点晦涩难懂。<strong>最好的方式还是先看书上例子或知乎上的例子，然后通过例子再理解数学公式。</strong></p>
+
+<h2 id="知识点疏理">知识点疏理</h2>
+
+<p><strong>最核心的数学公式（即贝叶斯公式）：</strong> <code>$P(X,Y)=P(X) \cdot P(Y|X) = P(Y) \cdot P(X|Y)$</code></p>
+
+<p><strong>化简下得：</strong> <code>$P(Y|X) = \frac{P(Y) \cdot P(X|Y)}{P(X)}$</code></p>
+
+<p>换种形式表述上式： <code>$P(类别|特征) = \frac{P(类别) \cdot P(特征|类别)}{P(特征)}$</code></p>
+
+<p>上式中 <code>$P(类别)$</code> 是可以直接在训练集上求得，若将 <code>$P(特征)$</code>、<code>$P(特征|类别)$</code> 看成在类确定的条件下特征是条件独立的， <code>$P(特征)$</code>、<code>$P(特征|类别)$</code> 也可在训练集上容易求得。在求得等式右边后，就可以知道对应特征所属类别 <code>$P(类别|特征)$</code> 的概率了。</p>
+
+<p><strong>计算两个注意点：</strong></p>
+
+<ol>
+<li><p><code>$P(特征|类别) = P(特征1, 特征2, ...特征n|类别) = P(特征1|类别) \cdot P(特征2|类别) \cdot ... \cdot P(特征n|类别)$</code> ，只有当在类确定的条件下特征都是条件独立的，上式才成立。</p></li>
+
+<li><p><code>$P(特征)$</code> 的计算应该用贝叶斯全概率公式（看书这里一开始很费解），<strong>而非 <code>$P(特征) \neq P(特征1) \cdot P(特征2) \cdot ... \cdot P(特征n)$</code></strong> ，因为这里是前提假设是 <strong>特征条件独立而非特征独立，所以应该用贝叶斯全概率公式</strong>，即 <code>$P(特征) = \underset{所有类别}{\sum} ( {P(类别) \cdot \underset {所有特征}{\prod}P(特征|类别)  } )$</code> 。这里 <code>$P(特征)$</code> 是个常数，所以在《统计学习方法》中将它省略而不影响最终类别的判断。</p></li>
+</ol>
+
+<p>特征独立也是朴素贝叶斯分类 <strong>朴素</strong> 一词的来源，朴素贝叶斯算法就是假设在类确定的条件下特征之间相互独立。</p>
+
+<p><strong>为什么需要假设特征条件之间相互独立呢？</strong>  第一个原因：若独立只需算 <code>$S(特征1) + S(特征2) + ... + S(特征n)$</code> 累加和的概率个数；若不独立，需算 <code>$S(特征1) \cdot S(特征2) \cdot ... \cdot S(特征n)$</code> 累乘积的概率个数，随着特征个数增加，复杂度是次方级增加；第二个原因：由于数据的稀疏性，很容易统计到0的情况。基于以上两个原因，朴素贝叶斯分类前提要求是特征之间相互独立，由于这是一个非常强的假设，所以会使得朴素贝叶斯变得简单，同时也会牺牲一定的分类准确率；<strong>但在工业界，直接使用朴素贝叶斯方法的，也非常之少。个人认为根本原因也是前提假设特征相互独立，但事实情况是特征之间很多时候是存在内在关联关系的，这样会导致机器学习学不完整，所以在工业界更多是在使用决策树模型或神经网络模型。</strong></p>
+
+<p><code>$P(类别)$</code> 、<code>$P(特征|类别)$</code> 、<code>$P(特征)$</code> 求解的过程就称为朴素贝叶斯法的参数估计。更进一步为避免这三类概率值求出来为0的情况，引入了一个 <code>$\lambda$</code> 项，引入 <code>$\lambda$</code> 后求解的过程称为贝叶斯估计。</p>
+
+<h2 id="总结">总结</h2>
+
+<p>朴素贝叶斯的优点：（1）算法逻辑简单，易于实现；（2）分类过程中时空开销小。缺点：朴素贝叶斯模型假设特征之间相互独立，这个假设在实际应用中往往不成立，在特征个数比较多或特征之间相关性较大时，分类效果不好。</p>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ol>
+<li><p><a href="https://zhuanlan.zhihu.com/p/26262151">带你理解朴素贝叶斯分类算法</a>，知乎</p></li>
+
+<li><p>《统计学习方法》，李航</p></li>
+</ol>
+
+</main>
+
+  <footer>
+  <script src="//yihui.name/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script async src="//yihui.name/js/center-img.js"></script>
+
+  
+  </footer>
+  </body>
+</html>
+
