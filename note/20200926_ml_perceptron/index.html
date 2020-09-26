@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>机器学习笔记-感知机（SVM 和 神经网络的基础） | Travis, Xu</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/about">个人介绍</a></li>
+      
+      <li><a href="/">学习笔记</a></li>
+      
+      <li><a href="/categories/">笔记分类</a></li>
+      
+      <li><a href="/books/">我的书架</a></li>
+      
+      <li><a href="/links/">相关友链</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">机器学习笔记-感知机（SVM 和 神经网络的基础）</span></h1>
+
+<h2 class="date">2020/09/26</h2>
+</div>
+
+<main>
+
+
+<p>最近在复习机器学习的基础，学习下《统计学习方法》感知机这章，主要针对书上难以理解的部分做一些学习笔记，方便自己后期复习。</p>
+
+<p>感知机是 <strong>二分类</strong> 的线性分类模型，输入为实例的特征向量，输出为实例的类别（取+1和-1）。感知机对应于输入空间中将实例划分为二类的分离超平面。感知机旨在求出该超平面，为求得超平面引入了基于误分类的损失函数，利用梯度下降法对损失函数进行最优化。</p>
+
+<p>感知机1957年被提出，它是 <strong>神经网络模型</strong> 与 <strong>支持向量机（SVM）</strong> 的基础。</p>
+
+<h2 id="感知机模型定义">感知机模型定义</h2>
+
+<p>对于 <code>$x \in R^n$</code> ，输出 <code>$\{+1, -1\}$</code> ，表达形式为： <code>$f(x) = sign(w \cdot x + b)$</code> ，即该式称为感知机。</p>
+
+<p>其中，<code>$sign(x) = \left\{\begin{matrix}
+ +1, &amp; x \geqslant 0  &amp; \\ 
+ -1, &amp; x &lt; 0 &amp; 
+\end{matrix}\right.$</code></p>
+
+<p><code>$sign$</code> 通常称之为激活函数，激活函数同时也是构成神经网络模型的基本单元，不过在神经网络模型中通常用 <code>$sigmoid$</code> 函数。</p>
+
+<p>几何含义即对应书上的超平面，如下图。</p>
+
+<p>其实我们就是在学习参数 <code>$w$</code> 和 <code>$b$</code> ，确定了 <code>$w$</code> 和 <code>$b$</code> ，图上的直线（高维高间下为超平面）也就确定了，那么以后来一个数据点，就可以用训练好的模型进行预测，如果大于等于0就分到 +1，小于0就分到 -1。</p>
+
+<div align="center"> <img src="/images/20200926_perceptron.png" alt="avatar" style="zoom:30%;" /> </div>
+
+<p>这里有个小知识点（大概是高中的几何数据）证明下，证明如下。</p>
+
+<p>证明： <code>$\overrightarrow{w}$</code> 是直线 <code>$\overrightarrow{w} \cdot \overrightarrow{x} + b = 0$</code>（高维空间下为超平面）的法向量。</p>
+
+<div align="center"> <img src="/images/20200926_normal_vector.jpg" alt="avatar" style="zoom:50%;" /> </div>
+
+<p>任找平面 <code>$\overrightarrow{w} \cdot \overrightarrow{x} + b = 0$</code> 上两点 <code>$x_1, x_2$</code> ，如上图。</p>
+
+<p>则  <code>$\left\{\begin{matrix}
+\overrightarrow{w} \cdot \overrightarrow{x_1} + b =0 &amp; 式1  &amp; \\ 
+\overrightarrow{w} \cdot \overrightarrow{x_2} + b =0 &amp; 式2 &amp; 
+\end{matrix}\right.$</code></p>
+
+<p>式1 减 式2 得： <code>$\overrightarrow{w} \cdot (\overrightarrow{x_1} - \overrightarrow{x_2}) = 0$</code> ，即 <code>$\overrightarrow{w} \cdot \overrightarrow{x_2 x_1} = 0$</code> ，</p>
+
+<p>则 <code>$\overrightarrow{w}$</code> 与 <code>$\overrightarrow{x_2 x_1}$</code> 垂直，平面内其它向量也是如此。</p>
+
+<p>即证 <code>$\overrightarrow{w}$</code> 是直线 <code>$\overrightarrow{w} \cdot \overrightarrow{x} + b = 0$</code> （高维空间下为超平面）的法向量</p>
+
+<p><code>$\overrightarrow{w}$</code> 为平面 <code>$\overrightarrow{w} \cdot \overrightarrow{x} + b = 0$</code> 的法向量，可以通过举一些例子也可以方便理解此结论。</p>
+
+<p>超平面距原点的距离为 <code>$\frac{b}{||w||}$</code> ，这个结论也可以通过例子来理解。</p>
+
+<h2 id="感知机学习策略">感知机学习策略</h2>
+
+<p><strong>上面我们已经知道感知机模型了，我们也知道他的任务是解决二分类问题，也知道了超平面的形式，那么下面关键是如何学习出超平面的参数 <code>$w$</code> 和 <code>$b$</code> ，这就需要用到我们的学习策略。</strong></p>
+
+<p><strong>我们知道机器学习模型，需要首先找到损失函数，然后转化为最优化问题，用梯度下降等方法进行更新，最终学习到我们模型的参数 <code>$w$</code> 和 <code>$b$</code> 。那么，我们开始找感知机的损失函数。</strong></p>
+
+<p><strong>我们很自然地会想到用误分类点的数目来作为损失函数，是的误分类点个数越来越少，感知机本来也是做这种事的，只需要全部分对就好。但这样的损失函数并不是 <code>$w$</code> 和 <code>$b$</code> 连续可导（无法用函数形式来表达出误分类的人数），无法进行优化。</strong></p>
+
+<p>于是转为另一种选择，误分类点到超平面的总距离（<strong>直观来看，总距离越小越好</strong>），则距离公式为 <code>$\frac{1}{||w||} |w \cdot x_0 + b|$</code> ，</p>
+
+<p>考虑到类别，因为是二分类问题，所以可以进一步化简得：<code>$- \frac{1}{||w||} y_i (w \cdot x_0 + b)$</code></p>
+
+<p>那么所有误分类点的集合为 <code>$M$</code> ，则总距离为 <code>$- \frac{1}{||w||} \underset{x_i \in M}{\sum} y_i (w \cdot x_i + b)$</code></p>
+
+<p>因为 <code>$\frac{1}{||w||}$</code> 是常数，可以不考虑，所以最终得到损失函数为：<code>$L(w,b) = - \underset{x_i \in M}{\sum} y_i (w \cdot x_i + b)$</code></p>
+
+<p>感知机学习问题转化为求解损失函数的最优化问题，最优化的方法就是套路的方法，即 <strong>随机梯度下降法</strong> 。</p>
+
+<h2 id="总结">总结</h2>
+
+<p>感知机的模型是 <code>$f(x) = sign(w*x + b)$</code> ，它的任务是解决二分类问题，要得到感知机模型我们就需要学习参数 <code>$w$</code> 和 <code>$b$</code> 。则需要一个学习策略，不断的迭代更新 <code>$w$</code> 和 <code>$b$</code> ，所以我们就需要一个损失函数，最终选择误分类点到超平面的距离来表示来得到最终的损失函数。</p>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ol>
+<li><p><a href="https://zhuanlan.zhihu.com/p/25696112">浅析感知机-模型与学习策略</a> ，知乎</p></li>
+
+<li><p>《统计学习方法》，李航</p></li>
+</ol>
+
+</main>
+
+  <footer>
+  <script src="//yihui.name/js/math-code.js"></script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+  
+  </footer>
+  </body>
+</html>
+
