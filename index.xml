@@ -6,10 +6,28 @@
     <description>Recent content on Travis, Xu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 26 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>机器学习笔记-感知机（SVM 和 神经网络的基础）</title>
+      <link>https://calxu.github.io/note/20200926_ml_perceptron/</link>
+      <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20200926_ml_perceptron/</guid>
+      <description>最近在复习机器学习的基础，学习下《统计学习方法》感知机这章，主要针对书上难以理解的部分做一些学习笔记，方便自己后期复习。
+感知机是 二分类 的线性分类模型，输入为实例的特征向量，输出为实例的类别（取+1和-1）。感知机对应于输入空间中将实例划分为二类的分离超平面。感知机旨在求出该超平面，为求得超平面引入了基于误分类的损失函数，利用梯度下降法对损失函数进行最优化。
+感知机1957年被提出，它是 神经网络模型 与 支持向量机（SVM） 的基础。
+感知机模型定义 对于 $x \in R^n$ ，输出 $\{+1, -1\}$ ，表达形式为： $f(x) = sign(w \cdot x + b)$ ，即该式称为感知机。
+其中，$sign(x) = \left\{\begin{matrix} +1, &amp;amp; x \geqslant 0 &amp;amp; \\ -1, &amp;amp; x &amp;lt; 0 &amp;amp; \end{matrix}\right.$
+$sign$ 通常称之为激活函数，激活函数同时也是构成神经网络模型的基本单元，不过在神经网络模型中通常用 $sigmoid$ 函数。
+几何含义即对应书上的超平面，如下图。
+其实我们就是在学习参数 $w$ 和 $b$ ，确定了 $w$ 和 $b$ ，图上的直线（高维高间下为超平面）也就确定了，那么以后来一个数据点，就可以用训练好的模型进行预测，如果大于等于0就分到 +1，小于0就分到 -1。
+ 这里有个小知识点（大概是高中的几何数据）证明下，证明如下。
+证明： $\overrightarrow{w}$ 是直线 $\overrightarrow{w} \cdot \overrightarrow{x} + b = 0$（高维空间下为超平面）的法向量。</description>
+    </item>
     
     <item>
       <title>机器学习笔记-朴素贝叶斯法</title>
@@ -60,7 +78,7 @@
  选取 $x^{k}$ ，计算 $f(x^{k})$ ，$k$ 初始值为0；
 将 $f(x^{k+1})$ 在 $x^{k}$ 处一阶泰勒展开得： $f(x^{k+1}) = f(x^{k} + \Delta t) \approx f(x^{k}) + f&#39;(x^{k}) \Delta t$ ，按梯度方向不断迭代逼近可取 $\Delta t = - \lambda \cdot f&#39;(x^k)$ ，其中 $\lambda$ 为步长；
 重复以上两步，直到迭代找出相应的 $x^{k+1}$ 为止，即 $||f(x^{(k+1)} - f(x^k) || &amp;lt; \epsilon$ ，停止迭代，令 $x=x^{k+1}$ ；
- 个人理解：$\Delta t = - \lambda \cdot f&#39;(x^k)$ 这里的 $\lambda$ 为步长，可由一维搜索确定，但一般直接赋一个小的数即可；其中 $-f&#39;(x^k)$ 为负梯度方向，这里也可以取与 $f&#39;(x^k)$ 正相关的数值；</description>
+ 个人理解：$\Delta t = - \lambda \cdot f&#39;(x^k)$ 这里的 $\lambda$ 为步长，可由一维搜索确定，但一般直接赋一个小的数即可；其中 $-f&#39;(x^k)$ 为负梯度方向，这里也可以取与 -$f&#39;(x^k)$ 正相关的数值；</description>
     </item>
     
     <item>
