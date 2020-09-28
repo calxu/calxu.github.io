@@ -51,7 +51,7 @@
 <p>重复以上两步，直到迭代找出相应的 <code>$x^{k+1}$</code> 为止，即 <code>$||f(x^{(k+1)} - f(x^k) || &lt; \epsilon$</code> ，停止迭代，令 <code>$x=x^{k+1}$</code> ；</p>
 </blockquote>
 
-<p><strong>个人理解：<code>$\Delta t = - \lambda \cdot f'(x^k)$</code> 这里的 <code>$\lambda$</code> 为步长，可由一维搜索确定，但一般直接赋一个小的数即可；其中 <code>$-f'(x^k)$</code> 为负梯度方向，这里也可以取与 <code>-$f'(x^k)$</code> 正相关的数值；</strong></p>
+<p><strong>个人理解：<code>$\Delta t = - \lambda \cdot f'(x^k)$</code> 这里的 <code>$\lambda$</code> 为步长，可由一维搜索确定，但一般直接赋一个小的数即可；其中 <code>$-f'(x^k)$</code> 为负梯度方向，这里也可以取与 <code>$-f'(x^k)$</code> 正相关的数值；</strong></p>
 
 <h2 id="牛顿法">牛顿法</h2>
 
