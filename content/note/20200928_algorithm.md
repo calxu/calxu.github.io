@@ -1,5 +1,5 @@
 ---
-title: '工程-面试刷题练手'
+title: '算法刷题-面试刷题练手'
 date: '2020-09-28'
 categories:
   - 算法刷题
@@ -18,7 +18,7 @@ tags:
 给定字符串和常数k，每2k个字符前k个翻转，后k个不动；
 
 例：inputStr = "abcdefg"。
-当k = 2时，outputStr="bacdfeg"，当k=8时，outputStr="gfedcba"
+当k=2时，outputStr="bacdfeg"，当k=8时，outputStr="gfedcba"
 
 考常python基础语法，代码如下：
 
