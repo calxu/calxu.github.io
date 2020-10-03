@@ -20,8 +20,8 @@
       <description>最近把周志华的《机器学习》西瓜书系统的复习一遍，整理一些笔记。主要介绍下神经网络的基本单元-神经元；其次介绍下常用的激活函数；经典BP算法的推导和深度学习的简述。
 神经元简述 神经网络中最基本的单元是一直沿用至今的“M-P神经元”，神经元接收到来自 n 个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过“激活函数”输出（图中 $f$ 即为激活函数）。
 感知机是两层神经元组成，即输入层和输出层。它是最简单的神经网络，学习得是一个超平面，但其表达能力非常有限，例如“异或”问题它就表达学习不了。要解决这类问题，所以需要考虑多层功能的神经元。即利用感知机神经元构成多层神经网络。
-常用激活函数  阶跃函数：即 $f(x) = \left\{\begin{matrix} 1, &amp;amp; x \geqslant 0 &amp;amp; \\ 0, &amp;amp; x &amp;lt; 0 &amp;amp; \end{matrix}\right.$ ，优点：形式简单；缺点：梯度为0，不能用于反向传播过程。因为不可导，该激活函数不常用。 sigmoid函数：即 $f(x) = \frac{1}{1 + e^{-x}} $ ， 它是一个logistic函数，优点：连续可微；缺点：函数在原点周围不对称，得到的值都是正的；梯度变化在[-3,3]外渐趋平坦。 tanh函数：与sigmoid函数非常相似，即 $tanh(x) = 2 \cdot sigmoid(2x) - 1$ ，x轴方向把sigmoid压缩；y轴方向扩大1倍同时下移1个单位。优点：连续可导且关于原点对称；缺点：梯度变化在非[-3,3]区间内渐趋平坦（与sigmoid类似）。 ReLU函数：即 $f(x) = \left\{\begin{matrix} x, &amp;amp; x \geqslant 0 &amp;amp; \\ 0, &amp;amp; x &amp;lt; 0 &amp;amp; \end{matrix}\right.$ ，优点：不会同时激活所有的神经元，若输入值是负的，ReLU函数会转换为0，而神经元不被激活，意味着一段时间只有少量的神经元被激活，这种稀疏性使其变得高效且易于计算；缺点：当小于0时，梯度为0，权重不会更新，会产生死神经元。
- Leaky ReLU函数：即 $ f(x) = \left\{\begin{matrix} x, &amp;amp; x \geqslant 0 &amp;amp; \\ ax, &amp;amp; x &amp;lt; 0 &amp;amp; \end{matrix}\right.</description>
+常用激活函数 激活函数是上述神经元中的 $f$ 函数，这里介绍下常用的激活函数。
+ 阶跃函数：即 $f(x) = \left\{\begin{matrix} 1, &amp;amp; x \geqslant 0 &amp;amp; \\ 0, &amp;amp; x &amp;lt; 0 &amp;amp; \end{matrix}\right.$ ，优点：形式简单；缺点：梯度为0，不能用于反向传播过程。因为不可导，该激活函数不常用。 sigmoid函数：即 $f(x) = \frac{1}{1 + e^{-x}} $ ， 它是一个logistic函数，优点：连续可微；缺点：函数在原点周围不对称，得到的值都是正的；梯度变化在[-3,3]外渐趋平坦。 tanh函数：与sigmoid函数非常相似，即 $tanh(x) = 2 \cdot sigmoid(2x) - 1$ ，x轴方向把sigmoid压缩；y轴方向扩大1倍同时下移1个单位。优点：连续可导且关于原点对称；缺点：梯度变化在非[-3,3]区间内渐趋平坦（与sigmoid类似）。 ReLU函数：即 $f(x) = \left\{\begin{matrix} x, &amp;amp; x \geqslant 0 &amp;amp; \\ 0, &amp;amp; x &amp;lt; 0 &amp;amp; \end{matrix}\right.$ ，优点：不会同时激活所有的神经元，若输入值是负的，ReLU函数会转换为0，而神经元不被激活，意味着一段时间只有少量的神经元被激活，这种稀疏性使其变得高效且易于计算；缺点：当小于0时，梯度为0，权重不会更新，会产生死神经元。</description>
     </item>
     
     <item>
