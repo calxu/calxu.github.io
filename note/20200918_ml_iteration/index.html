@@ -67,7 +67,7 @@
 
 <p>注：当参数 <code>$x^k$</code> 推广到向量形式，迭代公式 <code>$x^{k+1} = x^k - H^{-1} \cdot g$</code> ，这里 <code>$H$</code> 是海赛矩阵。</p>
 
-<p><strong>个人理解：这里统计学习方法里没有引入 <code>$\lambda$</code> 步长，因为二阶导 <code>$g$</code> 已经携带这一步应该走多长信息，相当于 <code>$\lambda$</code> ;</strong></p>
+<p><strong>个人理解：这里统计学习方法里没有引入 <code>$\lambda$</code> 步长，这里是可以加上 <code>$\lambda$</code> 步长，在很多机器学习框架里已经加入了步长（比如XGBoost中的eta参数）;</strong></p>
 
 <h2 id="区别">区别</h2>
 
