@@ -6,10 +6,24 @@
     <description>Recent content in Notes on Travis, Xu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://calxu.github.io/note/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>机器学习笔记-KNN（统计学习方法-第3章）</title>
+      <link>https://calxu.github.io/note/20201007_knn/</link>
+      <pubDate>Wed, 07 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://calxu.github.io/note/20201007_knn/</guid>
+      <description>最近在疏理《统计学习方法》中的知识点，方便自己后续复习。这里记录下第3章K近邻算法的基本思想。
+K近邻（KNN）是一种基本分类与回归方法。给定目标样本通过K个邻居来决定目标样本的标签。K近邻法有三个基本要素：K值的选择、距离度量和分类回归决策规则。KNN并不需要训练，但需要遍历整个训练集，所以预测比较慢，书中提到用KD树进行优化，来提高K近邻搜索的效率。
+K近邻基本要素 距离度量 KNN一般采用欧式距离，但更一般的是 $L_p$ 距离， $L_p$ 距离在机器学习中经常会看到。
+设特征空间 $\chi$ 是 $n$ 维实数向量空间 $R^n$ ， $x_i, x_j \in \chi$ ， $x_i = (x_i^1, x_i^2, ..., x_i^n)^T$ ， $x_j = (x_j^1, x_j^2, ..., x_j^n)^T$ ， $x_i, x_j$ 的 $L_p$ 距离定义为 $L_p(x_i, x_j) = (\sum_{l=1}^n |x_i^l - x_j^l|^p) ^{\frac{1}{p}}$ ，其中 $p \geqslant 1$
+当 $p = 1$ 时，称为曼哈顿距离，即 $L_1(x_i, x_j) = \sum_{l=1}^n |x_i^l - x_j^l|$ ；
+当 $p = 2$ 时，称为欧式距离，即 $L_2(x_i, x_j) = (\sum_{l=1}^n |x_i^l - x_j^l|^2) ^{\frac{1}{2}}$ ，写成我们最熟悉的形式 $\sqrt{(\Delta x_1)^2 + (\Delta x_2)^2 + .</description>
+    </item>
     
     <item>
       <title>机器学习笔记-神经网络（西瓜书第5章）</title>
