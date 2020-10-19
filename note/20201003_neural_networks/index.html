@@ -51,21 +51,28 @@
 <p>激活函数是上述神经元中的 <code>$f$</code> 函数，这里介绍下常用的激活函数。</p>
 
 <ol>
-<li>阶跃函数：即 <code>$f(x) = \left\{\begin{matrix}
+<li><p>阶跃函数：即 <code>$f(x) = \left\{\begin{matrix}
 1, &amp; x \geqslant 0  &amp; \\ 
 0, &amp; x &lt; 0  &amp; 
-\end{matrix}\right.$</code> ，<strong>优点：形式简单；缺点：梯度为0，不能用于反向传播过程</strong>。因为不可导，该激活函数不常用。</li>
-<li>sigmoid函数：即 <code>$f(x) = \frac{1}{1 + e^{-x}} $</code> ， 它是一个logistic函数，<strong>优点：连续可微；缺点：函数在原点周围不对称，得到的值都是正的；梯度变化在[-3,3]外渐趋平坦。</strong></li>
-<li>tanh函数：与sigmoid函数非常相似，即 <code>$tanh(x) = 2 \cdot sigmoid(2x) - 1$</code> ，x轴方向把sigmoid压缩；y轴方向扩大1倍同时下移1个单位。<strong>优点：连续可导且关于原点对称；缺点：梯度变化在非[-3,3]区间内渐趋平坦（与sigmoid类似）。</strong></li>
-<li>ReLU函数：即 <code>$f(x) =  \left\{\begin{matrix}
+\end{matrix}\right.$</code> ，<strong>优点：形式简单；缺点：梯度为0，不能用于反向传播过程</strong>。因为不可导，该激活函数不常用。</p></li>
+
+<li><p>sigmoid函数：即 <code>$f(x) = \frac{1}{1 + e^{-x}} $</code> ， 它是一个logistic函数，<strong>优点：连续可微；缺点：函数在原点周围不对称，得到的值都是正的；梯度变化在[-3,3]外渐趋平坦。</strong></p></li>
+
+<li><p>tanh函数：与sigmoid函数非常相似，即 <code>$tanh(x) = 2 \cdot sigmoid(2x) - 1$</code> ，x轴方向把sigmoid压缩；y轴方向扩大1倍同时下移1个单位。<strong>优点：连续可导且关于原点对称；缺点：梯度变化在非[-3,3]区间内渐趋平坦（与sigmoid类似）。</strong></p></li>
+
+<li><p>ReLU函数：即 <code>$f(x) =  \left\{\begin{matrix}
 x, &amp; x \geqslant 0  &amp; \\ 
 0, &amp; x &lt; 0 &amp; 
-\end{matrix}\right.$</code> ，<strong>优点：不会同时激活所有的神经元，若输入值是负的，ReLU函数会转换为0，而神经元不被激活，意味着一段时间只有少量的神经元被激活，这种稀疏性使其变得高效且易于计算；缺点：当小于0时，梯度为0，权重不会更新，会产生死神经元。</strong><br /></li>
-<li>Leaky ReLU函数：即 <code>$ f(x) =  \left\{\begin{matrix}
+\end{matrix}\right.$</code> ，其中间断点 <code>$x=0$</code> 处导数指定为0。
+<strong>优点：不会同时激活所有的神经元，若输入值是负的，ReLU函数会转换为0，而神经元不被激活，意味着一段时间只有少量的神经元被激活，这种稀疏性使其变得高效且易于计算；缺点：当小于0时，梯度为0，权重不会更新，会产生死神经元。</strong></p></li>
+
+<li><p>Leaky ReLU函数：即 <code>$ f(x) =  \left\{\begin{matrix}
 x, &amp; x \geqslant 0  &amp; \\ 
 ax, &amp; x &lt; 0 &amp; 
-\end{matrix}\right.$</code> ，是ReLU函数的变体（另外还有PReLU等变体），这里的 <code>$a$</code> 是一个很小的值（在PReLU是可以学习参数 <code>$a$</code> 的），如 0.01。<strong>优点：除ReLU的优点外，同时解决了ReLU产生死神经元的问题。</strong></li>
-<li>softmax函数：即 <code>$f(x) = \frac{e^{z_j}}{\sum_{k=1}{K}e^{z_k}}$</code>    在处理多分类问题时，softmax函数将压缩每个类在0到1之间，并除以输出总和。比如，我们输入 [1.2, 0.9, 0.75] ，当应用softmax函数时，得到 [0.42, 0.31, 0.27] 。<strong>softmax函数最好在分类器的输出层使用。</strong></li>
+\end{matrix}\right.$</code> ，其中间断点 <code>$x=0$</code> 处导数指定为0。
+是ReLU函数的变体（另外还有PReLU等变体），这里的 <code>$a$</code> 是一个很小的值（在PReLU是可以学习参数 <code>$a$</code> 的），如 0.01。<strong>优点：除ReLU的优点外，同时解决了ReLU产生死神经元的问题。</strong></p></li>
+
+<li><p>softmax函数：即 <code>$f(x) = \frac{e^{z_j}}{\sum_{k=1}{K}e^{z_k}}$</code>    在处理多分类问题时，softmax函数将压缩每个类在0到1之间，并除以输出总和。比如，我们输入 [1.2, 0.9, 0.75] ，当应用softmax函数时，得到 [0.42, 0.31, 0.27] 。<strong>softmax函数最好在分类器的输出层使用。</strong></p></li>
 </ol>
 
 <p>神经网络激活函数的选择：根据问题的性质，主要以神经网络更快更方便地收敛作出更好的选择。<strong>用于分类器时，sigmoid函数及其组合通常效果更好；由于梯度消失的问题，有时要避免使用sigmoid和tanh函数，ReLU函数是一个通用的激活函数，目前在大多数情况下使用；如果神经网络中出现死神经元，那PReLU函数是最好的选择，ReLU函数只能在隐层中使用</strong>。</p>
