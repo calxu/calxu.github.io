@@ -122,7 +122,7 @@ $sign$ 通常称之为激活函数，激活函数同时也是构成神经网络�
  选取 $x^{k}$ ，计算 $f(x^{k})$ ， $k$ 初始值为0；
 将 $f(x^{k+1})$ 在 $x^{k}$ 处一阶泰勒展开得： $f(x^{k+1}) = f(x^{k} + \Delta t) \approx f(x^{k}) + f&#39;(x^{k}) \Delta t$ ，按梯度方向不断迭代逼近可取 $\Delta t = - \lambda \cdot f&#39;(x^k)$ ，其中 $\lambda$ 为步长；
 重复以上两步，直到迭代找出相应的 $x^{k+1}$ 为止，即 $||f(x^{(k+1)} - f(x^k) || &amp;lt; \epsilon$ ，停止迭代，令 $x=x^{k+1}$ ；
- 个人理解：$\Delta t = - \lambda \cdot f&#39;(x^k)$ 这里的 $\lambda$ 为步长，可由一维搜索确定（比如GBDT）；也可直接赋一个小的数即可（比如神经网络模型）；其中 $-f&#39;(x^k)$ 可看成整体（负梯度方向）。</description>
+ 个人理解：$\Delta t = - \lambda \cdot f&#39;(x^k)$ 这里的 $\lambda$ 为步长，可由一维搜索确定（比如GBDT）；也可直接赋一个小的数即可（比如神经网络模型）。</description>
     </item>
     
     <item>
