@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://calxu.github.io/about/</loc>
+    <lastmod>2020-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://calxu.github.io/</loc>
+    <lastmod>2020-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://calxu.github.io/categories/</loc>
     <lastmod>2020-10-07T00:00:00+00:00</lastmod>
   </url>
@@ -24,11 +34,6 @@
   
   <url>
     <loc>https://calxu.github.io/tags/</loc>
-    <lastmod>2020-10-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://calxu.github.io/</loc>
     <lastmod>2020-10-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -78,11 +83,6 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/about/</loc>
-    <lastmod>2020-07-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://calxu.github.io/tags/data-mining/</loc>
     <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
@@ -98,12 +98,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/vpn/</loc>
+    <loc>https://calxu.github.io/categories/vpn/</loc>
     <lastmod>2020-03-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/vpn/</loc>
+    <loc>https://calxu.github.io/tags/vpn/</loc>
     <lastmod>2020-03-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -148,12 +148,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/hugo%E6%A1%86%E6%9E%B6/</loc>
+    <loc>https://calxu.github.io/tags/hugo%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2020-01-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/hugo%E6%A1%86%E6%9E%B6/</loc>
+    <loc>https://calxu.github.io/categories/hugo%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2020-01-07T00:00:00+00:00</lastmod>
   </url>
   
