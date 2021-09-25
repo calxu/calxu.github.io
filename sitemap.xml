@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://calxu.github.io/about/</loc>
+    <loc>https://calxu.github.io/</loc>
     <lastmod>2020-12-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/</loc>
+    <loc>https://calxu.github.io/about/</loc>
     <lastmod>2020-12-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -83,12 +83,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/data-mining/</loc>
+    <loc>https://calxu.github.io/tags/data-mining/</loc>
     <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/data-mining/</loc>
+    <loc>https://calxu.github.io/categories/data-mining/</loc>
     <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -98,12 +98,12 @@
   </url>
   
   <url>
-    <loc>https://calxu.github.io/categories/graph/</loc>
+    <loc>https://calxu.github.io/tags/graph/</loc>
     <lastmod>2020-02-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://calxu.github.io/tags/graph/</loc>
+    <loc>https://calxu.github.io/categories/graph/</loc>
     <lastmod>2020-02-26T00:00:00+00:00</lastmod>
   </url>
   
