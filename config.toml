@@ -14,18 +14,14 @@ theme = "hugo-xmin"
     url = "/about"
     weight = 1
 [[menu.main]]
-    name = "学习笔记"
-    url = "/"
+    name = "随笔笔记"
+    url = "/note"
     weight = 2
 [[menu.main]]
-    name = "笔记分类"
-    url = "/categories/"
+    name = "个人书架"
+    url = "/books"
     weight = 3
 [[menu.main]]
-    name = "我的书架"
-    url = "/books/"
+    name = "关注链接"
+    url = "/links"
     weight = 4
-[[menu.main]]
-    name = "相关友链"
-    url = "/links/"
-    weight = 5
