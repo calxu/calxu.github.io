@@ -11,7 +11,7 @@ theme = "hugo-xmin"
 # 板块化分，weight对应在页面上显示的次序
 [[menu.main]]
     name = "个人介绍"
-    url = "/about"
+    url = "/"
     weight = 1
 [[menu.main]]
     name = "随笔笔记"
