@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Machine Learning on Travis, Xu</title>
-    <link>https://calxu.github.io/tags/machine-learning/</link>
-    <description>Recent content in Machine Learning on Travis, Xu</description>
+    <title>Machine Learning on Travis</title>
+    <link>http://www.xucaixu.com/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on Travis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://calxu.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.xucaixu.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>机器学习笔记-KNN（统计学习方法-第3章）</title>
-      <link>https://calxu.github.io/note/20201007_knn/</link>
+      <link>http://www.xucaixu.com/note/20201007_knn/</link>
       <pubDate>Wed, 07 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20201007_knn/</guid>
+      <guid>http://www.xucaixu.com/note/20201007_knn/</guid>
       <description>最近在疏理《统计学习方法》中的知识点，方便自己后续复习。这里记录下第3章K近邻算法的基本思想。
 K近邻（KNN）是一种基本分类与回归方法。给定目标样本通过K个邻居来决定目标样本的标签。K近邻法有三个基本要素：K值的选择、距离度量和分类回归决策规则。KNN并不需要训练，但需要遍历整个训练集，所以预测比较慢，书中提到用KD树进行优化，来提高K近邻搜索的效率。
 K近邻基本要素 距离度量 KNN一般采用欧式距离，但更一般的是 $L_p$ 距离， $L_p$ 距离在机器学习中经常会看到。
@@ -27,10 +27,10 @@ K近邻基本要素 距离度量 KNN一般采用欧式距离，但更一般的�
     
     <item>
       <title>机器学习笔记-神经网络（西瓜书第5章）</title>
-      <link>https://calxu.github.io/note/20201003_neural_networks/</link>
+      <link>http://www.xucaixu.com/note/20201003_neural_networks/</link>
       <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20201003_neural_networks/</guid>
+      <guid>http://www.xucaixu.com/note/20201003_neural_networks/</guid>
       <description>最近把周志华的《机器学习》西瓜书系统的复习一遍，整理一些笔记。主要介绍下神经网络的基本单元-神经元；其次介绍下常用的激活函数；经典BP算法的推导和深度学习的简述。
 神经元简述 神经网络中最基本的单元是一直沿用至今的“M-P神经元”，神经元接收到来自 n 个其他神经元传递过来的输入信号，这些输入信号通过带权重的连接进行传递，神经元接收到的总输入值将与神经元的阈值进行比较，然后通过“激活函数”输出（图中 $f$ 即为激活函数）。
 感知机是两层神经元组成，即输入层和输出层。它是最简单的神经网络，学习得是一个超平面，但其表达能力非常有限，例如“异或”问题它就表达学习不了。要解决这类问题，所以需要考虑多层功能的神经元。即利用感知机神经元构成多层神经网络。
@@ -43,10 +43,10 @@ K近邻基本要素 距离度量 KNN一般采用欧式距离，但更一般的�
     
     <item>
       <title>机器学习笔记-感知机（SVM 和 神经网络的基础）</title>
-      <link>https://calxu.github.io/note/20200926_ml_perceptron/</link>
+      <link>http://www.xucaixu.com/note/20200926_ml_perceptron/</link>
       <pubDate>Sat, 26 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200926_ml_perceptron/</guid>
+      <guid>http://www.xucaixu.com/note/20200926_ml_perceptron/</guid>
       <description>最近在复习机器学习的基础，学习下《统计学习方法》感知机这章，主要针对书上难以理解的部分做一些学习笔记，方便自己后期复习。
 感知机是 二分类 的线性分类模型，输入为实例的特征向量，输出为实例的类别（取+1和-1）。感知机对应于输入空间中将实例划分为二类的分离超平面。感知机旨在求出该超平面，为求得超平面引入了基于误分类的损失函数，利用梯度下降法对损失函数进行最优化。
 感知机1957年被提出，它是 神经网络模型 与 支持向量机（SVM） 的基础。
@@ -61,10 +61,10 @@ $sign$ 通常称之为激活函数，激活函数同时也是构成神经网络�
     
     <item>
       <title>机器学习笔记-朴素贝叶斯法</title>
-      <link>https://calxu.github.io/note/20200923_ml_bayes/</link>
+      <link>http://www.xucaixu.com/note/20200923_ml_bayes/</link>
       <pubDate>Wed, 23 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200923_ml_bayes/</guid>
+      <guid>http://www.xucaixu.com/note/20200923_ml_bayes/</guid>
       <description>最近在恶补统计学习方面的理论知识，结合《统计学习方法》和知乎一篇文章对朴素贝叶斯分类进行一次学习总结，方便自己后期复习。贝叶斯分类是一类分类算法的总称，这类算法均以贝叶斯定理为基础，故统称为贝叶斯分类。朴素贝叶斯分类是贝叶斯分类中最简单，也是常见的一种分类方法。
 在看完《统计学习方法》书时，书上的数学公式整体上比较抽象，看得有点晦涩难懂。最好的方式还是先看书上例子或知乎上的例子，然后通过例子再理解数学公式。
 知识点疏理 最核心的数学公式（即贝叶斯公式）： $P(X,Y)=P(X) \cdot P(Y|X) = P(Y) \cdot P(X|Y)$
@@ -78,10 +78,10 @@ $sign$ 通常称之为激活函数，激活函数同时也是构成神经网络�
     
     <item>
       <title>机器学习笔记-逻辑斯谛回归与最大熵模型</title>
-      <link>https://calxu.github.io/note/20200920_ml_lr/</link>
+      <link>http://www.xucaixu.com/note/20200920_ml_lr/</link>
       <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200920_ml_lr/</guid>
+      <guid>http://www.xucaixu.com/note/20200920_ml_lr/</guid>
       <description>学习了《统计学习方法》逻辑斯谛回归与最大熵模型这一章节，现在对这章节做一些笔记。逻辑斯谛回归是工业界非常常用的模型之一，它具有可解释性强、参数训练快等优点；但它和最大熵模型有什么关系，这里做一些笔记方便自己后面的复习。
 首先介绍最大熵模型，它是一种模型选择的原则，它本身在工业界并不常用，但它的思想几乎是很多模型选择算法中都有体现；其次通过例子说明逻辑斯谛回归是最大熵模型的一个特例。
 最大熵模型 最大熵模型通俗的解释就是按照模型熵最大的原则来选择模型，当我们预测一个随机变量时，最好假设它均匀分布，保留全部不确定性，此时预测的风险最小。举个例子：如果投掷一颗骰子，让你预测各面出现的概率，在没有任何额外信息的情况下，我们会认为骰子是均匀的，各面出现的概率为1/6，从直觉上说，这是最稳妥的策略。
@@ -99,10 +99,10 @@ $sign$ 通常称之为激活函数，激活函数同时也是构成神经网络�
     
     <item>
       <title>机器学习笔记-梯度下降法和牛顿法</title>
-      <link>https://calxu.github.io/note/20200918_ml_iteration/</link>
+      <link>http://www.xucaixu.com/note/20200918_ml_iteration/</link>
       <pubDate>Fri, 18 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200918_ml_iteration/</guid>
+      <guid>http://www.xucaixu.com/note/20200918_ml_iteration/</guid>
       <description>机器学习中很多时候都是在求解无约束条件的最优化问题，比如：感知机、逻辑斯谛回归、条件随机场的求解。在求解无约束最优化问题最常用的两类方法是 梯度下降法 和 牛顿法，可参考《统计学习方法》的附录A 和 附录B。 这篇笔记记录下自己对两类方法的理解。
 梯度下降法 在机器学习任务中，要求目标函数 $f(x)$ 的使其最小的 $x$ 的值。梯度下降是一种迭代算法，常用来求解这类问题。基本步骤为：选取初值；梯度方向不断迭代；更新 $x$ 的值找到最逼近的解。
  选取 $x^{k}$ ，计算 $f(x^{k})$ ， $k$ 初始值为0；
@@ -113,10 +113,10 @@ $sign$ 通常称之为激活函数，激活函数同时也是构成神经网络�
     
     <item>
       <title>机器学习笔记-决策树</title>
-      <link>https://calxu.github.io/note/20200206_ml_decision_tree/</link>
+      <link>http://www.xucaixu.com/note/20200206_ml_decision_tree/</link>
       <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200206_ml_decision_tree/</guid>
+      <guid>http://www.xucaixu.com/note/20200206_ml_decision_tree/</guid>
       <description>在工业界，决策树（Decision Tree）是一类常见的机器学习方法。决策树综合可解释性、表征能力（线性模型 &amp;lt; 树模型 &amp;lt; 神经网络）、可操作性（调参）等优点，目前它是工业界应用最广的模型，很多基于树模型的开源的框架可供选择，比如Random Forest、GBDT、XGBoost、LightGBM 这些工业界最为常用的框架都是以决策树模型为基础的。
 决策树是一种基本的分类与回归方法。这篇笔记主要介绍决策树的基本流程；其次介绍决策树的特征选择；再介绍决策树的剪枝；然后介绍一个历史上非常经典的决策树CART树；最后再介绍决策树模型的其它要点。
 决策树的基本流程 决策树学习本质上是从训练数据集中归纳出一组分类规则。从所有可能的决策树中选取最优决策树是NP完全问题，所以现实中决策树学习算法通常采用启发式方法（即贪心策略），近似求解这一最优化问题。这样得到的决策树是次最优的。
@@ -136,10 +136,10 @@ $sign$ 通常称之为激活函数，激活函数同时也是构成神经网络�
     
     <item>
       <title>机器学习笔记-集成学习Boosting</title>
-      <link>https://calxu.github.io/note/20200202_ml_boosting/</link>
+      <link>http://www.xucaixu.com/note/20200202_ml_boosting/</link>
       <pubDate>Sun, 02 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200202_ml_boosting/</guid>
+      <guid>http://www.xucaixu.com/note/20200202_ml_boosting/</guid>
       <description>根据基学习器的生成方式，目前集成学习方法主流分成两大类，即Boosting 和 Bagging。Boosting集成是每个基学习器存在强依赖关系，必须串行生成，目前比较有代表性的工业界框架有AdaBoost、GBDT、XGBoost 和 LightGBM，其中后三者工业界比较常用；Bagging集成是每个基学习器间不需要存在依赖关系、可并行化，其中比较具有代表性的是随机森林（即 Random Forest）。
 这篇笔记主要记录集成学习Boosting的思想，关于Bagging的思想可参考上一篇笔记。这篇笔记首先记录Boosting的基本思路；其次详细记录经典且具有代表性的提升算法AdaBoost；然后记录基分类器为决策树的boosting集成树模型（boosting tree）；最后记录一种特殊的boosting集成方法即梯度提升（gradient boosting）。
 Boosting方法的基本思路 Boosting方法基于的思想：对于一个复杂任务来说，将多个专家的判断进行适当的综合所得出的判断，要比其中任何一个专家单独的判断好，就是“三个臭皮匠顶个诸葛亮”的道理。在1990年，Schapire证明一个类强可学习与一个类弱可学习是等价的，即一个类是强可学习的充分必要条件是这个类是弱可学习的。
@@ -157,10 +157,10 @@ AdaBoost算法描述 输入：训练集 $T=\{(x_1,y_1),(x_2,y_2),...,(x_N,y_N)\}
     
     <item>
       <title>机器学习笔记-集成学习Bagging</title>
-      <link>https://calxu.github.io/note/20200118_ml_bagging/</link>
+      <link>http://www.xucaixu.com/note/20200118_ml_bagging/</link>
       <pubDate>Sat, 18 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200118_ml_bagging/</guid>
+      <guid>http://www.xucaixu.com/note/20200118_ml_bagging/</guid>
       <description>工作也近一年半的时间，工作这段时间一直聚焦于业务，会调参懂业务基本可以解决工作中绝大部分业务问题，很多时候不需要深入理解理论。 最近闲下来有时间把机器学习的理论知识重新梳理学习下。 这篇笔记学习下机器学习中集成学习的一些知识。
 集成学习（ensemble learning）是很多机器学习框架所应用到的一个策略。 目前比较有代表性的集成方式是Boosting 和 Bagging。 Boosting集成是每个基学习器间存在强依赖关系、必须串行生成，目前比较有代表性的工业界框架有AdaBoost、GBDT、XGBoost和LightGBM，其中后三者工业界比较常用；Bagging集成是每个基学习器间不需要存在依赖关系、可并行化，其中比较具有代表性的是随机森林（即 Random Forest），工业也比较常用。
 这篇笔记主要基于周志华老师的《机器学习》西瓜书集成学习部分，聚焦在集成学习之Bagging方法。首先记录有放回采样的过程和特性；其次介绍集成学习Bagging方法，Bagging集成是建立在有放回采样的基础之上；最后介绍随机森林，随机森林是典型的基于Bagging集成的一个扩展变体。

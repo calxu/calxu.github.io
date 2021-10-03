@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Mining on Travis, Xu</title>
-    <link>https://calxu.github.io/tags/data-mining/</link>
-    <description>Recent content in Data Mining on Travis, Xu</description>
+    <title>Data Mining on Travis</title>
+    <link>http://www.xucaixu.com/tags/data-mining/</link>
+    <description>Recent content in Data Mining on Travis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 05 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://calxu.github.io/tags/data-mining/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.xucaixu.com/tags/data-mining/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hive常用创删表SQL笔记</title>
-      <link>https://calxu.github.io/note/20200705_hive_sql/</link>
+      <link>http://www.xucaixu.com/note/20200705_hive_sql/</link>
       <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200705_hive_sql/</guid>
+      <guid>http://www.xucaixu.com/note/20200705_hive_sql/</guid>
       <description>从度小满来到京东后，逐渐从原来的数据挖掘工程师转变成了SQL工程师。相比而言，京东的中台基建要比度小满强太多了，优点是做数据挖掘的同学就可以专注业务本身，不需要太关注于数据库环境/操作系统环境/任务调度各种琐碎的工程细节；缺点就是对我个人而言，原来各种相对全栈的技能就退化成专心写SQL了（^_^）。
 下面稍微整理下在公司内部天天用到的Hive SQL创删表的一些语句，这些创删表语句基本上在使用Hive的每个公司都是天天用的。虽然也可以在需要时直接Google下就出来了，但每次都需要搜索，索性就一次性把它整理下，下次用到时直接到笔记复制粘贴即可。
 创建新表 USE test_tmp; DROP TABLE IF EXISTS test_tmp.temporary_table; CREATE TABLE IF NOT EXISTS test_tmp.temporary_table ( company_name STRING COMMENT &#39;企业名称&#39;, company_id STRING COMMENT &#39;企业唯一标识&#39; ) COMMENT &#39;临时测试表&#39; PARTITIONED BY ( dt STRING COMMENT &#39;时间切片&#39; ) ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;\t&#39; LINES TERMINATED BY &#39;\n&#39; STORED AS textfile;  注：上面使用的partition，即时间切片，不需要partition去掉即可；
@@ -26,10 +26,10 @@ LOAD DATA LOCAL INPATH &#39;/path/to/local/file&#39; OVERWRITE INTO TABLE test_t
     
     <item>
       <title>数据挖掘笔记-时序特征的加工</title>
-      <link>https://calxu.github.io/note/20200212_timeseries_features/</link>
+      <link>http://www.xucaixu.com/note/20200212_timeseries_features/</link>
       <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200212_timeseries_features/</guid>
+      <guid>http://www.xucaixu.com/note/20200212_timeseries_features/</guid>
       <description>在工业界，不管是做风控模型还是做推荐系统，都会涉及到特征工程，特征工程往往直接决定着最终模型的效果。 在特征工程中如何来表征出数据中的信息，结合特定的场景是有一定的技巧和套路的方法论的。 记得以前在学校里打Kaggle比赛，有选手就专门总结出做特征的模版，不管什么挖掘类的比赛直接拿过来套就可以了，这很大程度加快了模型调测的速度。
 在特征中有一类非常重要特征是时序特征。 时序信息的表征总得来说有两大方法： 1. 第一种方法是通过特征工程的方式来加工时序特征，这种方法的优点 可解释性强；缺点 很容易信息表达不全，严重依赖于对场景的经验的理解； 2. 第二种方法是通过LSTM时序神经网络的方法来学得时序信息，这种方法优点 信息表达全，能学得内在潜在规律；缺点 可解释性差，需要调网络参数。
 以上两种方法各有优缺点。 我是从事金融行业的，很多时候需要追求可解释性和操作的方便性，所以有不少场景是通过特征工程的方式来加工时序特征的。 这里主要介绍下特征工程的方式来加工时序特征。 当时在学校师兄在微软实习时，微软根据Office产品使用情况来加工相应时序特征进行预测用户的付款意愿。 回学校后我们对它进行了总结归纳，时序特征的加工如下（以下是直接用LaTeX生成的PDF文件显示的，等有空时我把它处理成Markdown格式的，源文件可到这里下载 PDF文件 和 LaTeX源文件 ）。</description>

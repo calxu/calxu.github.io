@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Travis, Xu</title>
-    <link>https://calxu.github.io/tags/</link>
-    <description>Recent content in Tags on Travis, Xu</description>
+    <title>Tags on Travis</title>
+    <link>http://www.xucaixu.com/tags/</link>
+    <description>Recent content in Tags on Travis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 07 Oct 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://calxu.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.xucaixu.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Machine Learning</title>
-      <link>https://calxu.github.io/tags/machine-learning/</link>
+      <link>http://www.xucaixu.com/tags/machine-learning/</link>
       <pubDate>Wed, 07 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/tags/machine-learning/</guid>
+      <guid>http://www.xucaixu.com/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>算法刷题</title>
-      <link>https://calxu.github.io/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/</link>
+      <link>http://www.xucaixu.com/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/</link>
       <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/</guid>
+      <guid>http://www.xucaixu.com/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Mining</title>
-      <link>https://calxu.github.io/tags/data-mining/</link>
+      <link>http://www.xucaixu.com/tags/data-mining/</link>
       <pubDate>Sun, 05 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/tags/data-mining/</guid>
+      <guid>http://www.xucaixu.com/tags/data-mining/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Graph</title>
-      <link>https://calxu.github.io/tags/graph/</link>
+      <link>http://www.xucaixu.com/tags/graph/</link>
       <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/tags/graph/</guid>
+      <guid>http://www.xucaixu.com/tags/graph/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hugo框架</title>
-      <link>https://calxu.github.io/tags/hugo%E6%A1%86%E6%9E%B6/</link>
+      <link>http://www.xucaixu.com/tags/hugo%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Tue, 07 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/tags/hugo%E6%A1%86%E6%9E%B6/</guid>
+      <guid>http://www.xucaixu.com/tags/hugo%E6%A1%86%E6%9E%B6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Git</title>
-      <link>https://calxu.github.io/tags/git/</link>
+      <link>http://www.xucaixu.com/tags/git/</link>
       <pubDate>Sat, 10 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/tags/git/</guid>
+      <guid>http://www.xucaixu.com/tags/git/</guid>
       <description></description>
     </item>
     
