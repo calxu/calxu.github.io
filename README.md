@@ -42,6 +42,6 @@ git restore ./content/note/20191101_shadowsocks.md && git restore ./content/note
 rm -rf ./resources && \
 git checkout master_noVPN && \
 rm -rf * && \
-mv ../public_master_noVPN_${DATE} ./ && \
+mv ../public_master_noVPN_${DATE}/* ./ && \
 rm -rf ../public_master_noVPN_${DATE}
 ```
