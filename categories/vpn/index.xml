@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>VPN on Travis, Xu</title>
-    <link>https://calxu.github.io/categories/vpn/</link>
-    <description>Recent content in VPN on Travis, Xu</description>
+    <title>VPN on Travis</title>
+    <link>http://www.xucaixu.com/categories/vpn/</link>
+    <description>Recent content in VPN on Travis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://calxu.github.io/categories/vpn/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.xucaixu.com/categories/vpn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>利用开源frp&#43;ss升级搭建翻墙VPN</title>
-      <link>https://calxu.github.io/note/20200301_vpn_2/</link>
+      <link>http://www.xucaixu.com/note/20200301_vpn_2/</link>
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200301_vpn_2/</guid>
+      <guid>http://www.xucaixu.com/note/20200301_vpn_2/</guid>
       <description>之前直接利用ss搭建翻墙VPN已经成功被 GFW 封杀，可能是因为是建墙者可以成功检测出 利用 ss 传输协议的特征，从而利用传输协议的特征来封禁服务端的IP，最终导致我 ping 都不能ping通 服务端的机器。很是无语，最终尝试了不同地域的境外的 VPS 云服务，都以 IP 被封禁而告终。
 最近朋友跟我说可以利用frp中转ss的方法避开 GFW 的检测，于是我 Google 了下关键字进行学习和尝试，用了一天时间折腾终于搭建成功了。目前该方法的流量协议未被 GFW 检测到，但不代表该方法会一直有效下去，因为GFW 流量检测协议的策略本身就是个不断升级的工作，所以我们也要不断的升级翻墙VPN的方法，这也是市面上很多卖翻墙VPN的工具帐号不能永久有效的原因。
 下图给出frp+ss升级搭建中转翻墙VPN的概要原理图，由下图可知主要包含三部分的配置：客户端ss、中转服务器和ss服务器。这篇笔记首先介绍客户端ss的配置，作为用户你只需要配置客户端ss即可，其余无需关心；然后介绍中转服务器的配置；其次介绍ss服务器端的配置；最后总结并对未来针对 GFW 作一些未来应对策略。
@@ -31,10 +31,10 @@
     
     <item>
       <title>利用开源ss工具快速搭建翻墙VPN</title>
-      <link>https://calxu.github.io/note/20191101_shadowsocks/</link>
+      <link>http://www.xucaixu.com/note/20191101_shadowsocks/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20191101_shadowsocks/</guid>
+      <guid>http://www.xucaixu.com/note/20191101_shadowsocks/</guid>
       <description>搭建ss的方法，网上有很多，请自行Google。 这里提供下链接ss官网的搭建方法， 目前GFW已经具备识别ss流量的能力，但每次好像都是国家大事件时才进行封堵，但封堵时也误杀了很多正常的流量的ip。 所以过了这段关键时期，GFW会放行，这就需要重新搭建ss。
 这篇文章主要记录下搭建ss翻墙软件的最小配置，方便自己在GFW封杀后再快速搭建翻墙的VPN。
 客户端配置 客户端软件下载  mac下载

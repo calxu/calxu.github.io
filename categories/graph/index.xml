@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Graph on Travis, Xu</title>
-    <link>https://calxu.github.io/categories/graph/</link>
-    <description>Recent content in Graph on Travis, Xu</description>
+    <title>Graph on Travis</title>
+    <link>http://www.xucaixu.com/categories/graph/</link>
+    <description>Recent content in Graph on Travis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 26 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://calxu.github.io/categories/graph/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.xucaixu.com/categories/graph/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>工程篇-图谱工具Neo4j搭建与入门学习</title>
-      <link>https://calxu.github.io/note/20200226_neo4j_1/</link>
+      <link>http://www.xucaixu.com/note/20200226_neo4j_1/</link>
       <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200226_neo4j_1/</guid>
+      <guid>http://www.xucaixu.com/note/20200226_neo4j_1/</guid>
       <description>图谱近几年在互联网公司里用得非常普遍。据我所知，在 推荐领域 和 风控反作弊领域 用得非常多，最近也面试了数据挖掘岗的大大小小的互联网公司，大概 30% 的公司都问了关于图谱的一些知识。所以关于图谱的应用的需求还是非常大的，还是有必要学习下图谱的工业界一些通用的工具和套路。
 图谱在应用中有一个很大的优点，它的解释能力很强，它基于一个“人以类聚，物以群分“原则，比如在社交图谱中，一个用户的所有的朋友学历水平能非常好地反映这个用户学历水平。所以在很多项目中，很多时候都是以用户近邻的特征来对该用户进行特征刻画的。
 基本图的存储在大学里的《数据结构》中描述了最基本存储结构有 邻接表 和 邻接矩阵 。而对于图谱的存储，会比基本图的存储更加复杂，图谱存储细节后期再慢慢探索。好在工业界有一些非常成熟的图谱数据库的框架，目前比较流行的有 neo4j 和 orientdb 。

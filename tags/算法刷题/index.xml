@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>算法刷题 on Travis, Xu</title>
-    <link>https://calxu.github.io/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/</link>
-    <description>Recent content in 算法刷题 on Travis, Xu</description>
+    <title>算法刷题 on Travis</title>
+    <link>http://www.xucaixu.com/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/</link>
+    <description>Recent content in 算法刷题 on Travis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 28 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://calxu.github.io/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.xucaixu.com/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>算法刷题-面试刷题练手</title>
-      <link>https://calxu.github.io/note/20200928_algorithm/</link>
+      <link>http://www.xucaixu.com/note/20200928_algorithm/</link>
       <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://calxu.github.io/note/20200928_algorithm/</guid>
+      <guid>http://www.xucaixu.com/note/20200928_algorithm/</guid>
       <description>工作已经2年多了，目前面试基本上都是找一些技术栈和业务都是适配自己基因的，很多时候面试都会面一些项目经验，具体项目是怎么做的。然后会出一道题试下基本的代码素养，大概也差不多15~30分钟可以写完，否则自我介绍+项目经验+代码在1个多小时内根本答不完。
 下面整理一些简单的代码题，方便自己以后找工作热身做题用。
 题1 给定字符串和常数k，每2k个字符前k个翻转，后k个不动；
