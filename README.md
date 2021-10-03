@@ -1,4 +1,4 @@
-# 个人博客管理与运维
+# 个人博客说明与渲染
 
 
 
@@ -14,4 +14,34 @@
 
 ## 渲染代码
 
+1. 不包含VPN的渲染代码：
 
+```
+DATE=`date +"%Y%m%d"`
+
+git branch && hugo -D && \
+mv ./public ../public_master_${DATE} && \
+rm -rf ./resources && \
+git checkout master && \
+rm -rf * && \
+mv ../public_master_${DATE}/* ./ && \
+rm -rf ../public_master_${DATE}
+```
+
+
+2. 包含VPN的渲染代码：
+
+```
+DATE=`date +"%Y%m%d"`
+
+git branch && \
+rm ./content/note/20191101_shadowsocks.md && rm ./content/note/20200301_vpn_2.md && \
+hugo -D && \
+mv ./public ../public_master_noVPN_${DATE} && \
+git restore ./content/note/20191101_shadowsocks.md && git restore ./content/note/20200301_vpn_2.md && \
+rm -rf ./resources && \
+git checkout master_noVPN && \
+rm -rf * && \
+mv ../public_master_noVPN_${DATE} ./ && \
+rm -rf ../public_master_noVPN_${DATE}
+```
