@@ -3,15 +3,14 @@
 
 
 <div class="article-meta">
-<h1><span class="title">{{ .Title | markdownify }}</span></h1>
-{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006-01-02" }}</h2>{{ end }}
+  <h1><span class="title">{{ .Title | markdownify }}</span></h1>
+  {{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006-06-02" }}</h2>{{ end }}
 </div>
 
 
 
 <main>
-{{ .Content }}
+  {{ .Content }}
 </main>
 
 
@@ -19,7 +18,9 @@
 {{if not .IsHome }}
   <ul>
     {{ $pages := .Pages }}
+
     {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
+    
     {{ range (where $pages "Section" "!=" "") }}
     
     <li>
