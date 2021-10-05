@@ -44,6 +44,48 @@
 
 <h2 id="题1">题1</h2>
 
+<p>求最大子数组求和。输入一个整型数组，数组里有正数也有负数。数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值，要求时间复杂度为O(n)。</p>
+
+<p>输入: nums = [-2,1,-3,4,-1,2,1,-5,4]；输出: 6。解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。</p>
+
+<pre><code>def max_seq(nums):
+    p_first = 0
+    p_next = p_first
+    p_max = p_first
+
+    sum_current = 0
+    sum_max = sum_current
+
+    for e in nums:
+        if p_next &lt; p_first:
+            p_next = p_first
+
+        if sum_current + e &lt;= 0:
+            p_first = p_next + 1
+            sum_current = 0
+        else:
+            sum_current = sum_current + e
+
+            p_next = p_next + 1
+
+            if sum_current &gt; sum_max:
+                sum_max = sum_current
+                p_max = p_next
+
+    return (sum_max, p_first, p_max)
+
+
+
+if __name__ == '__main__':
+    nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+    sum_max, p_first, p_next = max_seq(nums)
+
+    print(sum_max, p_first, p_next, nums[p_first:p_next], sep='\t')
+</code></pre>
+
+<h2 id="题2">题2</h2>
+
 <p>给定字符串和常数k，每2k个字符前k个翻转，后k个不动；</p>
 
 <p>例：inputStr = &ldquo;abcdefg&rdquo;。
@@ -88,7 +130,7 @@ if __name__ == '__main__':
     print(convert(inputStr, 8))
 </code></pre>
 
-<h2 id="题2">题2</h2>
+<h2 id="题3">题3</h2>
 
 <p>输入矩阵 m*n，矩阵中每个位置含 一个整数，从左上到右个，每个节点只能向右或者向下。求从左上角至右下角和最小的路径值。</p>
 
@@ -144,7 +186,7 @@ if __name__ == '__main__':
     print(min_path_value)
 </code></pre>
 
-<h2 id="题3">题3</h2>
+<h2 id="题4">题4</h2>
 
 <p>棋盘大小 n*n，每行、每列、对角线只能放一枚棋子，求所有摆放的情况。</p>
 

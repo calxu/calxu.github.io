@@ -49,10 +49,9 @@ K近邻基本要素 距离度量 KNN一般采用欧式距离，但更一般的�
       <guid>http://www.xucaixu.com/note/20200928_algorithm/</guid>
       <description>工作已经2年多了，目前面试基本上都是找一些技术栈和业务都是适配自己基因的，很多时候面试都会面一些项目经验，具体项目是怎么做的。然后会出一道题试下基本的代码素养，大概也差不多15~30分钟可以写完，否则自我介绍+项目经验+代码在1个多小时内根本答不完。
 下面整理一些简单的代码题，方便自己以后找工作热身做题用。
-题1 给定字符串和常数k，每2k个字符前k个翻转，后k个不动；
-例：inputStr = &amp;ldquo;abcdefg&amp;rdquo;。 当k=2时，outputStr=&amp;ldquo;bacdfeg&amp;rdquo;，当k=8时，outputStr=&amp;ldquo;gfedcba&amp;rdquo;
-考常python基础语法，代码如下：
-#!/usr/bin/python3 # coding:utf-8 def convert(inputStr, k): &amp;quot;&amp;quot;&amp;quot; convert string. &amp;quot;&amp;quot;&amp;quot; outputStr = &amp;quot;&amp;quot; n = len(inputStr) i = 0 while i * k &amp;lt; n: if i % 2 == 0: outputStr += inputStr[ i*k : (i+1)*k ][::-1] else: outputStr += inputStr[ i*k : (i+1)*k ] i += 1 return outputStr if __name__ == &#39;__main__&#39;: inputStr = &amp;quot;abcdefg&amp;quot; # 当 k = 2 时 print(convert(inputStr, 2)) # 当 k = 8 时 print(convert(inputStr, 8))  题2 输入矩阵 m*n，矩阵中每个位置含 一个整数，从左上到右个，每个节点只能向右或者向下。求从左上角至右下角和最小的路径值。</description>
+题1 求最大子数组求和。输入一个整型数组，数组里有正数也有负数。数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值，要求时间复杂度为O(n)。
+输入: nums = [-2,1,-3,4,-1,2,1,-5,4]；输出: 6。解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+def max_seq(nums): p_first = 0 p_next = p_first p_max = p_first sum_current = 0 sum_max = sum_current for e in nums: if p_next &amp;lt; p_first: p_next = p_first if sum_current + e &amp;lt;= 0: p_first = p_next + 1 sum_current = 0 else: sum_current = sum_current + e p_next = p_next + 1 if sum_current &amp;gt; sum_max: sum_max = sum_current p_max = p_next return (sum_max, p_first, p_max) if __name__ == &#39;__main__&#39;: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4] sum_max, p_first, p_next = max_seq(nums) print(sum_max, p_first, p_next, nums[p_first:p_next], sep=&#39;\t&#39;)  题2 给定字符串和常数k，每2k个字符前k个翻转，后k个不动；</description>
     </item>
     
     <item>
