@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>运筹学-cvxpy包解凸优化问题 | Travis</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">个人介绍</a></li>
+      
+      <li><a href="/note">随笔笔记</a></li>
+      
+      <li><a href="/books">个人书架</a></li>
+      
+      <li><a href="/links">关注链接</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+
+
+
+<div class="article-meta">
+  <h1><span class="title">运筹学-cvxpy包解凸优化问题</span></h1>
+  <h2 class="date">2021-10-04</h2>
+</div>
+
+
+
+<main>
+  <p>供应链里仓内作业优化问题抽象出来经常是一种凸优化问题，这里记录下用cvxpy包解凸优化问题的demo，方便自己后面复习用。</p>
+
+<p>解决问题：当 <code>$2x-y^2&gt;=0$</code>，求x+y的最小值。</p>
+
+<pre><code>from cvxpy import *
+
+x = Variable()
+y = Variable()
+
+constraints = [2 * x - y ** 2 &gt;= 0]
+
+obj = Minimize( x + y )
+
+prob = Problem(obj, constraints)
+
+prob.solve()
+
+
+# print(prob.status)
+print(prob.value)
+print(x.value, y.value)
+</code></pre>
+
+<p>输出结果：</p>
+
+<pre><code>-0.49999999933064904
+0.4999589681940953 -0.9999589675247443
+</code></pre>
+
+<p>注：这里是python求解精度的问题，四舍五入即可。</p>
+
+<p>结论：这里给出得是最简单的demo，复杂问题可以解化为这些最小模块的简单问题来解决。</p>
+
+</main>
+
+
+
+  <footer>
+  <script src="//yihui.name/js/math-code.js"></script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+  
+  </footer>
+  </body>
+</html>
+
