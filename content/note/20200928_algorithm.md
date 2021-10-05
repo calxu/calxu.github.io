@@ -5,6 +5,7 @@ categories:
   - 算法刷题
 tags:
   - 算法刷题
+
 ---
 
 
@@ -13,8 +14,53 @@ tags:
 
 下面整理一些简单的代码题，方便自己以后找工作热身做题用。
 
-
 ## 题1
+
+求最大子数组求和。输入一个整型数组，数组里有正数也有负数。数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值，要求时间复杂度为O(n)。
+
+输入: nums = [-2,1,-3,4,-1,2,1,-5,4]；输出: 6。解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+
+```
+def max_seq(nums):
+    p_first = 0
+    p_next = p_first
+    p_max = p_first
+
+    sum_current = 0
+    sum_max = sum_current
+
+    for e in nums:
+        if p_next < p_first:
+            p_next = p_first
+
+        if sum_current + e <= 0:
+            p_first = p_next + 1
+            sum_current = 0
+        else:
+            sum_current = sum_current + e
+
+            p_next = p_next + 1
+
+            if sum_current > sum_max:
+                sum_max = sum_current
+                p_max = p_next
+
+    return (sum_max, p_first, p_max)
+
+
+
+if __name__ == '__main__':
+    nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+
+    sum_max, p_first, p_next = max_seq(nums)
+
+    print(sum_max, p_first, p_next, nums[p_first:p_next], sep='\t')
+```
+
+
+
+## 题2
+
 给定字符串和常数k，每2k个字符前k个翻转，后k个不动；
 
 例：inputStr = "abcdefg"。
@@ -63,7 +109,7 @@ if __name__ == '__main__':
 
 
 
-## 题2
+## 题3
 
 输入矩阵 m*n，矩阵中每个位置含 一个整数，从左上到右个，每个节点只能向右或者向下。求从左上角至右下角和最小的路径值。
 
@@ -126,7 +172,7 @@ if __name__ == '__main__':
 
 
 
-## 题3
+## 题4
 
 棋盘大小 n*n，每行、每列、对角线只能放一枚棋子，求所有摆放的情况。
 
