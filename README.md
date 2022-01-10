@@ -14,7 +14,7 @@
 
 ## 渲染代码
 
-1. 不包含VPN的渲染代码：
+1. 包含VPN的渲染代码：
 
 ```
 DATE=`date +"%Y%m%d"`
@@ -29,7 +29,7 @@ rm -rf ../public_master_${DATE}
 ```
 
 
-2. 包含VPN的渲染代码：
+2. 不包含VPN的渲染代码：
 
 ```
 DATE=`date +"%Y%m%d"`
