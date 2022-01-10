@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://www.xucaixu.com/</loc>
+    <lastmod>2022-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://www.xucaixu.com/categories/</loc>
     <lastmod>2021-10-30T00:00:00+00:00</lastmod>
   </url>
@@ -18,12 +23,12 @@
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/tags/%E7%AE%A1%E7%90%86%E5%AD%A6/</loc>
+    <loc>http://www.xucaixu.com/categories/%E7%AE%A1%E7%90%86%E5%AD%A6/</loc>
     <lastmod>2021-10-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/categories/%E7%AE%A1%E7%90%86%E5%AD%A6/</loc>
+    <loc>http://www.xucaixu.com/tags/%E7%AE%A1%E7%90%86%E5%AD%A6/</loc>
     <lastmod>2021-10-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -33,12 +38,12 @@
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/categories/%E8%BF%90%E7%AD%B9%E5%AD%A6/</loc>
+    <loc>http://www.xucaixu.com/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/</loc>
     <lastmod>2021-10-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/tags/%E8%BF%90%E7%AD%B9%E5%AD%A6/</loc>
+    <loc>http://www.xucaixu.com/categories/%E8%BF%90%E7%AD%B9%E5%AD%A6/</loc>
     <lastmod>2021-10-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -48,17 +53,12 @@
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/</loc>
-    <lastmod>2021-10-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://www.xucaixu.com/tags/machine-learning/</loc>
+    <loc>http://www.xucaixu.com/categories/machine-learning/</loc>
     <lastmod>2020-10-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/categories/machine-learning/</loc>
+    <loc>http://www.xucaixu.com/tags/machine-learning/</loc>
     <lastmod>2020-10-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -108,12 +108,12 @@
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/tags/data-mining/</loc>
+    <loc>http://www.xucaixu.com/categories/data-mining/</loc>
     <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/categories/data-mining/</loc>
+    <loc>http://www.xucaixu.com/tags/data-mining/</loc>
     <lastmod>2020-07-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -158,12 +158,12 @@
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/categories/hugo%E6%A1%86%E6%9E%B6/</loc>
+    <loc>http://www.xucaixu.com/tags/hugo%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2020-01-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/tags/hugo%E6%A1%86%E6%9E%B6/</loc>
+    <loc>http://www.xucaixu.com/categories/hugo%E6%A1%86%E6%9E%B6/</loc>
     <lastmod>2020-01-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -183,12 +183,12 @@
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/tags/git/</loc>
+    <loc>http://www.xucaixu.com/categories/git/</loc>
     <lastmod>2019-08-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.xucaixu.com/categories/git/</loc>
+    <loc>http://www.xucaixu.com/tags/git/</loc>
     <lastmod>2019-08-10T00:00:00+00:00</lastmod>
   </url>
   
