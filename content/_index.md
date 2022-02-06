@@ -1,6 +1,6 @@
 ---
 title: "About"
-date: '2022-01-08'
+date: '2022-02-05'
 ---
 
 
@@ -14,12 +14,13 @@ date: '2022-01-08'
 <a href="http://scst.suda.edu.cn/" target="_blank">苏州大学</a> 和
 <a href="http://jsjx.cxxy.seu.edu.cn/" target="_blank">东南大学成贤学院</a>
 分别获得我的 **硕士** 和 **学士** 学位，均为CS专业。
-这里附一份我的 <a href="/quote/resume_202201.pdf" target="_blank">中文简历</a>（2022年01月更新），
+这里附一份我的 <a href="/quote/resume_202202.pdf" target="_blank">中文简历</a>（2022年02月更新），
 欢迎一起交流学习，我的邮箱: csxucaixu@gmail.com。
 
 
-**个人相关链接:** <a href="https://www.linkedin.com/in/travis-xu-437328173/" target="_blank">Linkedin</a> 
-                  <a href="https://github.com/calxu" target="_blank">Github</a>
+**其它个人相关链接:** <a href="https://www.zhihu.com/people/IdKevin" target="_blank">知乎</a> &nbsp;
+                      <a href="https://www.linkedin.com/in/travis-xu-437328173/" target="_blank">领英</a> &nbsp;
+                      <a href="https://github.com/calxu" target="_blank">Github</a> 
 
 
 **个人兴趣:** 爱代码，爱折腾，爱数学，爱篮球，爱生活。
@@ -32,7 +33,7 @@ date: '2022-01-08'
 
 * 供应链运筹算法/定价优化；
 
-* 每天坚持学习英语；
+* 每天练习英语口语（目前可以简单的日常交流）；
 
 
 ## 工作背景
@@ -48,9 +49,9 @@ date: '2022-01-08'
 
 ## 教育背景
 
-* **2015.09-2018.07:** 苏州大学，硕士，计算机技术（个人排名Top 15%）。
+* **2015.09-2018.07:** 苏州大学-硕士，江苏苏州，计算机技术（个人排名Top 15%）。
 
-* **2011.09-2015.07:** 东南大学成贤学院，本科，计算机科学与技术（个人排名Top 2%）；南京邮电大学（个人排名Top 2%）。
+* **2011.09-2015.07:** 东南大学成贤学院-学士，江苏南京，计算机科学与技术（个人排名Top 2%）；南京邮电大学，（个人排名Top 2%）。
 
 
 ## 学校论文
