@@ -16,8 +16,8 @@ theme = "hugo-travis"
     weight = 2
 
 [[menu.main]]
-    name = "个人书架"
-    url = "/books"
+    name = "一些整理"
+    url = "/shares"
     weight = 3
 
 [[menu.main]]
