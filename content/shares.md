@@ -13,6 +13,8 @@ date: '2019-12-09'
 
 2.  分单算法分享-2022年06月（<a href="/shares/202206_assign.pptx" target="_blank">PPT下载</a>）
 
+3.  智能发券分享-2022年12月（<a href="/shares/202212_coupon.pptx" target="_blank">PPT下载</a>）
+
 
 
 
