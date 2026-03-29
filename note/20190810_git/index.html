@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Git命令学习笔记02 | Travis</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">个人介绍</a></li>
+      
+      <li><a href="/note">随笔笔记</a></li>
+      
+      <li><a href="/shares">一些整理</a></li>
+      
+      <li><a href="/links">关注链接</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+
+
+
+<div class="article-meta">
+  <h1><span class="title">Git命令学习笔记02</span></h1>
+  <h2 class="date">2019-08-10</h2>
+</div>
+
+
+
+<main>
+  
+
+<p>目前使用Git管理项目半年时间，对Git最常用的基础命令已经全部掌握，
+这里记录一些Git管理项目中一些常用命令参数，不了解这些参数也能应付大多数项目管理，
+但了解这些参数会有利于代码的管理。</p>
+
+<h2 id="配置git">配置Git</h2>
+
+<h3 id="初始设置">初始设置</h3>
+
+<pre><code>git --version                                         # 查看git是否安装成功
+
+git config --global user.name &quot;Calvin,Xu&quot;             # 设置用户名
+git config --global user.email &quot;csxucaixu@gmail.com&quot;  # 设置邮箱
+
+git config --global --list                            # 显示全局config的配置
+
+git config --global color.ui auto                     # 提高git的可读性
+</code></pre>
+
+<p>需设置使用Git时的姓名和邮箱地址，以及提高Git的可读性，以上命令会在&rdquo;~/.gitconfig&rdquo;添加相应的设置:</p>
+
+<pre><code>[user]
+    name = Calvin,Xu
+    email = csxucaixu@gmail.com
+[color]
+    ui = auto
+</code></pre>
+
+<h3 id="自定义-gitignore">自定义.gitignore</h3>
+
+<pre><code>.gitignore    # git管理需忽略的文件，.gitignore配置的规则与linux通配符一致
+</code></pre>
+
+<h2 id="常用命令参数">常用命令参数</h2>
+
+<pre><code>git add --help                 # 查看git add命令的使用文档，所有命令均可通过此方式查看使用说明
+</code></pre>
+
+<pre><code>git add -u                     # 把本地有改动的文件添加至暂存区
+</code></pre>
+
+<pre><code>git diff                       # 查看工作区与暂存区所含文件的区别
+git diff filename              # 查看工作区与暂存区指定文件的区别
+git diff --cached              # 查看暂存区与HEAD所含文件的区别
+git diff --cached filename     # 查看暂存区与HEAD指定文件的区别
+git diff HEAD                  # 查看工作区与HEAD所含文件的区别
+git diff HEAD filename         # 查看工作区与HEAD指定文件的区别
+</code></pre>
+
+<pre><code>git reset HEAD filename        # 取消暂存区指定文件的修改，保持与最新分支一致
+git checkout -- filename       # 取消工作区指定文件的修改，保持与暂存区一致
+git reset --hard commidID      # HEAD恢复成commidID指向的状态，并且工作区和暂存区恢复成commitID指向的状态
+</code></pre>
+
+<pre><code>git stash list                 # 列出存盘中的所有信息
+git stash                      # 当前状态存盘
+git stash pop                  # 存盘状态弹出
+</code></pre>
+
+<h2 id="日志管理命令参数">日志管理命令参数</h2>
+
+<pre><code>git log                        # 显示提交的日志记录
+git log --oneline              # 以简洁的方式显示提交的日志记录
+git log -n 4 --oneline         # 以简洁的方式显示最近提交的4条日志记录
+git log --all                  # 显示所有分支的提交日志记录
+git log --all --online --graph # 以图形化的方式显示所有分支的日志记录
+</code></pre>
+
+<h2 id="分支管理命令参数">分支管理命令参数</h2>
+
+<pre><code>git branch -a                 # 查看分支，-a会列出所有分支
+git branch -v                 # 查看分支，-v参数会列出分支的描述信息
+</code></pre>
+
+<pre><code>git merge dev                 # 将dev分支合并至当前分支
+git merge --allow-unrelated-histories dev    # 将不相关的dev分支合并至当前分支
+git merge --abort             # 恢复merge之前的状态
+</code></pre>
+
+<h1 id="远程仓库命令参数">远程仓库命令参数</h1>
+
+<pre><code>git remote                    # 列出已经存在的远程分支
+git remote -v                 # 列出已经存在的远程分支详细信息
+git remote rename             # 修改某个远程仓库的简短名称
+git remote add [shortname] [url]   # 指定一个简单的名字来引用远程仓库
+</code></pre>
+
+<pre><code>git clone origin local        # 将远程origin仓库克隆至本地仓库
+</code></pre>
+
+<pre><code>git fetch origin master       # 将远程origin最新内容拉至本地master分支
+</code></pre>
+
+<pre><code>git push origin master        # 参数：git push &lt;远程主机名&gt; &lt;远程分支名&gt;，首次推送需加参数-u
+git push origin --tags        # git push不会推送标签，需手动推送
+git push origin --all         # 推送本地所有分支
+</code></pre>
+
+<h2 id="快捷操作">快捷操作</h2>
+
+<pre><code>git mv        # 给文件重命名，不通过linux中的mv命令来操作
+git rm        # 删除文件，不通过linux中的rm命令来操作
+</code></pre>
+
+<h2 id="参考文献">参考文献</h2>
+
+<ul>
+<li>[1] 极客时间. <a href="https://time.geekbang.org/course/intro/145">玩转Git三剑客</a></li>
+<li>[2] 大塚弘记. GitHub入门与实践. 2014</li>
+</ul>
+
+</main>
+
+
+
+  <footer>
+  <script src="//yihui.name/js/math-code.js"></script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+  
+  </footer>
+  </body>
+</html>
+

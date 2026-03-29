@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法刷题 on Travis</title>
+    <link>http://www.xucaixu.com/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/</link>
+    <description>Recent content in 算法刷题 on Travis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.xucaixu.com/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>算法刷题-面试刷题练手</title>
+      <link>http://www.xucaixu.com/note/20200928_algorithm/</link>
+      <pubDate>Mon, 28 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://www.xucaixu.com/note/20200928_algorithm/</guid>
+      <description>工作已经2年多了，目前面试基本上都是找一些技术栈和业务都是适配自己基因的，很多时候面试都会面一些项目经验，具体项目是怎么做的。然后会出一道题试下基本的代码素养，大概也差不多15~30分钟可以写完，否则自我介绍+项目经验+代码在1个多小时内根本答不完。
+下面整理一些简单的代码题，方便自己以后找工作热身做题用。
+题1 求最大子数组求和。输入一个整型数组，数组里有正数也有负数。数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值，要求时间复杂度为O(n)。
+输入: nums = [-2,1,-3,4,-1,2,1,-5,4]；输出: 6。解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+def max_seq(nums): p_first = 0 p_next = p_first p_max = p_first sum_current = 0 sum_max = sum_current for e in nums: if p_next &amp;lt; p_first: p_next = p_first if sum_current + e &amp;lt;= 0: p_first = p_next + 1 sum_current = 0 else: sum_current = sum_current + e p_next = p_next + 1 if sum_current &amp;gt; sum_max: sum_max = sum_current p_max = p_next return (sum_max, p_first, p_max) if __name__ == &#39;__main__&#39;: nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4] sum_max, p_first, p_next = max_seq(nums) print(sum_max, p_first, p_next, nums[p_first:p_next], sep=&#39;\t&#39;)  题2 给定字符串和常数k，每2k个字符前k个翻转，后k个不动；</description>
+    </item>
+    
+  </channel>
+</rss>

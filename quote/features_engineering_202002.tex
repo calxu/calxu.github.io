@@ -1,0 +1,277 @@
+\documentclass[a4paper, 6pt]{article}%开始文档
+\usepackage{multirow}%使用多栏宏包
+\usepackage{graphicx}
+\usepackage{lscape}
+
+\usepackage{amsmath}
+\usepackage{CJK}
+\usepackage{enumerate}
+\usepackage{tabularx,array,longtable,pdflscape,supertabular,ltxtable}
+
+%%%% 下面的命令重定义页面边距，使其符合中文刊物习惯 %%%%
+\addtolength{\topmargin}{-100pt}
+%\setlength{\oddsidemargin}{0.63cm}  % 3.17cm - 1 inch
+\setlength{\oddsidemargin}{0.33cm}  % 3.17cm - 1 inch
+\setlength{\evensidemargin}{\oddsidemargin}
+%\setlength{\textwidth}{14.66cm}
+%\setlength{\textheight}{24.00cm}    % 24.62
+
+\setlength{\textwidth}{15.5cm}
+\setlength{\textheight}{27.00cm}    % 24.62
+
+%%%% 下面的命令设置行间距与段落间距 %%%%
+\linespread{1.4}
+% \setlength{\parskip}{1ex}
+\setlength{\parskip}{0.5\baselineskip}
+
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+\begin{filecontents*}{1.tbl}
+\begin{longtable}{p{0.5cm}<{\centering}|X|X}
+%\centering
+%\begin{longtable}{c|l|l}
+\hline
+编号&数学表达&注释\\ \hline  \hline \endfirsthead %1 第一页表头
+\multicolumn{3}{r}{续表} \\ \hline
+编号&数学表达&注释\\ \hline  \hline \endhead %2续页表头
+\hline
+\multicolumn{3}{l}{对集合$\{S_{t_1},S_{t_2},\cdots,S_{t_K}\}$, 设$K=30$, \ $epsilon=1e-10$} \\ \hline
+1&$F_1 = S_{t_1}$&firstValue(第一天的值)\\\hline
+2&$F_2 = S_{t_K}$&lastValue(最后一天的值)\\\hline
+3&$F_3 = 0.5 * (S_{t_{15}} + S_{t_{16}})$&medianValue(所有天的业务量的中位数)\\\hline
+4&$F_4 = S_{t_{30*0.75}} - S_{t_{30*0.25}}$&interquartile(排在0.75 位置上的业务量减去排在0.25位置上的业务量的差)\\\hline
+5&
+\begin{tabular}{l}
+\tabincell{l}{
+if $\lvert F_1 \rvert > epsilon$ \\
+\quad then $F_5 = S_{t_k} / S_{t_1} = F_2 / F_1$ \\
+else \\
+\qquad if $\lvert F_2 \rvert > epsilon$ then $F_5 = 2$ \\
+\qquad else $F_5 = 1$}
+\end{tabular}
+&tailHeadRatio(最后一天的业务量/第一天的业务量)\\\hline
+6&$F_6 = (S_{t_K} - S_{t_1}) / 30 = (F_2 - F_1) / 30 $&avgIncrease(平均涨幅)\\\hline
+7&$F_7 = max(\{S_{t_k}|k\in[1,30]\})$&maxValue(最大值)\\\hline
+8&$F_8 = min(\{S_{t_k}|k\in[1,30]\})$&minValue(最小值)\\\hline
+9&$F_9 = \sum_{k=1}^K{S_{t_k}} / 30$&average(平均值)\\\hline
+10&$F_{10} = \sum_{k=1}^K{S_{t_k}^2} / 30 - F_9 * F_9$&variance(方差)\\\hline
+11&
+\begin{tabular}{l}
+\tabincell{l}{
+if $\lvert F_9 \rvert < epsilon$ then $F_{11} = F_{10}$ \\
+else $F_{11} = F_{10} / F_9$}
+\end{tabular}
+&varianceRatio(方差/平均值)\\\hline
+12&
+\begin{tabular}{l}
+\tabincell{l}{
+if $\sum_{k=1}^KS_{t_k}*w_k > epsilon$ \\
+\quad then $F_{12} = \frac{\sum_{k=K}^1S_{t_k}*w_k}{\sum_{k=1}^KS_{t_k}*w_k}$ \\
+else $F_{12} = 2$ \\
+if $\sum_{k=1}^KS_{t_k}*w_k \leq epsilon$ \\
+\quad and \\
+\quad $\sum_{k=K}^1S_{t_k}*w_k \leq epsilon$ \\
+\quad then $F_{12} = 1$ \\
+\\
+其中,$w_k = 0.85 * w_{k-1}$,$w_1 = 1$}
+\end{tabular}
+&averageSkew(nlp特征，从最近的一天往前对元素做weighted average，距离越近权重越大)\\\hline
+13&$F_{13} = \sum_{k=1}^{7}{S_{t_k}}$&first7Sum(前面7天的业务量总和)\\\hline
+14&$F_{14} = \sum_{k=24}^{30}{S_{t_k}}$&last7Sum(最后7天的业务量总和)\\\hline
+15&
+\begin{tabular}{l}
+\tabincell{l}{
+if $\lvert \sum_{k=1}^{7}{S_{t_k}}(\mbox{即} F_{13}) \rvert > epsilon$ \\
+\quad then $F_{15} = \frac{\sum_{k=24}^{30}{S_{t_k}}}{\sum_{k=1}^{7}{S_{t_k}}}$ \\
+else \\
+\qquad if $\lvert \sum_{k=24}^{30}{S_{t_k}} \rvert > epsilon$ \\
+\qquad \quad then $F_{15} = 2$ \\
+\qquad else $F_{15} = 1$ }
+\end{tabular}
+&tailHead7SumRatio(last7Sum/first7Sum)\\\hline
+16&$F_{16} = (F_{14} - F_{13}) / 30$&tailHead7SumAvgIncrease((last7Sum-first7Sum)/30)\\\hline
+17&
+\begin{tabular}{l}
+\tabincell{l}{
+if $\lvert F_9 \rvert > epsilon$ \\
+\quad then $F_{17} = F_{14} / 7 / F_9$ \\
+else \\
+\qquad if $\lvert F_{14} \rvert > epsilon$ \\
+\qquad \quad then $F_{17} = 2$ }
+\end{tabular}
+&last7AvgToOverallAvg(last7Sum/7/average)\\\hline
+18&$F_{18} = \sum(\lvert S_{t_k} \rvert < epsilon)$&zeroCount(为0的天数)\\\hline
+19&$F_{19} = \{first|\{\lvert S_{t_k} \rvert \geq epsilon\}_{index}\}$&firstNonzeroIndex(业务量中第一个不为0的下标)\\\hline
+20&$F_{20} = \{last|\{\lvert S_{t_k} \rvert \geq epsilon\}_{index}\}$&lastNonzeroIndex(业务量中最后一个不为0的下标)\\\hline
+21&$F_{21} = \{S_{t_k}|\{\lvert S_{t_k} \rvert \geq epsilon\}_{first}\}$&firstNonzeroValue(第一个不为0的业务量)\\\hline
+22&$F_{22} = \{S_{t_k}|\{\lvert S_{t_k} \rvert \geq epsilon\}_{last}\}$&lastNonzeroValue(最后一个不为0的业务量)\\\hline
+23&$F_{23} = F_{20} - F_{19} + 1$&lifeSpan(lastNonzeroIndex - firstNonzeroIndex + 1)\\\hline
+24&$F_{24} = (F_{22} - F_{21}) / F_{23}$&lifeAvgIncrease(在整个生命周期的平均增长量)\\\hline
+25&
+\begin{tabular}{l}
+\tabincell{l}{
+$F_{25} = q - p + 1$ \\
+其中,$\{S_{(t_k)_p},\cdots,S_{(t_k)_q}\}$,\\
+$[p,q]\mbox{为连续区间}$,$S_{t_k} < epsilon$}
+\end{tabular}
+&maxZeroLength(连续值为0的天数)\\\hline
+26&
+\begin{tabular}{l}
+\tabincell{l}{
+$F_{26} = q - p + 1$ \\
+其中,$\{S_{(t_k)_p},\cdots,S_{(t_k)_q}\}$,\\
+$[p,q]\mbox{为连续区间}$,$S_{t_k} > epsilon$ }
+\end{tabular}
+&maxNonzeroLength(连续值不为0的天数)\\\hline
+27&$F_{27} = \frac{\sum_{k=1}^{30}{(S_{t_k} - \frac{\sum_{k=1}^{30}{S_{t_k}}}{30}) * (k - (0.5 *　(1 + 30)))}} {\sum_{k=1}^{30}(k - (0.5 *　(1 + 30))) * (k - (0.5 *　(1 + 30)))}$&slope(斜率，最小二乘法可以算拟合的直线的斜率)\\\hline
+28&$F_{28} = argmax(S_{t_k} - S_{t_{(k-1)}},t\in[2,30])$&maxJump(相邻两天的上升最大值)\\\hline
+29&$F_{29} = argmax(S_{t_{(k-1)} - S_{t_k}},t\in[2,30])$&maxFall(相邻两天的下降最大值)\\\hline
+30&$F_{30} = \sum_{k=2}^{30}\lvert S_{t_k} - S_{t_{(k-1)}} \rvert / 29$&diffAvg(所有相邻的差异的平均)\\\hline
+31&
+\begin{tabular}{l}
+\tabincell{l}{
+$F_{31} = \sum(S_{t_{k+1}} - S_{t_k}) / m$ \\
+其中,$S_{t_{k+1}} > S_{t_k}$,\\
+$m$为满足$S_{t_{k+1}} > S_{t_k}$的天数总和}
+\end{tabular}
+&avgJump(平均上升值)\\ \hline
+32&
+\begin{tabular}{l}
+\tabincell{l}{
+$F_{32} = \sum(S_{t_k} - S_{t_{k+1}}) / n$ \\
+其中,$S_{t_k} > S_{t_{k+1}}$,\\
+$n$为满足$S_{t_k} > S_{t_{k+1}}$的天数总和}
+\end{tabular}
+&avgFall(平均下降值)\\ \hline
+\multicolumn{3}{l}{对集合$\{S_{t_{10}},S_{t_{11}},\cdots,S_{t_{30}}\}$,\ 即取出时间序列中的最后21 个时刻, \ $epsilon=1e-10$} \\ \hline
+33&$F_{33} = \frac{\sum_{k=1}^{21}{(S_{t_k} - \frac{\sum_{k=1}^{21}{S_{t_k}}}{21}) * (k - (0.5 *　(1 + 21)))}} {\sum_{k=1}^{21}(k - (0.5 *　(1 + 21))) * (k - (0.5 *　(1 + 21)))}$&slopeLast21(最后21天的斜率)\\\hline
+34&
+\begin{tabular}{l}
+\tabincell{l}{
+$F_{34} = \frac{\sum_{k=1}^{21}{({S}'_{t_k} - \frac{\sum_{k=1}^{21}{{S}'_{t_k}}}{21}) * (k - (0.5 *　(1 + 21)))}} {\sum_{k=1}^{21}(k - (0.5 *　(1 + 21))) * (k - (0.5 *　(1 + 21)))}$ \\
+其中${S}' = \{ \frac {S_{t_k}} {\mbox{max of } \{S_{t_{10}},S_{t_{11}},\cdots,S_{t_{30}}\}} \}$ }
+\end{tabular}
+&slopeLast21Norm(slopeLast21/slope)\\ \hline
+35&$F_{35} = \sum_{k=1}^{21}S_{t_k} / 21$&averageLast21(最后21天的平均值)\\\hline
+36&$F_{36} = \sum_{k=1}^{7}{S_{t_k}}$&first7SumLast21(最后21天中的前面7天的业务量总和)\\\hline
+37&
+\begin{tabular}{l}
+\tabincell{l}{
+if $\lvert \sum_{k=1}^{7}{S_{t_k}}(\mbox{即} F_{36}) \rvert > epsilon$ \\
+\quad then $F_{37} = \frac{\sum_{k=15}^{21}{S_{t_k}}}{\sum_{k=1}^{7}{S_{t_k}}}$ \\
+else \\
+\qquad if $\lvert \sum_{k=15}^{21}{S_{t_k}} \rvert > epsilon$ \\
+\qquad \quad then $F_{37} = 2$ \\
+\qquad else $F_{37} = 1$ }
+\end{tabular}
+&tailHead7SumRatioLast21\\\hline
+38&$F_{38} = (\sum_{k=15}^{21}{S_{t_k}} - \sum_{k=1}^{7}{S_{t_k}})/21$
+&tailHead7SumAvgIncreaseLast21(last7SumLast21-first7SumLast21)/21\\\hline
+39&
+\begin{tabular}{l}
+\tabincell{l}{
+if $\lvert F_{35} \rvert > epsilon$ \\
+\quad then $F_{39} = \sum_{k=15}^{21}{S_{t_k}} / 7 / F_{35}$ \\
+else \\
+\qquad if $\lvert \sum_{k=15}^{21}{S_{t_k}} \rvert > epsilon$ \\
+\qquad \quad then $F_{39} = 2$ }
+\end{tabular}
+&last7AvgToOverallAvgLast21(last7Sum/7/average)\\\hline
+40&$F_{40} = argmax(S_{t_k} - S_{t_{(k-1)}},t\in[2,21])$&last21MaxJump(在最后21天算maxJump)\\ \hline
+41&$F_{41} = argmax(S_{t_{(k-1)} - S_{t_k}},t\in[2,21])$&last21MaxFall(在最后21天算maxFall)\\ \hline
+42&$F_{42} = \sum_{k=2}^{21}\lvert S_{t_k} - S_{t_{(k-1)}} \rvert / 20$&last21diffAvg(在最后21天算差异的平均值)\\ \hline
+43&
+\begin{tabular}{l}
+\tabincell{l}{
+$F_{43} = \sum(S_{t_{k+1}} - S_{t_k}) / m$ \\
+其中,$S_{t_{k+1}} > S_{t_k}$,\\
+$m$为满足$S_{t_{k+1}} > S_{t_k}$的天数总和}
+\end{tabular}
+&last21avgJump(最后21天的平均上升值)\\ \hline
+44&
+\begin{tabular}{l}
+\tabincell{l}{
+$F_{44} = \sum(S_{t_k} - S_{t_{k+1}}) / n$ \\
+其中,$S_{t_k} > S_{t_{k+1}}$,\\
+$n$为满足$S_{t_k} > S_{t_{k+1}}$的天数总和}
+\end{tabular}
+&last21avgFall(最后21天的平均下降值)\\ \hline
+\multicolumn{3}{l}{对集合${S}' = \{{S}'_1, {S}'_2, {S}'_3, {S}'_4\} = \{\sum_{t=1}^7S_{t_k}, \sum_{t=8}^{14}S_{t_k}, \sum_{t=15}^{21}S_{t_k}, \sum_{t=16}^{28}S_{t_k}\}$} \\ \hline
+45&$F_{45} = \frac{\sum_{a=1}^{4}{({S}'_a - \frac{\sum_{a=1}^4{{S}'_a}}4) * (a - (0.5 *　(1 + 4)))}} {\sum_{a=1}^{4}(a - (0.5 *　(1 + 4))) * (k - (0.5 *　(1 + 4)))}$
+&slopeWeekly(每周的斜率的平均值)\\\hline
+46&$F_{46} = argmax({S}'_x - {S}'_{x-1},x\in[2,4])$&weeklyMaxJump(每周算一个maxJump,然后算平均)\\ \hline
+47&$F_{47} = argmax({S}'_{x-1} - {S}'_x ,x\in[2,4])$&weeklyMaxFall(每周算一个maxFall,然后算平均)\\ \hline
+48&$F_{48} = \sum_{x=2}^{4}\lvert {S}'_{x} - S_{x-1} \rvert / 3$&weeklydiffAvg(每周算一个diffAvg, 然后算平均)\\ \hline
+49&
+\begin{tabular}{l}
+\tabincell{l}{
+$F_{49} = \sum({S}'_{x+1} - {S}’_{x}) / m$ \\
+其中,${S}'_{x+1} > {S}’_{x}$,\\
+$m$为满足${S}'_{x+1} > {S}’_{x}$的天数总和}
+\end{tabular}
+&weeklyavgJump(每周的平均上升值)\\ \hline
+50&
+\begin{tabular}{l}
+\tabincell{l}{
+$F_{50} = \sum({S}'_{x} - {S}'_{x+1}) / n$ \\
+其中,${S}'_{x} > {S}'_{x+1}$,\\
+$n$为满足${S}'_{x} > {S}'_{x+1}$的天数总和}
+\end{tabular}
+&weeklyavgFall(每周的平均下降值)\\ \hline
+\multicolumn{3}{l}{熵特征($\{S_{t_1},S_{t_2},\cdots,S_{t_K}\}$)} \\ \hline
+51&$F_{51} = - \sum_{k=1}^{30}\frac{S_{t_k}}{\sum_{k=1}^{30}S_{t_k}}\log{\frac{S_{t_k}}{\sum_{k=1}^{30}S_{t_k}}}$&entropy(熵)\\ \hline
+\end{longtable}
+\end{filecontents*}
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\setlength{\LTleft}{0pt} \setlength{\LTright}{0pt} % 表格与页面左右边缘之间的矩离均为0
+%\title{时序特征说明}
+%\author{}
+%\date{}
+%\maketitle
+%\tableofcontents
+\section*{时序特征说明}
+%\begin{flushleft}
+\section*{符号说明}
+%\end{flushleft}
+
+\begin{enumerate}[(1)]
+\item $t_1,t_2,\cdots,t_K$表示时间序列，设共有$T(30 \leq T \leq 31)$ 个时刻，则$K=T$
+\item $\{S_{t_1},S_{t_2},\cdots,S_{t_K}\}$ 表示业务量集合，其中，$S_{t_k}$表示$t_k$时间的业务量
+%\item 将业务量集合$\{S_{t_1},S_{t_2},\cdots,S_{t_K}\}$ 按业务量$S_{t_k}$升序排列，用$S_{(t_k)_q}$表示$t_k$ 时间的业务量排在第$p$ 位
+\item $\{F_1,F_2,\cdots,F_N\}$表示时序特征集合，其中，$F_n$表示第$n$个特征
+\end{enumerate}
+
+\section*{特征说明}
+%\begin{table}[!htbp]
+%\begin{tabular}{c|l|l}
+%\begin{tabularx}{\linewidth}{p{0.8cm}<{\centering}|X|X}
+%\begin{landscape}
+%\begin{center}
+\LTXtable{\linewidth}{1.tbl}
+%\begin{longtable}{c|l|@{\extracolsep{\fill}}l}% @{\extracolsep{\fill}} 设置使得后面所有列间距可以伸展到预定义的表格宽度。
+%\begin{supertabular}{c|l|l}
+%\caption{\label{tab:test}我的跨页表格}\\
+%\hline
+%编号&数学表达&注释\\ \hline  \hline \endfirsthead %1 第一页表头
+%\multicolumn{3}{r}{续表} \\ \hline
+%编号&数学表达&注释\\ \hline  \hline \endhead %2续页表头
+%\tablehead{
+%\hline
+%\textbf{编号} & \textbf{数学表达} & \textbf{注释}\\
+%\hline}
+%\topcaption{续表}
+%\hline
+%编号&数学表达&注释\\\hline
+%\end{tabular}
+%\end{tabularx}
+%\end{longtable}
+%\end{supertabular}
+%\end{center}
+%\end{landscape}
+%\end{table}
+
+\end{CJK*}
+\end{document}
